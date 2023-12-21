@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: GitHub Discussions related to ARC-V runtime software and tools
+    url: https://github.com/foss-for-synopsys-dwc-arc-processors/arc-v-getting-started/discussions
+    about: Please ask and answer questions here.
