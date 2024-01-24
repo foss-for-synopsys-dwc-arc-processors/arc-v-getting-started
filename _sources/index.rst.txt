@@ -1,0 +1,19 @@
+ARC-V™ Processors Getting Started
+=================================
+
+This resource is meant to help you get familiar with tools for ARC-V™ processors.
+
+If you are struggling to find some information, you can jump straight to the :ref:`getting-help-label` section.
+
+.. Expand the introductory message above.
+   
+.. toctree::
+   :maxdepth: 2
+
+   overview
+   synopsys-tools/index
+   third-party-tools
+   migrating
+   getting-help
+
+

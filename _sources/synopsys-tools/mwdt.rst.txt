@@ -1,0 +1,4 @@
+The MetaWare Development Toolkit
+--------------------------------
+
+.. include:: ../mwdt_specifics.rst

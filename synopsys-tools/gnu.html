@@ -1,0 +1,522 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>GNU tools for ARC-V &mdash; MetaWare_ARC-V_QuickStart html-0.1-1-geb788bb documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="The MetaWare Development Toolkit" href="mwdt.html" />
+    <link rel="prev" title="Latest Updates" href="updates.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #5a2d83" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/arcv-logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                html-0.1-1-geb788bb
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">ARC-V Processors Overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Synopsys ARC-V Tools</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="updates.html">Latest Updates</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">GNU tools for ARC-V</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gnu-toolchain-for-arc-v-processors-v2023-12">GNU Toolchain for ARC-V Processors v2023.12</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#new-features-and-enhancements">New Features and Enhancements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#known-issues">Known Issues</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#getting-help">Getting Help</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#prebuilt-toolchains-available-for-download">Prebuilt Toolchains Available for Download</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#command-line-reference">Command-Line Reference</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#arc-v-specs-file">ARC-V .specs File</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#the-first-sample-application">The First Sample Application</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#build-and-run-a-simple-application">Build and Run a Simple Application</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#debug-simple-application">Debug Simple Application</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mwdt.html">The MetaWare Development Toolkit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nsim-ncam.html">nSIM and NCAM</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../third-party-tools.html">Third-Party Tools for ARC-V</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../migrating.html">Migrating from Other Processors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-help.html">Getting Help</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MetaWare_ARC-V_QuickStart</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Synopsys ARC-V Tools</a> &raquo;</li>
+        
+      <li>GNU tools for ARC-V</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/synopsys-tools/gnu.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="gnu-tools-for-arc-v">
+<h1>GNU tools for ARC-V<a class="headerlink" href="#gnu-tools-for-arc-v" title="Permalink to this headline">¶</a></h1>
+<p>The GNU toolchain for ARC-V processors is a pre-built and verified distribution of a
+GCC-based set of tools for building appplications targeting supported ARC-V processors.</p>
+<p>This toolchain is built on the pillars of proven and widely used open-source
+components such as GCC, Binutils, GDB, and Newlib. While many
+pre-built GCC-based toolchains are available around the Internet, and
+it is reasonably easy to build your own, the ARC GNU toolchain is prepared
+specifically to produce the best possible results for ARC processors.
+It also makes sure the results produced are reliable
+in all supported environments.</p>
+<div class="section" id="gnu-toolchain-for-arc-v-processors-v2023-12">
+<h2>GNU Toolchain for ARC-V Processors v2023.12<a class="headerlink" href="#gnu-toolchain-for-arc-v-processors-v2023-12" title="Permalink to this headline">¶</a></h2>
+<p>This is the 2023.12 version of the GNU Toolchain for Synopsys ARC-V Processor IP.
+This release introduces support for the ARC-V RMX and RHX processors series based on the RISC-V instruction-set architecture.</p>
+<p>More information about these processors can be found on Synopsys website:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.synopsys.com/designware-ip/processor-solutions/arc-v-processors/arc-v-rmx.html">Power-Efficient RISC-V Processors for Embedded Applications</a></p></li>
+<li><p><a class="reference external" href="https://www.synopsys.com/designware-ip/processor-solutions/arc-v-processors/arc-v-rhx.html">Maximum Performance Efficiency for Real-time Applications</a>.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This release of the ARC GNU tools doesn’t include prebuilt toolchains for <a class="reference external" href="https://www.synopsys.com/designware-ip/processor-solutions/arc-classic-processors.html">ARC Classic processor families</a>. Users of ARC 600, ARC 700, ARC EM, ARCv2 HS (HS3x and HS4x) and ARCv3 HS (HS5x and HS6x) should keep using <a class="reference external" href="https://github.com/foss-for-synopsys-dwc-arc-processors/toolchain/releases/tag/arc-2023.09-release">ARC GNU Tools 2023.09</a> (latest version).</p>
+</div>
+<div class="section" id="new-features-and-enhancements">
+<h3>New Features and Enhancements<a class="headerlink" href="#new-features-and-enhancements" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="support-for-risc-v-based-arc-v-rmx-and-rhx-processors">
+<h4>Support for RISC-V based ARC-V RMX and RHX Processors<a class="headerlink" href="#support-for-risc-v-based-arc-v-rmx-and-rhx-processors" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>In this release the following RISC-V extensions are supported: <code class="docutils literal notranslate"><span class="pre">Zba</span></code>, <code class="docutils literal notranslate"><span class="pre">Zbb</span></code>, <code class="docutils literal notranslate"><span class="pre">Zbs</span></code>, <code class="docutils literal notranslate"><span class="pre">Zdinx</span></code>, <code class="docutils literal notranslate"><span class="pre">Zfinx</span></code>, <code class="docutils literal notranslate"><span class="pre">Zicbom</span></code>, <code class="docutils literal notranslate"><span class="pre">Zicbop</span></code>, and <code class="docutils literal notranslate"><span class="pre">Zicboz</span></code>.</p></li>
+<li><p>Support for ARC-V RMX and RHX processors:</p>
+<ul>
+<li><p>Instruction scheduling tuning for ARC-V RMX-100 (<code class="docutils literal notranslate"><span class="pre">-mtune=rmx100</span></code>) and RMX-500 (<code class="docutils literal notranslate"><span class="pre">-mtune=rmx500</span></code>)</p></li>
+<li><p>Instruction fusion for the ARC-V RHX series (<code class="docutils literal notranslate"><span class="pre">-mtune=rhx</span></code>)</p></li>
+<li><p>Implementation of the code-size reduction extensions <code class="docutils literal notranslate"><span class="pre">Zcb</span></code> and <code class="docutils literal notranslate"><span class="pre">Zcmp</span></code></p></li>
+</ul>
+</li>
+<li><p>As this is the first release of prebuilt GNU tools with ARC-V support, some functionality might have issues, some processor features might not yet be fully supported, and performance might be lower than expected performance of the final product.</p></li>
+</ul>
+</div>
+<div class="section" id="binary-distribution">
+<h4>Binary Distribution<a class="headerlink" href="#binary-distribution" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Supported host operating systems: Windows 10 64-bit, Ubuntu 18.04.x, 20.04.x, CentOS/RHEL 7.x</p></li>
+<li><p>Prebuilt bare-metal toolchains for 64-bit Windows &amp; Linux hosts; see table with references and list of artifacts.</p></li>
+</ul>
+</div>
+<div class="section" id="toolchain-components">
+<h4>Toolchain Components<a class="headerlink" href="#toolchain-components" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>GCC 13.2 with ARC patches</p>
+<ul>
+<li><p>Uses upstream 13.2 release; see <a class="reference external" href="https://gcc.gnu.org/pipermail/gcc/2023-July/242148.html">GCC release announcement</a> and <a class="reference external" href="https://gcc.gnu.org/gcc-13/changes.html">complete list of changes</a>.</p></li>
+<li><p>Added support for ARC-V RMX-100, RMX-500, and RHX processors.</p></li>
+<li><p>Added code size reduction <code class="docutils literal notranslate"><span class="pre">Zcb</span></code> and <code class="docutils literal notranslate"><span class="pre">Zcmp</span></code> extensions.</p></li>
+</ul>
+</li>
+<li><p>Binutils pre-2.41 with ARC patches</p>
+<ul>
+<li><p>Upstream sources of pre-v2.41; see <a class="reference external" href="https://lists.gnu.org/archive/html/info-gnu/2023-07/msg00009.html">Binutils release announcement</a>.</p></li>
+<li><p>Added code size reduction <code class="docutils literal notranslate"><span class="pre">Zcb</span></code> and <code class="docutils literal notranslate"><span class="pre">Zcmp</span></code> extensions.</p></li>
+</ul>
+</li>
+<li><p>GDB 12.1 with ARC patches</p>
+<ul>
+<li><p>Upstream sources of v12.1; see <a class="reference external" href="https://www.sourceware.org/gdb/news/#:~:text=May%201st%2C%202022%3A%20GDB%2012.1%20Released!">GDB release announcement</a>.</p></li>
+</ul>
+</li>
+<li><p>Newlib 4.3.0 with ARC patches</p>
+<ul>
+<li><p>Updated sources of 4.3.0 release; see <a class="reference external" href="https://sourceware.org/pipermail/newlib/2023/020141.html">Newlib release announcement</a>.</p></li>
+<li><p>Improved start-up code to initialize GP (global pointer), SP (stack pointer), clear <code class="docutils literal notranslate"><span class="pre">.bss</span></code> section, and similar enhancements.</p></li>
+<li><p>Provided custom linker command file for use with fast on-chip memories (DCCM and ICCM).</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="known-issues">
+<h3>Known Issues<a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h3>
+<p>There are no known issues for this release so far.</p>
+</div>
+<div class="section" id="getting-help">
+<h3>Getting Help<a class="headerlink" href="#getting-help" title="Permalink to this headline">¶</a></h3>
+<p>A <em>Getting Started</em> manual covering all aspects of the ARC-V family of processors is available here: <a class="reference external" href="https://foss-for-synopsys-dwc-arc-processors.github.io/arc-v-getting-started">https://foss-for-synopsys-dwc-arc-processors.github.io/arc-v-getting-started</a>.</p>
+<p>Also visit the GitHub discussions link for a community forum tailored to ARC-V processors. To report issues and enhancement requests, use GitHub issues (if you are not sure, start with discussions, since a discussion can always be converted into an issue).</p>
+<ul class="simple">
+<li><p>GitHub discussions: <a class="reference external" href="https://github.com/foss-for-synopsys-dwc-arc-processors/arc-v-getting-started/discussions">https://github.com/foss-for-synopsys-dwc-arc-processors/arc-v-getting-started/discussions</a></p></li>
+<li><p>GitHub issues: <a class="reference external" href="https://github.com/foss-for-synopsys-dwc-arc-processors/arc-v-getting-started/issues">https://github.com/foss-for-synopsys-dwc-arc-processors/arc-v-getting-started/issues</a></p></li>
+</ul>
+</div>
+<div class="section" id="prebuilt-toolchains-available-for-download">
+<h3>Prebuilt Toolchains Available for Download<a class="headerlink" href="#prebuilt-toolchains-available-for-download" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/foss-for-synopsys-dwc-arc-processors/toolchain/releases/download/arc-2023.12-rc2/arc_gnu_2023.12-rc2_prebuilt_riscv64_elf_le_linux_install.tar.bz2">Bare-metal ARC-V cross-toolchain for 64-bit Linux hosts</a></p></li>
+<li><p><a class="reference external" href="https://github.com/foss-for-synopsys-dwc-arc-processors/toolchain/releases/download/arc-2023.12-rc2/arc_gnu_2023.12-rc2_prebuilt_riscv64_elf_le_win_install.tar.bz2">Bare-metal ARC-V cross-toolchain for 64-bit Windows 10 &amp; 11 hosts</a></p></li>
+</ul>
+<p>Archive SHA-256 checksums are:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">c85a48c3622651902e7e36ada7a73a92a0daef13f879c6c79bd37d5769ab38f9</span> <span class="n">arc_gnu_2023</span><span class="o">.</span><span class="mi">12</span><span class="o">-</span><span class="n">rc2_prebuilt_riscv64_elf_le_win_install</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">bz2</span>
+<span class="n">fb1639673647d2fb4f5be4fc449f675d6f7ed746027b7697872bb285755aaf6d</span> <span class="n">arc_gnu_2023</span><span class="o">.</span><span class="mi">12</span><span class="o">-</span><span class="n">rc2_prebuilt_riscv64_elf_le_linux_install</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">bz2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="command-line-reference">
+<h2>Command-Line Reference<a class="headerlink" href="#command-line-reference" title="Permalink to this headline">¶</a></h2>
+<p>Because the ARC-V GNU toolchain is built on top of standard components such as
+GCC, Binutils, and GDB, all functionality of these tools stays in place and
+can be studied in detail in the corresponding manuals:</p>
+<ul class="simple">
+<li><p>GCC documentation: <a class="reference external" href="https://gcc.gnu.org/onlinedocs/gcc-12.1.0/gcc/">https://gcc.gnu.org/onlinedocs/gcc-12.1.0/gcc/</a></p></li>
+<li><p>GNU LD documentation: <a class="reference external" href="https://sourceware.org/binutils/docs/ld/">https://sourceware.org/binutils/docs/ld/</a></p></li>
+<li><p>GDB documentation: <a class="reference external" href="https://www.sourceware.org/gdb/documentation/">https://www.sourceware.org/gdb/documentation/</a></p></li>
+</ul>
+<p>On top of the functionality that comes with the standard releases of
+these tools, the ARC GNU toolchain adds some ARC-V specific options:</p>
+<p>The ARC-V GNU compiler has support for the ARC-V RMX-100, RMX-500, and RHX CPU families.
+To enable compiler optimizations for those CPU families you must use certain
+<code class="docutils literal notranslate"><span class="pre">-mtune</span></code> options. The valid <code class="docutils literal notranslate"><span class="pre">-mtune</span></code> options are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">rmx100</span></code> for the ARC-V RMX-100 family</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rmx500</span></code> for the ARC-V RMX-500 family</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rhx</span></code> for the ARC-V RHX family</p></li>
+</ul>
+<p>The architecture options used by the ARC-V RMX-100 and RMX-500 families are <code class="docutils literal notranslate"><span class="pre">-march=rv32im_zba_zbb_zbs_zicsr</span> <span class="pre">-mabi=ilp32</span></code>
+The architecture options used by the ARC-V RHX family are <code class="docutils literal notranslate"><span class="pre">-march=rv32im_zba_zbb_zbs_zca_zcb_zicsr</span> <span class="pre">-mabi=ilp32</span></code></p>
+<div class="section" id="arc-v-specs-file">
+<h3>ARC-V .specs File<a class="headerlink" href="#arc-v-specs-file" title="Permalink to this headline">¶</a></h3>
+<p>The new <code class="docutils literal notranslate"><span class="pre">arcv.specs</span></code> file uses a custom starting routine based on the original <code class="docutils literal notranslate"><span class="pre">crt0.S</span></code> with a special linker command file.</p>
+<p>The latter is highly configurable, introducing four new linker defines:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">txtmem_addr</span></code> if defined sets the ICCM start address; otherwise the ICCM start address is set to <code class="docutils literal notranslate"><span class="pre">0x0</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">txtmem_len</span></code> if defined sets the ICCM length; otherwise the length is set to <code class="docutils literal notranslate"><span class="pre">128K</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">datamem_addr</span></code> if defined sets the DCCM start address; otherwise the DCCM start address is set to <code class="docutils literal notranslate"><span class="pre">0x8000_0000</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">datamem_len</span></code> if defined sets the DCCM length, otherwise the length is set to <code class="docutils literal notranslate"><span class="pre">128K</span></code></p></li>
+</ul>
+<p>Where:</p>
+<ul class="simple">
+<li><p>ICCM is usually flash memory or ROM.</p></li>
+<li><p>DCCM is usually SRAM.</p></li>
+<li><p>You can set a linker define as follows (using the GCC driver):
+For example: <code class="docutils literal notranslate"><span class="pre">-Wl,-defsym=datamem_addr=0x10000</span></code></p></li>
+</ul>
+<p>This spec file can be used with other spec files too.
+For example, using semihosting: <code class="docutils literal notranslate"><span class="pre">--specs=semihost.specs</span>&#160; <span class="pre">--specs=arcv.specs</span></code>.</p>
+</div>
+</div>
+<div class="section" id="the-first-sample-application">
+<h2>The First Sample Application<a class="headerlink" href="#the-first-sample-application" title="Permalink to this headline">¶</a></h2>
+<p>Consider the following sample application:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+   <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello world!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="build-and-run-a-simple-application">
+<h3>Build and Run a Simple Application<a class="headerlink" href="#build-and-run-a-simple-application" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="on-synopsys-nsim">
+<h4>On Synopsys nSIM<a class="headerlink" href="#on-synopsys-nsim" title="Permalink to this headline">¶</a></h4>
+<p>The following commands can be used for compiling the sample for later execution in the nSIM simulator:</p>
+<ul>
+<li><p>For an ARC-V RMX-100 processor:</p>
+<blockquote>
+<div><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ riscv64-elf-gcc --specs<span class="o">=</span>semihost.specs --specs<span class="o">=</span>arcv.specs -mabi<span class="o">=</span>ilp32 <span class="se">\</span>
+                  -mtune<span class="o">=</span>rmx100 -march<span class="o">=</span>rv32im_zba_zbb_zbs_zicsr <span class="se">\</span>
+                  test.c -o a.out
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>For an ARC-V RMX-500 processor:</p>
+<blockquote>
+<div><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ riscv64-elf-gcc --specs<span class="o">=</span>semihost.specs --specs<span class="o">=</span>arcv.specs -mabi<span class="o">=</span>ilp32 <span class="se">\</span>
+                  -mtune<span class="o">=</span>rmx500 -march<span class="o">=</span>rv32im_zba_zbb_zbs_zicsr <span class="se">\</span>
+                  test.c -o a.out
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>For an ARC-V RHX processors:</p>
+<blockquote>
+<div><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ riscv64-elf-gcc --specs<span class="o">=</span>semihost.specs --specs<span class="o">=</span>arcv.specs -mabi<span class="o">=</span>ilp32 <span class="se">\</span>
+                  -mtune<span class="o">=</span>rhx -march<span class="o">=</span>rv32im_zba_zbb_zbs_zca_zcb_zicsr <span class="se">\</span>
+                  test.c -o a.out
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+<p>After building, use the following command line to run the sample in nSIM:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ nsimdrv -prop<span class="o">=</span><span class="nv">nsim_isa_family</span><span class="o">=</span>rv32 <span class="se">\</span>
+  -prop<span class="o">=</span><span class="nv">nsim_isa_ext</span><span class="o">=</span>-all.i.zicsr.zifencei.zihintpause.b.zca.zcb.zcmp.zcmt.a.m.zbb <span class="se">\</span>
+  -prop<span class="o">=</span><span class="nv">nsim_semihosting</span><span class="o">=</span><span class="m">1</span> -off<span class="o">=</span>enable_exceptions a.out
+
+Hello world!
+</pre></div>
+</div>
+<p>For more details on use of the Synopsys nSIM simulator, see the section dedicated to it here: <a class="reference internal" href="nsim-ncam.html"><span class="doc">nSIM and NCAM</span></a>.</p>
+</div>
+<div class="section" id="on-qemu">
+<h4>On QEMU<a class="headerlink" href="#on-qemu" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p>For an ARC-V RMX-100 processor:</p>
+<blockquote>
+<div><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ riscv64-elf-gcc test.c -mcmodel<span class="o">=</span>medlow -mabi<span class="o">=</span>ilp32 <span class="se">\</span>
+  -mtune<span class="o">=</span>rmx100 -march<span class="o">=</span>rv32im_zba_zbb_zbs_zicsr <span class="se">\</span>
+  -o a.out
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>For an ARC-V RMX-500 processor:</p>
+<blockquote>
+<div><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ riscv64-elf-gcc test.c -mcmodel<span class="o">=</span>medlow -mabi<span class="o">=</span>ilp32 <span class="se">\</span>
+  -mtune<span class="o">=</span>rmx500 -march<span class="o">=</span>rv32im_zba_zbb_zbs_zicsr <span class="se">\</span>
+  -o a.out
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>For an ARC-V RHX processors:</p>
+<blockquote>
+<div><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ riscv64-elf-gcc test.c -mcmodel<span class="o">=</span>medlow -mabi<span class="o">=</span>ilp32 <span class="se">\</span>
+  -mtune<span class="o">=</span>rhx -march<span class="o">=</span>rv32im_zba_zbb_zbs_zca_zcb_zicsr <span class="se">\</span>
+  -o a.out
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+<p>After building, use the following command line to run the built sample in QEMU:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ qemu-riscv32 a.out
+
+Hello world!
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="debug-simple-application">
+<h3>Debug Simple Application<a class="headerlink" href="#debug-simple-application" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="with-the-synopsys-lldb-debugger-and-visual-studio-code-ide">
+<h4>With the Synopsys LLDB Debugger and Visual Studio Code IDE<a class="headerlink" href="#with-the-synopsys-lldb-debugger-and-visual-studio-code-ide" title="Permalink to this headline">¶</a></h4>
+<p>For detailed information on how to debug an application with the Synopsys LLDB Debugger and Visual Studio Code IDE, see the following section: <a class="reference internal" href="mwdt.html"><span class="doc">The MetaWare Development Toolkit</span></a>.</p>
+</div>
+<div class="section" id="with-qemu">
+<h4>With QEMU<a class="headerlink" href="#with-qemu" title="Permalink to this headline">¶</a></h4>
+<p>You can debug an application that is being run on QEMU with help of the built-in GDB server of QEMU. On the QEMU side,  you need to enable the GDB sever and optionally instruct the QEMU to not start the application execution automatically, but instead wait for user input. For that you need to pass <code class="docutils literal notranslate"><span class="pre">-g</span> <span class="pre">1234</span></code> commands to <cite>qemu-riscv32</cite> so that the full command-line looks like this:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ qemu-riscv32 -g <span class="m">1234</span> a.out
+</pre></div>
+</div>
+<p>Then you can attach the GDB client and start debugging. Do the following in a separate console:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ riscv64-elf-gdb a.out
+
+<span class="o">(</span>gdb<span class="o">)</span> target remote :1234
+
+<span class="o">(</span>gdb<span class="o">)</span> b main
+Breakpoint <span class="m">1</span> at 0x1018a
+
+<span class="o">(</span>gdb<span class="o">)</span> <span class="k">continue</span>
+Continuing.
+
+Breakpoint <span class="m">1</span>, 0x0001018a in main <span class="o">()</span>
+
+<span class="o">(</span>gdb<span class="o">)</span> c
+Continuing.
+<span class="o">[</span>Inferior <span class="m">1</span> <span class="o">(</span>process <span class="m">660082</span><span class="o">)</span> exited normally<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="mwdt.html" class="btn btn-neutral float-right" title="The MetaWare Development Toolkit" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="updates.html" class="btn btn-neutral float-left" title="Latest Updates" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2023, Synopsys, Inc.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

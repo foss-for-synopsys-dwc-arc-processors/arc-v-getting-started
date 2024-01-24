@@ -1,0 +1,58 @@
+.. _getting-help-label:
+
+Getting Help
+============
+
+Several options for getting help are provided to meet the needs of your specific situation. 
+
+Community Support Through GitHub
+--------------------------------
+
+Visit the GitHub discussions link for a community forum tailored to ARC-V processors. To report issues and enhancement requests, use GitHub issues (if you are not sure, start with discussions, since a discussion can always be converted into an issue).
+
+- GitHub discussions: https://github.com/foss-for-synopsys-dwc-arc-processors/arc-v-getting-started/discussions
+- GitHub issues: https://github.com/foss-for-synopsys-dwc-arc-processors/arc-v-getting-started/issues
+
+Mailing List for Evaluation Support
+-----------------------------------
+
+The Synopsys Eval Portal (https://eval.synopsys.com/) allows you to request an evaluation license for Synopsys software products. Follow these steps:
+
+1. Log in to the portal (or register for an account).
+2. Complete an Evaluation Request Form for your chosen software product(s).
+3. Submit your shopping cart to complete your request.
+
+
+Synopsys SolvNetPlus
+--------------------
+
+SolvNetPlus includes an electronic knowledge base of technical articles and answers to frequently asked questions about Synopsys tools. SolvNetPlus also gives you access to a wide range of Synopsys online services, which include downloading software, viewing documentation on the Web, and entering a call to the Support Center.
+
+To access SolvNetPlus:
+
+1. Go to the SolvNetPlus Web page at https://solvnetplus.synopsys.com/.
+
+2. If prompted, enter your user name and password. (If you do not have a Synopsys user name and password, follow the instructions to register with SolvNetPlus.)
+
+If you need help using SolvNetPlus, click **SolvNetPlus Help** in the **Support Resources** section.
+
+
+Synopsys Customer Support
+-------------------------
+
+Customer support is available to licensed customers through SolvNetPlus and through contacting the Synopsys Technical Support Center. 
+
+Synopsys provides various methods for contacting Customer Support, as follows:
+
+- For the fastest response, enter a case through SolvNetPlus: https://solvnetplus.synopsys.com.
+- Send an e-mail message to support_center@synopsys.com (email is queued and routed to an appropriate support engineer).
+- Find your local telephone support center at https://www.synopsys.com/support/global-support-centers.html.
+
+
+Synopsys Marketing and Sales
+----------------------------
+
+If you received a demo or eval from a member of the Synopsys sales, contact them first. Additional resources are available here:
+
+- https://www.synopsys.com/designware-ip/processor-solutions.html#contact  
+- https://www.synopsys.com/designware-ip/contact-us.html

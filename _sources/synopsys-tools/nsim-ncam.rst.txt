@@ -1,0 +1,67 @@
+nSIM and NCAM
+=============
+
+nSIM Overview
+-------------
+
+Basic Information
+~~~~~~~~~~~~~~~~~
+
+Full Changelog
+~~~~~~~~~~~~~~
+
+Supported Features
+~~~~~~~~~~~~~~~~~~
+
+Known Issues and Limitations
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+NCAM Overview
+-------------
+
+Basic Information
+~~~~~~~~~~~~~~~~~
+
+Full Changelog
+~~~~~~~~~~~~~~
+
+Supported Features
+~~~~~~~~~~~~~~~~~~
+
+Known Issues and Limitations
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Obtaining the Installer
+-----------------------
+
+Installing the Tools
+--------------------
+
+License
+-------
+
+Reusing an existing License
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Obtaining an Evaluation License and Setting It Locally
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Command-Line Reference
+----------------------
+
+.. (ARC-V specific command-line options, linker command files, etc.)
+
+Standalone Execution Without a Debugger
+---------------------------------------
+
+GDB Interface
+-------------
+
+ARC-V Specific Parameters
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Example of Use with Cross-GDB Connected
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* With a target application already loaded by nSIM
+* With the target application loaded from the GDB

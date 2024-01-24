@@ -1,0 +1,304 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ARC-V Processors Overview &mdash; MetaWare_ARC-V_QuickStart html-0.1-1-geb788bb documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Synopsys ARC-V Tools" href="synopsys-tools/index.html" />
+    <link rel="prev" title="ARC-V™ Processors Getting Started" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #5a2d83" >
+          
+
+          
+            <a href="index.html">
+          
+
+          
+            
+            <img src="_static/arcv-logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                html-0.1-1-geb788bb
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ARC-V Processors Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#new-generation-of-risc-v-synopsys-arc-processors">New Generation of RISC-V Synopsys ARC Processors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-arc-v-rmx-100-and-rmx-500-series">The ARC-V RMX-100 and RMX-500 Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-arc-v-rhx-series">The ARC-V RHX Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#arc-v-rpx-processors">ARC-V RPX Processors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#additional-information">Additional Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#risc-v-standard-conformance">RISC-V Standard Conformance</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="synopsys-tools/index.html">Synopsys ARC-V Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third-party-tools.html">Third-Party Tools for ARC-V</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migrating.html">Migrating from Other Processors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-help.html">Getting Help</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MetaWare_ARC-V_QuickStart</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>ARC-V Processors Overview</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/overview.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="arc-v-processors-overview">
+<h1>ARC-V Processors Overview<a class="headerlink" href="#arc-v-processors-overview" title="Permalink to this headline">¶</a></h1>
+<p>The Synopsys ARC-V™ processors leverage the proven
+microarchitecture of the existing ARC processor offerings, while
+giving customers access to the expanding RISC-V ecosystem.
+The Synopsys ARC-V portfolio, based on the RISC-V ISA, includes
+high-performance, mid-range, and ultra-low power families, as well
+as functional safety (FS) versions, to address a broad range of
+application workloads.</p>
+<div class="section" id="new-generation-of-risc-v-synopsys-arc-processors">
+<h2>New Generation of RISC-V Synopsys ARC Processors<a class="headerlink" href="#new-generation-of-risc-v-synopsys-arc-processors" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="the-arc-v-rmx-100-and-rmx-500-series">
+<h2>The ARC-V RMX-100 and RMX-500 Series<a class="headerlink" href="#the-arc-v-rmx-100-and-rmx-500-series" title="Permalink to this headline">¶</a></h2>
+<p>The 32-bit ARC-V RMX series includes the three-stage-pipeline RMX-100
+and the five-stage-pipeline RMX-500 processors, which are optimized
+for ultra-low power embedded applications. The processors offer
+optional DSP support for greater signal processing efficiency. The
+RMX processors offer ISO 26262 ASIL B and D functional-safety compliance as
+well as ISO 21434 cybersecurity compliance.</p>
+<p>More information is available on the Synopsys website:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.synopsys.com/designware-ip/processor-solutions/arc-v-processors/arc-v-rmx.html">Power-Efficient RISC-V Processors for Embedded Applications</a></p></li>
+<li><p><a class="reference external" href="https://www.synopsys.com/dw/ipdir.php?ds=arc-v-rmx-100">Synopsys ARC-V RMX-100 Processor IP</a></p></li>
+<li><p><a class="reference external" href="https://www.synopsys.com/dw/ipdir.php?ds=arc-v-rmx-500">Synopsys ARC-V RMX-500 Processor IP</a></p></li>
+</ul>
+</div>
+<div class="section" id="the-arc-v-rhx-series">
+<h2>The ARC-V RHX Series<a class="headerlink" href="#the-arc-v-rhx-series" title="Permalink to this headline">¶</a></h2>
+<p>The 32-bit ARC-V RHX-100 series consists of superscalar,
+single-core and multicore processors optimized for efficient
+real-time applications. It includes support for coherent accelerators
+and real-time hardware virtualization as well as optional RVV
+extensions (RHX-100V/105V). For safety-critical applications, the
+RHX-100 series offers functional-safety-compliant versions of all the
+processors in the series.</p>
+<p>More information is available on the Synopsys website:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.synopsys.com/designware-ip/processor-solutions/arc-v-processors/arc-v-rhx.html">Maximum Performance Efficiency for Real-time Applications</a></p></li>
+<li><p><a class="reference external" href="https://www.synopsys.com/dw/ipdir.php?ds=arc-v-rhx-100">Synopsys ARC-V RHX-100 Processor IP</a></p></li>
+</ul>
+</div>
+<div class="section" id="arc-v-rpx-processors">
+<h2>ARC-V RPX Processors<a class="headerlink" href="#arc-v-rpx-processors" title="Permalink to this headline">¶</a></h2>
+<p>The 64-bit ARC-V RPX-100 series consists of multicore processors with
+64-bit RISC-V defined profile support for both user and supervisor
+modes. The multicore ARC-V RPX-105 supports SMP Linux and
+shared L3 cache. It offers configurations up to 16 cores and is
+optimized for efficient host processing performance for a variety
+of applications. The RPX-100 series also offers functional-safety-
+compliant versions of its processors.</p>
+<p>More information is available on the Synopsys website:
+* <a class="reference external" href="https://www.synopsys.com/designware-ip/processor-solutions/arc-v-processors/arc-v-rpx.html">Maximum Performance Efficiency for Host Applications</a>
+* <a class="reference external" href="https://www.synopsys.com/dw/ipdir.php?ds=arc-v-rpx-100">ARC-V RPX-100 Procssor IP</a></p>
+</div>
+<div class="section" id="additional-information">
+<h2>Additional Information<a class="headerlink" href="#additional-information" title="Permalink to this headline">¶</a></h2>
+<p>Below are some additional resources related to ARC-V processors:</p>
+<ul class="simple">
+<li><p>Announcement of ARC-V Processors portfolio during RISC-V Summit North America 2023: <a class="reference external" href="https://youtu.be/OTd9q7Livrw">RISC-V: Unleashing the Next Phase of SoC Innovation</a>. John Koeter, SVP of Product Management at Synopsys, explores how Synopsys is enabling new RISC-V technologies to drive the next steps of semiconductor innovation in the automotive, AIoT, HPC, and mobile markets.</p></li>
+</ul>
+</div>
+<div class="section" id="risc-v-standard-conformance">
+<h2>RISC-V Standard Conformance<a class="headerlink" href="#risc-v-standard-conformance" title="Permalink to this headline">¶</a></h2>
+<p>ARC-V processors are based on the RISC-V ISA, and thanks to that allow use of a huge ecosystem of  available tools and software.
+To be compatible with those tools and software requires compliance with base specifications such as the following:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/riscv/riscv-isa-manual/releases/download/Ratified-IMAFDQC/riscv-spec-20191213.pdf">The RISC-V Instruction Set Manual Volume I: Unprivileged ISA, version 20191213</a></p></li>
+<li><p><a class="reference external" href="https://github.com/riscv/riscv-isa-manual/releases/download/Priv-v1.12/riscv-privileged-20211203.pdf">The RISC-V Instruction Set Manual Volume II: Privileged Architecture, version 20191213</a></p></li>
+<li><p><a class="reference external" href="https://github.com/riscv-non-isa/riscv-elf-psabi-doc/releases/download/v1.0/riscv-abi.pdf">RISC-V psABI Specification, version 1.0</a></p></li>
+<li><p><a class="reference external" href="https://github.com/riscv/riscv-aia/releases/download/1.0/riscv-interrupts-1.0.pdf">RISC-V Advanced Interrupt Architecture, version 1.0</a></p></li>
+<li><p><a class="reference external" href="https://github.com/riscv-software-src/riscv-semihosting/releases/download/0.2/riscv-semihosting-spec.pdf">RISC-V Semihosting, version 0.2</a></p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="synopsys-tools/index.html" class="btn btn-neutral float-right" title="Synopsys ARC-V Tools" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="ARC-V™ Processors Getting Started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2023, Synopsys, Inc.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

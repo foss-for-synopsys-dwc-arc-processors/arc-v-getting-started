@@ -1,0 +1,281 @@
+GNU tools for ARC-V
+===================
+
+The GNU toolchain for ARC-V processors is a pre-built and verified distribution of a
+GCC-based set of tools for building appplications targeting supported ARC-V processors.
+
+This toolchain is built on the pillars of proven and widely used open-source
+components such as GCC, Binutils, GDB, and Newlib. While many 
+pre-built GCC-based toolchains are available around the Internet, and 
+it is reasonably easy to build your own, the ARC GNU toolchain is prepared
+specifically to produce the best possible results for ARC processors.
+It also makes sure the results produced are reliable
+in all supported environments.
+
+GNU Toolchain for ARC-V Processors v2023.12
+-------------------------------------------
+
+This is the 2023.12 version of the GNU Toolchain for Synopsys ARC-V Processor IP. 
+This release introduces support for the ARC-V RMX and RHX processors series based on the RISC-V instruction-set architecture.
+
+More information about these processors can be found on Synopsys website:
+
+* `Power-Efficient RISC-V Processors for Embedded Applications <https://www.synopsys.com/designware-ip/processor-solutions/arc-v-processors/arc-v-rmx.html>`_ 
+* `Maximum Performance Efficiency for Real-time Applications <https://www.synopsys.com/designware-ip/processor-solutions/arc-v-processors/arc-v-rhx.html>`_.
+
+.. note::
+   This release of the ARC GNU tools doesn't include prebuilt toolchains for `ARC Classic processor families <https://www.synopsys.com/designware-ip/processor-solutions/arc-classic-processors.html>`_. Users of ARC 600, ARC 700, ARC EM, ARCv2 HS (HS3x and HS4x) and ARCv3 HS (HS5x and HS6x) should keep using `ARC GNU Tools 2023.09 <https://github.com/foss-for-synopsys-dwc-arc-processors/toolchain/releases/tag/arc-2023.09-release>`_ (latest version). 
+
+New Features and Enhancements
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Support for RISC-V based ARC-V RMX and RHX Processors
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+* In this release the following RISC-V extensions are supported: ``Zba``, ``Zbb``, ``Zbs``, ``Zdinx``, ``Zfinx``, ``Zicbom``, ``Zicbop``, and ``Zicboz``.
+* Support for ARC-V RMX and RHX processors:
+
+  * Instruction scheduling tuning for ARC-V RMX-100 (``-mtune=rmx100``) and RMX-500 (``-mtune=rmx500``)
+  * Instruction fusion for the ARC-V RHX series (``-mtune=rhx``)
+  * Implementation of the code-size reduction extensions ``Zcb`` and ``Zcmp``
+
+* As this is the first release of prebuilt GNU tools with ARC-V support, some functionality might have issues, some processor features might not yet be fully supported, and performance might be lower than expected performance of the final product.
+
+Binary Distribution
+^^^^^^^^^^^^^^^^^^^
+
+* Supported host operating systems: Windows 10 64-bit, Ubuntu 18.04.x, 20.04.x, CentOS/RHEL 7.x
+* Prebuilt bare-metal toolchains for 64-bit Windows & Linux hosts; see table with references and list of artifacts.
+
+Toolchain Components
+^^^^^^^^^^^^^^^^^^^^
+
+* GCC 13.2 with ARC patches
+
+  * Uses upstream 13.2 release; see `GCC release announcement <https://gcc.gnu.org/pipermail/gcc/2023-July/242148.html>`_ and `complete list of changes <https://gcc.gnu.org/gcc-13/changes.html>`_.
+  * Added support for ARC-V RMX-100, RMX-500, and RHX processors.
+  * Added code size reduction ``Zcb`` and ``Zcmp`` extensions.
+
+* Binutils pre-2.41 with ARC patches
+
+  * Upstream sources of pre-v2.41; see `Binutils release announcement <https://lists.gnu.org/archive/html/info-gnu/2023-07/msg00009.html>`_.
+  * Added code size reduction ``Zcb`` and ``Zcmp`` extensions.
+
+* GDB 12.1 with ARC patches
+
+  * Upstream sources of v12.1; see `GDB release announcement <https://www.sourceware.org/gdb/news/#:~:text=May%201st%2C%202022%3A%20GDB%2012.1%20Released!>`_.
+
+* Newlib 4.3.0 with ARC patches
+
+  * Updated sources of 4.3.0 release; see `Newlib release announcement <https://sourceware.org/pipermail/newlib/2023/020141.html>`_.
+  * Improved start-up code to initialize GP (global pointer), SP (stack pointer), clear ``.bss`` section, and similar enhancements.
+  * Provided custom linker command file for use with fast on-chip memories (DCCM and ICCM).
+
+Known Issues
+~~~~~~~~~~~~
+There are no known issues for this release so far.
+
+Getting Help
+~~~~~~~~~~~~
+A *Getting Started* manual covering all aspects of the ARC-V family of processors is available here: `<https://foss-for-synopsys-dwc-arc-processors.github.io/arc-v-getting-started>`_.
+
+Also visit the GitHub discussions link for a community forum tailored to ARC-V processors. To report issues and enhancement requests, use GitHub issues (if you are not sure, start with discussions, since a discussion can always be converted into an issue).
+
+* GitHub discussions: https://github.com/foss-for-synopsys-dwc-arc-processors/arc-v-getting-started/discussions
+* GitHub issues: https://github.com/foss-for-synopsys-dwc-arc-processors/arc-v-getting-started/issues
+
+Prebuilt Toolchains Available for Download
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* `Bare-metal ARC-V cross-toolchain for 64-bit Linux hosts <https://github.com/foss-for-synopsys-dwc-arc-processors/toolchain/releases/download/arc-2023.12-rc2/arc_gnu_2023.12-rc2_prebuilt_riscv64_elf_le_linux_install.tar.bz2>`_
+* `Bare-metal ARC-V cross-toolchain for 64-bit Windows 10 & 11 hosts <https://github.com/foss-for-synopsys-dwc-arc-processors/toolchain/releases/download/arc-2023.12-rc2/arc_gnu_2023.12-rc2_prebuilt_riscv64_elf_le_win_install.tar.bz2>`_
+
+
+Archive SHA-256 checksums are:
+
+.. code-block::
+
+  c85a48c3622651902e7e36ada7a73a92a0daef13f879c6c79bd37d5769ab38f9 arc_gnu_2023.12-rc2_prebuilt_riscv64_elf_le_win_install.tar.bz2
+  fb1639673647d2fb4f5be4fc449f675d6f7ed746027b7697872bb285755aaf6d arc_gnu_2023.12-rc2_prebuilt_riscv64_elf_le_linux_install.tar.bz2
+
+Command-Line Reference
+----------------------
+
+Because the ARC-V GNU toolchain is built on top of standard components such as
+GCC, Binutils, and GDB, all functionality of these tools stays in place and
+can be studied in detail in the corresponding manuals:
+
+* GCC documentation: https://gcc.gnu.org/onlinedocs/gcc-12.1.0/gcc/
+* GNU LD documentation: https://sourceware.org/binutils/docs/ld/ 
+* GDB documentation: https://www.sourceware.org/gdb/documentation/
+
+On top of the functionality that comes with the standard releases of
+these tools, the ARC GNU toolchain adds some ARC-V specific options:
+
+The ARC-V GNU compiler has support for the ARC-V RMX-100, RMX-500, and RHX CPU families.
+To enable compiler optimizations for those CPU families you must use certain
+``-mtune`` options. The valid ``-mtune`` options are:
+
+* ``rmx100`` for the ARC-V RMX-100 family
+* ``rmx500`` for the ARC-V RMX-500 family
+* ``rhx`` for the ARC-V RHX family
+ 
+The architecture options used by the ARC-V RMX-100 and RMX-500 families are ``-march=rv32im_zba_zbb_zbs_zicsr -mabi=ilp32``
+The architecture options used by the ARC-V RHX family are ``-march=rv32im_zba_zbb_zbs_zca_zcb_zicsr -mabi=ilp32``
+ 
+ARC-V .specs File
+~~~~~~~~~~~~~~~~~
+The new ``arcv.specs`` file uses a custom starting routine based on the original ``crt0.S`` with a special linker command file.
+ 
+The latter is highly configurable, introducing four new linker defines:
+
+* ``txtmem_addr`` if defined sets the ICCM start address; otherwise the ICCM start address is set to ``0x0``
+* ``txtmem_len`` if defined sets the ICCM length; otherwise the length is set to ``128K``
+* ``datamem_addr`` if defined sets the DCCM start address; otherwise the DCCM start address is set to ``0x8000_0000``
+* ``datamem_len`` if defined sets the DCCM length, otherwise the length is set to ``128K``
+ 
+Where:
+
+* ICCM is usually flash memory or ROM.
+* DCCM is usually SRAM.
+* You can set a linker define as follows (using the GCC driver):
+  For example: ``-Wl,-defsym=datamem_addr=0x10000``
+ 
+This spec file can be used with other spec files too.
+For example, using semihosting: ``--specs=semihost.specs  --specs=arcv.specs``.
+
+
+The First Sample Application
+----------------------------
+
+Consider the following sample application:
+
+.. code-block:: c
+
+   #include <stdio.h>
+
+   int main(void) {
+      printf("Hello world!\n");
+      return 0;
+   }
+
+
+Build and Run a Simple Application
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+On Synopsys nSIM
+^^^^^^^^^^^^^^^^
+
+The following commands can be used for compiling the sample for later execution in the nSIM simulator:
+
+* For an ARC-V RMX-100 processor:
+
+   .. code-block:: shell
+
+      $ riscv64-elf-gcc --specs=semihost.specs --specs=arcv.specs -mabi=ilp32 \
+                        -mtune=rmx100 -march=rv32im_zba_zbb_zbs_zicsr \
+                        test.c -o a.out
+
+* For an ARC-V RMX-500 processor:
+
+   .. code-block:: shell
+
+      $ riscv64-elf-gcc --specs=semihost.specs --specs=arcv.specs -mabi=ilp32 \
+                        -mtune=rmx500 -march=rv32im_zba_zbb_zbs_zicsr \
+                        test.c -o a.out
+
+* For an ARC-V RHX processors: 
+
+   .. code-block:: shell
+
+      $ riscv64-elf-gcc --specs=semihost.specs --specs=arcv.specs -mabi=ilp32 \
+                        -mtune=rhx -march=rv32im_zba_zbb_zbs_zca_zcb_zicsr \
+                        test.c -o a.out
+
+
+After building, use the following command line to run the sample in nSIM:
+
+.. code-block:: shell
+
+   $ nsimdrv -prop=nsim_isa_family=rv32 \
+     -prop=nsim_isa_ext=-all.i.zicsr.zifencei.zihintpause.b.zca.zcb.zcmp.zcmt.a.m.zbb \
+     -prop=nsim_semihosting=1 -off=enable_exceptions a.out
+
+   Hello world!
+
+For more details on use of the Synopsys nSIM simulator, see the section dedicated to it here: :doc:`nsim-ncam`.
+
+On QEMU
+^^^^^^^^^
+
+* For an ARC-V RMX-100 processor:
+
+   .. code-block:: shell
+
+      $ riscv64-elf-gcc test.c -mcmodel=medlow -mabi=ilp32 \
+        -mtune=rmx100 -march=rv32im_zba_zbb_zbs_zicsr \
+        -o a.out
+
+* For an ARC-V RMX-500 processor:
+
+   .. code-block:: shell
+
+      $ riscv64-elf-gcc test.c -mcmodel=medlow -mabi=ilp32 \
+        -mtune=rmx500 -march=rv32im_zba_zbb_zbs_zicsr \
+        -o a.out
+
+* For an ARC-V RHX processors:
+
+   .. code-block:: shell
+
+      $ riscv64-elf-gcc test.c -mcmodel=medlow -mabi=ilp32 \
+        -mtune=rhx -march=rv32im_zba_zbb_zbs_zca_zcb_zicsr \
+        -o a.out
+
+After building, use the following command line to run the built sample in QEMU:
+
+.. code-block:: shell
+
+   $ qemu-riscv32 a.out
+
+   Hello world!
+
+
+Debug Simple Application
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. With Synopsys nSIM
+.. ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+With the Synopsys LLDB Debugger and Visual Studio Code IDE
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+For detailed information on how to debug an application with the Synopsys LLDB Debugger and Visual Studio Code IDE, see the following section: :doc:`mwdt`.
+
+With QEMU
+^^^^^^^^^
+
+You can debug an application that is being run on QEMU with help of the built-in GDB server of QEMU. On the QEMU side,  you need to enable the GDB sever and optionally instruct the QEMU to not start the application execution automatically, but instead wait for user input. For that you need to pass ``-g 1234`` commands to `qemu-riscv32` so that the full command-line looks like this:
+
+.. code-block:: shell
+
+   $ qemu-riscv32 -g 1234 a.out
+
+Then you can attach the GDB client and start debugging. Do the following in a separate console:
+
+.. code-block:: shell
+
+   $ riscv64-elf-gdb a.out
+
+   (gdb) target remote :1234
+
+   (gdb) b main
+   Breakpoint 1 at 0x1018a
+
+   (gdb) continue
+   Continuing.
+
+   Breakpoint 1, 0x0001018a in main ()
+
+   (gdb) c
+   Continuing.
+   [Inferior 1 (process 660082) exited normally]

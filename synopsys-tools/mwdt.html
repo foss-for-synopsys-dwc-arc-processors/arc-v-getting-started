@@ -1,0 +1,483 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>The MetaWare Development Toolkit &mdash; MetaWare_ARC-V_QuickStart html-0.1-1-geb788bb documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="nSIM and NCAM" href="nsim-ncam.html" />
+    <link rel="prev" title="GNU tools for ARC-V" href="gnu.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #5a2d83" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/arcv-logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                html-0.1-1-geb788bb
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">ARC-V Processors Overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Synopsys ARC-V Tools</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="updates.html">Latest Updates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gnu.html">GNU tools for ARC-V</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">The MetaWare Development Toolkit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#basic-information">Basic Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#known-issues-and-limitations">Known Issues and Limitations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installation-and-licensing">Installation and Licensing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-first-sample-application">The First Sample Application</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#building-the-queens-example">Building the Queens Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#alternative-compilation">Alternative Compilation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#running-the-queens-example-in-nsim">Running the Queens Example in nSIM</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#debugging">Debugging</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#command-line-interface">Command-Line Interface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#visual-studio-code">Visual Studio Code</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nsim-ncam.html">nSIM and NCAM</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../third-party-tools.html">Third-Party Tools for ARC-V</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../migrating.html">Migrating from Other Processors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-help.html">Getting Help</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MetaWare_ARC-V_QuickStart</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Synopsys ARC-V Tools</a> &raquo;</li>
+        
+      <li>The MetaWare Development Toolkit</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/synopsys-tools/mwdt.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="the-metaware-development-toolkit">
+<h1>The MetaWare Development Toolkit<a class="headerlink" href="#the-metaware-development-toolkit" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="basic-information">
+<h2>Basic Information<a class="headerlink" href="#basic-information" title="Permalink to this headline">¶</a></h2>
+<p>The MetaWare Development Toolkit supports building and debugging for ARC-V processors.</p>
+<ul>
+<li><p>IDE: The MetaWare IDE does not support ARC-V targets; instead, a VS Code plugin is provided as a <code class="docutils literal notranslate"><span class="pre">.vsix</span></code> file in the <code class="docutils literal notranslate"><span class="pre">MetaWare/arc/lldbac</span></code> folder. You must have an installed instance of VS Code from Microsoft to use this extension. The <em>MetaWare Debugger User Guide</em> in <code class="docutils literal notranslate"><span class="pre">/MetaWare/arc/docs/pdf/arc-v</span></code> has step-by-step instructions on how to install and configure this extension.</p>
+<p>The extension adds support for ARC-V debug sessions using the ARC-V MetaWare debugger. It supports basic debug operations such as running, halting, stepping, reading/writing registers, inspecting variables, setting breakpoints, and so on. The extension also includes some custom windows, for example an <strong>ARC-V Traps</strong> window and a <strong>Disassembly</strong> window.</p>
+</li>
+<li><p>Compiler: The MetaWare <code class="docutils literal notranslate"><span class="pre">ccac</span></code> compiler driver supports building for ARC-V. See the <em>MetaWare CCAC Programmer’s Guide</em> for details. You can also build using <code class="docutils literal notranslate"><span class="pre">clangac</span></code> directly. See <a class="reference internal" href="#the-first-sample-application">The First Sample Application</a>.</p>
+<ul class="simple">
+<li><p>Assembler: The MetaWare <code class="docutils literal notranslate"><span class="pre">asac</span></code> assembler does not support ARC-V. The <code class="docutils literal notranslate"><span class="pre">ccac</span></code> driver invokes an LLVM assembler behind the scenes. If you need to invoke the assembler directly, use <code class="docutils literal notranslate"><span class="pre">llvm-asac</span></code>.</p></li>
+<li><p>Linker: The MetaWare linker supports linking for ARC-V using the <code class="docutils literal notranslate"><span class="pre">ccac</span></code> driver or using <code class="docutils literal notranslate"><span class="pre">lldac</span></code> directly. See the <em>MetaWare ELF Linker and Utilities User’s Guide</em> for details.</p></li>
+</ul>
+</li>
+<li><p>Debugger: The MetaWare debugger supports ARC-V targets; see the dedicated documentation in <code class="docutils literal notranslate"><span class="pre">/MetaWare/arc/docs/pdf/arc-v</span></code>. The debugger uses the nSIM simulator, which supports ARC-V targets.</p></li>
+<li><p>Utilities: It is generally better to use the LLVM versions also provided in <code class="docutils literal notranslate"><span class="pre">/bin</span></code>. For example, it is better to use <code class="docutils literal notranslate"><span class="pre">llvm-objdump</span></code> instead of <code class="docutils literal notranslate"><span class="pre">elfdump</span></code>. The classic MetaWare <code class="docutils literal notranslate"><span class="pre">elfdump</span></code> is not updated to perform disassembly of ARC-V instructions. You can still use the classic MetaWare utilities, but some features (such as disassembly) are not available for ARC-V targets.</p></li>
+</ul>
+</div>
+<div class="section" id="known-issues-and-limitations">
+<h2>Known Issues and Limitations<a class="headerlink" href="#known-issues-and-limitations" title="Permalink to this headline">¶</a></h2>
+<p>Up-to-date lists of known and fixed issues are available online at <a class="reference external" href="https://www.synopsys.com/dw/doc.php/arc_tools/dw_arc_metaware/user_docs/mwdtkf/index.html">https://www.synopsys.com/dw/doc.php/arc_tools/dw_arc_metaware/user_docs/mwdtkf/index.html</a>.</p>
+</div>
+<div class="section" id="installation-and-licensing">
+<h2>Installation and Licensing<a class="headerlink" href="#installation-and-licensing" title="Permalink to this headline">¶</a></h2>
+<p>See the section on installation and licensing in the <em>MetaWare Quick Start Guide</em>.</p>
+</div>
+<div class="section" id="the-first-sample-application">
+<span id="id1"></span><h2>The First Sample Application<a class="headerlink" href="#the-first-sample-application" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="building-the-queens-example">
+<h3>Building the Queens Example<a class="headerlink" href="#building-the-queens-example" title="Permalink to this headline">¶</a></h3>
+<p>A simple working Queens demo that shows how to compile, link, and execute a program for an ARC-V target is available in <code class="docutils literal notranslate"><span class="pre">MetaWare/arc/examples/arcv_queens</span></code>.</p>
+<p>Prerequisite:
+Run <code class="docutils literal notranslate"><span class="pre">setenv_mwdt.bat</span></code> (<code class="docutils literal notranslate"><span class="pre">.sh</span></code> on Linux) in the top-level directory (<code class="docutils literal notranslate"><span class="pre">ARC/</span></code> by default) to set the environment variables that describe where the MetaWare Development Toolkit and nSIM are installed.</p>
+<p>Makefiles are provided for <code class="docutils literal notranslate"><span class="pre">ccac</span></code> and <code class="docutils literal notranslate"><span class="pre">clangac</span></code>.</p>
+<div class="section" id="makefile">
+<h4>Makefile<a class="headerlink" href="#makefile" title="Permalink to this headline">¶</a></h4>
+<p>This makefile uses CCAC to compile and link the program. It is then run on nSIM directly (no debugger).</p>
+</div>
+<div class="section" id="makefile-clang">
+<h4>Makefile.clang<a class="headerlink" href="#makefile-clang" title="Permalink to this headline">¶</a></h4>
+<p>This makefile uses the Clang driver to compile and link the program and run it directly on nSIM (no debugger).</p>
+<p>This method is a bit more complicated because you have to tell Clang where the C runtime is and how to use that runtime during compiling and linking.</p>
+<p>Normally you place this information in a configuration file and then invoke Clang with that configuration file. For the steps to create and use a configuration file, see
+<a class="reference external" href="https://clang.llvm.org/docs/UsersManual.html#configuration-files">https://clang.llvm.org/docs/UsersManual.html#configuration-files</a></p>
+<p>Use the following commands to clean and build the example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>% make clean              # clean the output files
+% make a.out              # build executable a.out using ccac
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>% make -f Makefile.clang clean     # clean the output files
+% make -f Makefile.clang a.out     # build executable a.out using clangac
+</pre></div>
+</div>
+<p>This method uses the semihosting interface.</p>
+</div>
+</div>
+<div class="section" id="alternative-compilation">
+<h3>Alternative Compilation<a class="headerlink" href="#alternative-compilation" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>% ccac -tcf=rmx100.tcf -O2 -g queens.c
+</pre></div>
+</div>
+<p>This method uses the hostlink interface.
+To use the semihosting interface, add <code class="docutils literal notranslate"><span class="pre">-Hhostlib=semihost</span></code> to the <code class="docutils literal notranslate"><span class="pre">ccac</span></code> options.</p>
+</div>
+<div class="section" id="running-the-queens-example-in-nsim">
+<h3>Running the Queens Example in nSIM<a class="headerlink" href="#running-the-queens-example-in-nsim" title="Permalink to this headline">¶</a></h3>
+<p>The tools for ARC-V include the nSIM simulator. You can invoke the standalone nSIM simulator for ARC-V using the <code class="docutils literal notranslate"><span class="pre">nsimdrv</span></code> driver or the <code class="docutils literal notranslate"><span class="pre">runrv</span></code> convenience script.</p>
+<p>To execute the Queens demo on an ARC-V nSIM simulator, use the Makefile in <code class="docutils literal notranslate"><span class="pre">MetaWare/arc/examples/arcv_queens</span></code>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>% make run
+</pre></div>
+</div>
+<p>The alternative way is to use the <code class="docutils literal notranslate"><span class="pre">nsimdrv</span></code> driver or <code class="docutils literal notranslate"><span class="pre">runrv</span></code> script directly from the console:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>% nsimdrv -tcf ${METAWARE_ROOT}/arc/tcf/rmx100.tcf a.out     # Running the executable in nSIM using nsimdrv driver (hostlink interface)
+% runrv -p nsim_semihosting=1 -Za -Zm -Zbb a.out             # Running the executable in nSIM using runrv script (semihosting interface)
+</pre></div>
+</div>
+<p>Be sure to launch the simulator with the same hosting interface as specified in the executable (hostlink or semihosting).
+If the run is successful, the following message appears in the console.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>go
+    1   5   8   6   3   7   2   4
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="debugging">
+<h2>Debugging<a class="headerlink" href="#debugging" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="command-line-interface">
+<h3>Command-Line Interface<a class="headerlink" href="#command-line-interface" title="Permalink to this headline">¶</a></h3>
+<p>Launch the debugger:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>% lldbac a.out
+</pre></div>
+</div>
+<p>Launch the simulation from inside the debugger and connect to it:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; platform connect my_core nsim-gdb-properties=&quot;tcf=rmx100.tcf nsim_semihosting=1&quot;
+</pre></div>
+</div>
+<p>Omit <code class="docutils literal notranslate"><span class="pre">nsim_semihosting=1</span></code> if your program was compiled with the hostlink interface.</p>
+<p>Start the executable:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; process launch -s
+</pre></div>
+</div>
+<p>Break on <code class="docutils literal notranslate"><span class="pre">main</span></code>, <code class="docutils literal notranslate"><span class="pre">_exit</span></code> and <code class="docutils literal notranslate"><span class="pre">Try</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; b main
+&gt; b _exit
+&gt; b Try
+</pre></div>
+</div>
+<p>Skip the startup code:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; c
+</pre></div>
+</div>
+<p>Now we are at <code class="docutils literal notranslate"><span class="pre">main</span></code>, continue:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; c
+</pre></div>
+</div>
+<p>List local variables:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; var
+</pre></div>
+</div>
+<p>Show backtrace:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; bt
+</pre></div>
+</div>
+<p>Execute until next line:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; n
+&gt; n
+&gt; var
+</pre></div>
+</div>
+<p>Evaluate an expression:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; p I+3
+&gt; c
+&gt; c
+&gt; var
+</pre></div>
+</div>
+<p>Show and remove a breakpoint:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; break list
+&gt; break -d 3
+&gt; c
+</pre></div>
+</div>
+<p>Print the list of functions sorted by how many times a profiling counter was incremented during function execution:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// Launch nSIM with instruction-counter support.
+&gt; platform connect my_core nsim-gdb-properties=&quot;tcf=rmx100.tcf icnts=1&quot;
+&gt; process launch -s
+// Print the list of available counters.
+&gt; display prof
+// Print the list of functions sorted by the values of the &quot;pc-frequency&quot; counter.
+&gt; display prof pc-frequency
+// For more information about the profiling command:
+&gt; display prof --help
+</pre></div>
+</div>
+<p>Exit the debugger:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; q
+[Y]
+</pre></div>
+</div>
+</div>
+<div class="section" id="visual-studio-code">
+<h3>Visual Studio Code<a class="headerlink" href="#visual-studio-code" title="Permalink to this headline">¶</a></h3>
+<p>To run a GUI session, install and configure the VS Code extension using the following steps.</p>
+<ol class="arabic">
+<li><p>Install VS Code from the official site, <a class="reference external" href="https://code.visualstudio.com/download">https://code.visualstudio.com/download</a>.</p></li>
+<li><p>Open it and go to the <strong>Extensions</strong> tab.</p></li>
+<li><p>Click the Ellipsis icon (<strong>…</strong>) in the top right corner of the <strong>Extensions</strong> tab and select <strong>Install from VSIX…</strong>.</p></li>
+<li><div class="line-block">
+<div class="line">Go to location of the file from the installed MWDT package.
+Replace <code class="docutils literal notranslate"><span class="pre">&lt;METAWARE_ROOT&gt;</span></code> with actual MetaWare root:</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">&lt;METAWARE_ROOT&gt;/arc/lldbac/synopsys-mdb-*.*.*.vsix</span></code>, where <cite>*.*.*</cite> is a version, for example, it might be 2023.6.6.</div>
+</div>
+</li>
+<li><p>Go to <strong>Settings &gt; Extensions &gt; MetaWare Debugger &gt; Adapter Path</strong> and enter the path to this executable.
+Replace <code class="docutils literal notranslate"><span class="pre">&lt;METAWARE_ROOT&gt;</span></code> with the actual MetaWare root on your host:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>On Windows: <code class="docutils literal notranslate"><span class="pre">&lt;METAWARE_ROOT&gt;/arc/bin/lldbac-dap.exe</span></code></p></li>
+<li><p>On Linux: <code class="docutils literal notranslate"><span class="pre">&lt;METAWARE_ROOT&gt;/arc/bin/lldbac-dap</span></code></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ol>
+<p>Execute the following steps to create a new launch configuration:</p>
+<ol class="arabic simple">
+<li><p>Open your workspace folder.</p></li>
+<li><p>Go to <strong>Run and Debug</strong> tab.</p></li>
+<li><p>Click on <strong>create a launch.json file</strong> and select <strong>MetaWare Debugger</strong>.</p></li>
+<li><p>Click on <strong>Show all automatic debug configurations</strong>, select <strong>Add Configuration</strong> and select one of the <code class="docutils literal notranslate"><span class="pre">MetaWare</span> <span class="pre">Debugger</span> <span class="pre">-</span> <span class="pre">*</span></code> templates.</p></li>
+<li><p>Enter details in all the highlighted fields.</p></li>
+<li><p>Save the file.</p></li>
+</ol>
+<p>Execute the following steps to run the new debug configuration:</p>
+<ol class="arabic simple">
+<li><p>Go to <strong>Run and Debug</strong> tab.</p></li>
+<li><p>Select the configuration as per the requirement, in the dropdown menu.</p></li>
+<li><p>Click the <strong>Start Debugging</strong> button near the dropdown menu.</p></li>
+</ol>
+<p>Any errors in the debugger launch, are displayed in the bottom right part of VS Code GUI.
+See the <em>MetaWare Debugger User Guide</em> for more details.</p>
+<p>After starting the debug session in VS Code, you can debug the application using a GUI interface.
+Below is a brief description of the main GUI debugger features.</p>
+<p>Disassembly:</p>
+<p>Go to <strong>ARC Displays</strong> and select the <strong>Disassembly</strong> window.</p>
+<p>Breakpoints:</p>
+<ul class="simple">
+<li><p>In the <strong>Source</strong> window, double-click before the line number on a code line.</p></li>
+<li><p>In the <strong>Disassembly</strong> window, double-click before the instruction address on an instruction line.</p></li>
+<li><p>Go to <strong>Breakpoints</strong> to navigate and set properties of breakpoints.</p></li>
+</ul>
+<p>Execution control:</p>
+<p>Use the debugger control panel to run, stop, step and restart actions.</p>
+<p>Show registers:
+- Go to <strong>ARC Displays &gt; Registers</strong> and select the corresponding register panel (<strong>Debug Registers</strong>, <strong>Traps</strong>, <strong>Machine Counters</strong>, <strong>General Purpose Registers</strong>).</p>
+<p>Show variables:</p>
+<p>Go to Variables and select the corresponding panel (<strong>Locals</strong>, <strong>Globals</strong>).</p>
+<p>Call stack:</p>
+<p>Go to <strong>Call Stack</strong> and navigate using the functions.</p>
+<p>Profiling:</p>
+<p>To see the list of functions sorted by how many times a profiling counter was incremented during function execution:</p>
+<ol class="arabic simple">
+<li><p>Enable profiling in the simulator. For nSIM, add the <code class="docutils literal notranslate"><span class="pre">icnts=1</span></code> property to the <code class="docutils literal notranslate"><span class="pre">nsim-gdb-properties</span></code> array in the debug session configuration.</p></li>
+<li><p>Go to <strong>ARC Displays</strong> and open the <strong>Profiling</strong> window.</p></li>
+<li><p>Select a profiling counter in the dropdown list and click the <code class="docutils literal notranslate"><span class="pre">Load</span></code> button.</p></li>
+</ol>
+<img alt="../_images/profiling-window.png" src="../_images/profiling-window.png" />
+<p>To see how many times a profiling counter was incremented while executing the code at each address:</p>
+<ol class="arabic simple">
+<li><p>Enable profiling in the simulator. For nSIM, add the <code class="docutils literal notranslate"><span class="pre">icnts=1</span></code> property to the <code class="docutils literal notranslate"><span class="pre">nsim-gdb-properties</span></code> array in the debug session configuration.</p></li>
+<li><p>Go to <strong>ARC Displays</strong> and open the <strong>Disassembly View</strong> window.</p></li>
+<li><p>Select a profiling counter in the rightmost dropdown list.</p></li>
+<li><p>Check the column that appears to the right of the address column. Each entry in this column indicates how many times the counter was incremented while the counter was executing the instruction at the corresponding address.</p></li>
+</ol>
+<img alt="../_images/disassembly-profiling.png" src="../_images/disassembly-profiling.png" />
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="nsim-ncam.html" class="btn btn-neutral float-right" title="nSIM and NCAM" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="gnu.html" class="btn btn-neutral float-left" title="GNU tools for ARC-V" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2023, Synopsys, Inc.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
