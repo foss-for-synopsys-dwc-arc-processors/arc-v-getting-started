@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>The MetaWare Development Toolkit &mdash; MetaWare_ARC-V_QuickStart html-0.1-1-geb788bb documentation</title>
+  <title>The MetaWare Development Toolkit &mdash; MetaWare_ARC-V_QuickStart html-0.1-17-g4e5895d documentation</title>
   
 
   
@@ -65,7 +65,7 @@
             
             
               <div class="version">
-                html-0.1-1-geb788bb
+                html-0.1-17-g4e5895d
               </div>
             
           
@@ -107,7 +107,8 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#debugging">Debugging</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#command-line-interface">Command-Line Interface</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#visual-studio-code">Visual Studio Code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#installing-the-visual-studio-code-extension">Installing the Visual Studio Code Extension</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#debugging-with-visual-studio-code">Debugging with Visual Studio Code</a></li>
 </ul>
 </li>
 </ul>
@@ -115,8 +116,6 @@
 <li class="toctree-l2"><a class="reference internal" href="nsim-ncam.html">nSIM and NCAM</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../third-party-tools.html">Third-Party Tools for ARC-V</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../migrating.html">Migrating from Other Processors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-help.html">Getting Help</a></li>
 </ul>
 
@@ -346,13 +345,16 @@ If the run is successful, the following message appears in the console.</p>
 </pre></div>
 </div>
 </div>
-<div class="section" id="visual-studio-code">
-<h3>Visual Studio Code<a class="headerlink" href="#visual-studio-code" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="installing-the-visual-studio-code-extension">
+<h3>Installing the Visual Studio Code Extension<a class="headerlink" href="#installing-the-visual-studio-code-extension" title="Permalink to this headline">¶</a></h3>
 <p>To run a GUI session, install and configure the VS Code extension using the following steps.</p>
-<ol class="arabic">
+<ol class="arabic simple">
 <li><p>Install VS Code from the official site, <a class="reference external" href="https://code.visualstudio.com/download">https://code.visualstudio.com/download</a>.</p></li>
 <li><p>Open it and go to the <strong>Extensions</strong> tab.</p></li>
 <li><p>Click the Ellipsis icon (<strong>…</strong>) in the top right corner of the <strong>Extensions</strong> tab and select <strong>Install from VSIX…</strong>.</p></li>
+</ol>
+<img alt="../_images/install_from_vsix.png" src="../_images/install_from_vsix.png" />
+<ol class="arabic" start="4">
 <li><div class="line-block">
 <div class="line">Go to location of the file from the installed MWDT package.
 Replace <code class="docutils literal notranslate"><span class="pre">&lt;METAWARE_ROOT&gt;</span></code> with actual MetaWare root:</div>
@@ -369,18 +371,32 @@ Replace <code class="docutils literal notranslate"><span class="pre">&lt;METAWAR
 </div></blockquote>
 </li>
 </ol>
-<p>Execute the following steps to create a new launch configuration:</p>
+<img alt="../_images/lldbac_dap_path.png" src="../_images/lldbac_dap_path.png" />
+</div>
+<div class="section" id="debugging-with-visual-studio-code">
+<h3>Debugging with Visual Studio Code<a class="headerlink" href="#debugging-with-visual-studio-code" title="Permalink to this headline">¶</a></h3>
+<p>After installing the Visual Studio Code extension, execute the following steps to create a new launch configuration:</p>
 <ol class="arabic simple">
 <li><p>Open your workspace folder.</p></li>
 <li><p>Go to <strong>Run and Debug</strong> tab.</p></li>
 <li><p>Click on <strong>create a launch.json file</strong> and select <strong>MetaWare Debugger</strong>.</p></li>
+</ol>
+<img alt="../_images/creating_launch_json.png" src="../_images/creating_launch_json.png" />
+<ol class="arabic simple" start="4">
 <li><p>Click on <strong>Show all automatic debug configurations</strong>, select <strong>Add Configuration</strong> and select one of the <code class="docutils literal notranslate"><span class="pre">MetaWare</span> <span class="pre">Debugger</span> <span class="pre">-</span> <span class="pre">*</span></code> templates.</p></li>
+</ol>
+<img alt="../_images/add_configuration.png" src="../_images/add_configuration.png" />
+<img alt="../_images/select_configuration_template.png" src="../_images/select_configuration_template.png" />
+<ol class="arabic simple" start="5">
 <li><p>Enter details in all the highlighted fields.</p></li>
 <li><p>Save the file.</p></li>
 </ol>
 <p>Execute the following steps to run the new debug configuration:</p>
 <ol class="arabic simple">
 <li><p>Go to <strong>Run and Debug</strong> tab.</p></li>
+</ol>
+<img alt="../_images/run_configuration.png" src="../_images/run_configuration.png" />
+<ol class="arabic simple" start="2">
 <li><p>Select the configuration as per the requirement, in the dropdown menu.</p></li>
 <li><p>Click the <strong>Start Debugging</strong> button near the dropdown menu.</p></li>
 </ol>

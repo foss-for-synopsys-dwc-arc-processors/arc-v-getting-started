@@ -1,7 +1,26 @@
 Latest Updates
 ==============
 
-.. News/changelogs for various tools mentioned below (with links to mentioned tools pages with more detailed information)
-.. Known issues & limitations for various tools mentioned below (with links to mentioned tools pages with more detailed information)
+ARC GNU Tools 2023.12 Released
+------------------------------
 
-.. add your content below!!!
+This is the first release of the ARC GNU tools for ARC-V processors.
+Prebuilt versions of this toolchain are avaialble for Linux and Windows hosts
+and can be downloaded for free from GitHub
+`2023.12 release section <https://github.com/foss-for-synopsys-dwc-arc-processors/toolchain/releases/tag/arc-2023.12-release>`_.
+
+See the *Release Notes* and more information about using the ARC GNU tools
+with ARC-V processors here: :doc:`gnu`.
+
+
+MetaWare Development Toolkit 2023.12 Released
+---------------------------------------------
+
+The latest version of the MetaWare Development Toolkit is now released and
+avaialble for all users with an appropriate license to download from
+Synopsys `SolvNetPlus <https://solvnet.synopsys.com/>`_.
+
+This is the first release with support for ARC-V processors.
+
+You can find more information on how to use the MetaWare Development Toolkit with ARC-V processors
+here: :doc:`mwdt`.

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>GNU tools for ARC-V &mdash; MetaWare_ARC-V_QuickStart html-0.1-1-geb788bb documentation</title>
+  <title>GNU tools for ARC-V &mdash; MetaWare_ARC-V_QuickStart html-0.1-17-g4e5895d documentation</title>
   
 
   
@@ -65,7 +65,7 @@
             
             
               <div class="version">
-                html-0.1-1-geb788bb
+                html-0.1-17-g4e5895d
               </div>
             
           
@@ -107,8 +107,9 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#the-first-sample-application">The First Sample Application</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#build-and-run-a-simple-application">Build and Run a Simple Application</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#debug-simple-application">Debug Simple Application</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#build-and-run-a-simple-application-for-synopsys-nsim">Build and Run a Simple Application for Synopsys nSIM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#build-and-run-a-simple-application-for-qemu">Build and Run a Simple Application for QEMU</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#debugging-a-simple-application">Debugging a Simple Application</a></li>
 </ul>
 </li>
 </ul>
@@ -117,8 +118,6 @@
 <li class="toctree-l2"><a class="reference internal" href="nsim-ncam.html">nSIM and NCAM</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../third-party-tools.html">Third-Party Tools for ARC-V</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../migrating.html">Migrating from Other Processors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-help.html">Getting Help</a></li>
 </ul>
 
@@ -190,7 +189,7 @@
   <div class="section" id="gnu-tools-for-arc-v">
 <h1>GNU tools for ARC-V<a class="headerlink" href="#gnu-tools-for-arc-v" title="Permalink to this headline">¶</a></h1>
 <p>The GNU toolchain for ARC-V processors is a pre-built and verified distribution of a
-GCC-based set of tools for building appplications targeting supported ARC-V processors.</p>
+GCC-based set of tools for building applications  targeting supported ARC-V processors.</p>
 <p>This toolchain is built on the pillars of proven and widely used open-source
 components such as GCC, Binutils, GDB, and Newlib. While many
 pre-built GCC-based toolchains are available around the Internet, and
@@ -311,8 +310,7 @@ To enable compiler optimizations for those CPU families you must use certain
 <li><p><code class="docutils literal notranslate"><span class="pre">rmx500</span></code> for the ARC-V RMX-500 family</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">rhx</span></code> for the ARC-V RHX family</p></li>
 </ul>
-<p>The architecture options used by the ARC-V RMX-100 and RMX-500 families are <code class="docutils literal notranslate"><span class="pre">-march=rv32im_zba_zbb_zbs_zicsr</span> <span class="pre">-mabi=ilp32</span></code>
-The architecture options used by the ARC-V RHX family are <code class="docutils literal notranslate"><span class="pre">-march=rv32im_zba_zbb_zbs_zca_zcb_zicsr</span> <span class="pre">-mabi=ilp32</span></code></p>
+<p>The architecture options used by the ARC-V RMX-100, RMX-500 and RHX families are <code class="docutils literal notranslate"><span class="pre">-march=rv32im_zba_zbb_zbs_zicsr_zca_zcb_zcmp</span> <span class="pre">-mabi=ilp32</span></code>.</p>
 <div class="section" id="arc-v-specs-file">
 <h3>ARC-V .specs File<a class="headerlink" href="#arc-v-specs-file" title="Permalink to this headline">¶</a></h3>
 <p>The new <code class="docutils literal notranslate"><span class="pre">arcv.specs</span></code> file uses a custom starting routine based on the original <code class="docutils literal notranslate"><span class="pre">crt0.S</span></code> with a special linker command file.</p>
@@ -339,22 +337,23 @@ For example, using semihosting: <code class="docutils literal notranslate"><span
 <p>Consider the following sample application:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 
+<span class="k">extern</span> <span class="kt">void</span> <span class="nf">init_semihosting</span> <span class="p">();</span>
+
 <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+   <span class="n">init_semihosting</span><span class="p">();</span>
    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello world!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<div class="section" id="build-and-run-a-simple-application">
-<h3>Build and Run a Simple Application<a class="headerlink" href="#build-and-run-a-simple-application" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="on-synopsys-nsim">
-<h4>On Synopsys nSIM<a class="headerlink" href="#on-synopsys-nsim" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="build-and-run-a-simple-application-for-synopsys-nsim">
+<h3>Build and Run a Simple Application for Synopsys nSIM<a class="headerlink" href="#build-and-run-a-simple-application-for-synopsys-nsim" title="Permalink to this headline">¶</a></h3>
 <p>The following commands can be used for compiling the sample for later execution in the nSIM simulator:</p>
 <ul>
 <li><p>For an ARC-V RMX-100 processor:</p>
 <blockquote>
 <div><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ riscv64-elf-gcc --specs<span class="o">=</span>semihost.specs --specs<span class="o">=</span>arcv.specs -mabi<span class="o">=</span>ilp32 <span class="se">\</span>
-                  -mtune<span class="o">=</span>rmx100 -march<span class="o">=</span>rv32im_zba_zbb_zbs_zicsr <span class="se">\</span>
+                  -mtune<span class="o">=</span>rmx100 -march<span class="o">=</span>rv32im_zba_zbb_zbs_zca_zcb_zcmp_zicsr <span class="se">\</span>
                   test.c -o a.out
 </pre></div>
 </div>
@@ -363,7 +362,7 @@ For example, using semihosting: <code class="docutils literal notranslate"><span
 <li><p>For an ARC-V RMX-500 processor:</p>
 <blockquote>
 <div><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ riscv64-elf-gcc --specs<span class="o">=</span>semihost.specs --specs<span class="o">=</span>arcv.specs -mabi<span class="o">=</span>ilp32 <span class="se">\</span>
-                  -mtune<span class="o">=</span>rmx500 -march<span class="o">=</span>rv32im_zba_zbb_zbs_zicsr <span class="se">\</span>
+                  -mtune<span class="o">=</span>rmx500 -march<span class="o">=</span>rv32im_zba_zbb_zbs_zca_zcb_zcmp_zicsr <span class="se">\</span>
                   test.c -o a.out
 </pre></div>
 </div>
@@ -372,7 +371,7 @@ For example, using semihosting: <code class="docutils literal notranslate"><span
 <li><p>For an ARC-V RHX processors:</p>
 <blockquote>
 <div><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ riscv64-elf-gcc --specs<span class="o">=</span>semihost.specs --specs<span class="o">=</span>arcv.specs -mabi<span class="o">=</span>ilp32 <span class="se">\</span>
-                  -mtune<span class="o">=</span>rhx -march<span class="o">=</span>rv32im_zba_zbb_zbs_zca_zcb_zicsr <span class="se">\</span>
+                  -mtune<span class="o">=</span>rhx -march<span class="o">=</span>rv32im_zba_zbb_zbs_zca_zcb_zcmp_zicsr <span class="se">\</span>
                   test.c -o a.out
 </pre></div>
 </div>
@@ -389,75 +388,119 @@ Hello world!
 </div>
 <p>For more details on use of the Synopsys nSIM simulator, see the section dedicated to it here: <a class="reference internal" href="nsim-ncam.html"><span class="doc">nSIM and NCAM</span></a>.</p>
 </div>
-<div class="section" id="on-qemu">
-<h4>On QEMU<a class="headerlink" href="#on-qemu" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="build-and-run-a-simple-application-for-qemu">
+<h3>Build and Run a Simple Application for QEMU<a class="headerlink" href="#build-and-run-a-simple-application-for-qemu" title="Permalink to this headline">¶</a></h3>
+<p>It is best to use the latest official QEMU version for the following exercises.
+As of today, it’s v8.2; see release notes here <a class="reference external" href="https://wiki.qemu.org/ChangeLog/8.2">https://wiki.qemu.org/ChangeLog/8.2</a>.
+The sources are on GitLab (<a class="reference external" href="https://gitlab.com/qemu-project/qemu">https://gitlab.com/qemu-project/qemu</a>)
+or in the official GitHub mirror (<a class="reference external" href="https://github.com/qemu/qemu">https://github.com/qemu/qemu</a>).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To get the latest version of QEMU on your system it might be much easier to build it
+from sources rather than trying to find a pre-built version which suits your host type and operating system.</p>
+<p>Instructions for building on Linux are on QEMU’s Wiki: <a class="reference external" href="https://github.com/qemu/qemu">https://github.com/qemu/qemu</a></p>
+<p>First you need to install required additional packages, which depend on the
+Linux distribution used on the host. For example for Ubuntu 20.04 the following needs to
+be done:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ apt-get install build-essential git libglib2.0-dev libfdt-dev <span class="se">\</span>
+  libpixman-1-dev zlib1g-dev ninja-build python3-venv
+</pre></div>
+</div>
+<p>After installation of prerequisites you can download sources, configure, and build in the following way:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Clone v8.2.0 from GitHub repository</span>
+$ git clone --depth <span class="m">1</span> --branch v8.2.0 git@github.com:qemu/qemu.git
+
+<span class="c1"># Configure project for build selecting only RISCV32 full system emulation,</span>
+$ ./configure --target-list<span class="o">=</span>riscv32-softmmu
+
+<span class="c1"># Build QEMU</span>
+$ make
+</pre></div>
+</div>
+<p>After the build is complete <code class="docutils literal notranslate"><span class="pre">qemu-system-riscv32</span></code> is placed in the <code class="docutils literal notranslate"><span class="pre">build</span></code> folder,
+which you can add to the <code class="docutils literal notranslate"><span class="pre">PATH</span></code> environment variable for convenience, and use the short binary name
+instead of the full path.</p>
+</div>
+<p>The following commands can be used for compiling the sample for later execution in QEMU.
+Basically the same compiler options are used, except that you need to make sure
+DDR memory is used and the <code class="docutils literal notranslate"><span class="pre">.text</span></code> section starts in the DDR beginning at 0x8000_0000, where
+the board jumps on start automatically. For that, you need to override two linker symbols otherwise defined in
+ARC-V’s default linker script <code class="docutils literal notranslate"><span class="pre">arcv.ld</span></code>: <code class="docutils literal notranslate"><span class="pre">txtmem_addr</span></code> and <code class="docutils literal notranslate"><span class="pre">datamem_addr</span></code>.</p>
+<p>Then the command lines look like this:</p>
 <ul>
 <li><p>For an ARC-V RMX-100 processor:</p>
 <blockquote>
-<div><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ riscv64-elf-gcc test.c -mcmodel<span class="o">=</span>medlow -mabi<span class="o">=</span>ilp32 <span class="se">\</span>
-  -mtune<span class="o">=</span>rmx100 -march<span class="o">=</span>rv32im_zba_zbb_zbs_zicsr <span class="se">\</span>
-  -o a.out
+<div><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ riscv64-elf-gcc --specs<span class="o">=</span>semihost.specs --specs<span class="o">=</span>arcv.specs -mabi<span class="o">=</span>ilp32 <span class="se">\</span>
+                  -mtune<span class="o">=</span>rmx100 -march<span class="o">=</span>rv32im_zba_zbb_zbs_zca_zcb_zcmp_zicsr <span class="se">\</span>
+                  -Wl,-defsym<span class="o">=</span><span class="nv">txtmem_addr</span><span class="o">=</span>0x80000000 -Wl,-defsym<span class="o">=</span><span class="nv">datamem_addr</span><span class="o">=</span>0x80100000 <span class="se">\</span>
+                  test.c -o a.out
 </pre></div>
 </div>
 </div></blockquote>
 </li>
 <li><p>For an ARC-V RMX-500 processor:</p>
 <blockquote>
-<div><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ riscv64-elf-gcc test.c -mcmodel<span class="o">=</span>medlow -mabi<span class="o">=</span>ilp32 <span class="se">\</span>
-  -mtune<span class="o">=</span>rmx500 -march<span class="o">=</span>rv32im_zba_zbb_zbs_zicsr <span class="se">\</span>
-  -o a.out
+<div><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ riscv64-elf-gcc --specs<span class="o">=</span>semihost.specs --specs<span class="o">=</span>arcv.specs -mabi<span class="o">=</span>ilp32 <span class="se">\</span>
+                  -mtune<span class="o">=</span>rmx500 -march<span class="o">=</span>rv32im_zba_zbb_zbs_zca_zcb_zcmp_zicsr <span class="se">\</span>
+                  -Wl,-defsym<span class="o">=</span><span class="nv">txtmem_addr</span><span class="o">=</span>0x80000000 -Wl,-defsym<span class="o">=</span><span class="nv">datamem_addr</span><span class="o">=</span>0x80100000 <span class="se">\</span>
+                  test.c -o a.out
 </pre></div>
 </div>
 </div></blockquote>
 </li>
-<li><p>For an ARC-V RHX processors:</p>
+<li><p>For an ARC-V RHX processor:</p>
 <blockquote>
-<div><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ riscv64-elf-gcc test.c -mcmodel<span class="o">=</span>medlow -mabi<span class="o">=</span>ilp32 <span class="se">\</span>
-  -mtune<span class="o">=</span>rhx -march<span class="o">=</span>rv32im_zba_zbb_zbs_zca_zcb_zicsr <span class="se">\</span>
-  -o a.out
+<div><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ riscv64-elf-gcc --specs<span class="o">=</span>semihost.specs --specs<span class="o">=</span>arcv.specs -mabi<span class="o">=</span>ilp32 <span class="se">\</span>
+                  -mtune<span class="o">=</span>rhx -march<span class="o">=</span>rv32im_zba_zbb_zbs_zca_zcb_zcmp_zicsr <span class="se">\</span>
+                  -Wl,-defsym<span class="o">=</span><span class="nv">txtmem_addr</span><span class="o">=</span>0x80000000 -Wl,-defsym<span class="o">=</span><span class="nv">datamem_addr</span><span class="o">=</span>0x80100000 <span class="se">\</span>
+                  test.c -o a.out
 </pre></div>
 </div>
 </div></blockquote>
 </li>
 </ul>
-<p>After building, use the following command line to run the built sample in QEMU:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ qemu-riscv32 a.out
+<p>After building, use the following command line to run the sample in QEMU:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ qemu-system-riscv32 -semihosting -nographic -machine virt -cpu rv32 -bios none -kernel a.out
 
 Hello world!
 </pre></div>
 </div>
+<p>For more details on use of the QEMU simulator, see the official documentation here: <a class="reference external" href="https://www.qemu.org/docs/master/">https://www.qemu.org/docs/master/</a>.</p>
 </div>
-</div>
-<div class="section" id="debug-simple-application">
-<h3>Debug Simple Application<a class="headerlink" href="#debug-simple-application" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="debugging-a-simple-application">
+<h3>Debugging a Simple Application<a class="headerlink" href="#debugging-a-simple-application" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="with-the-synopsys-lldb-debugger-and-visual-studio-code-ide">
 <h4>With the Synopsys LLDB Debugger and Visual Studio Code IDE<a class="headerlink" href="#with-the-synopsys-lldb-debugger-and-visual-studio-code-ide" title="Permalink to this headline">¶</a></h4>
 <p>For detailed information on how to debug an application with the Synopsys LLDB Debugger and Visual Studio Code IDE, see the following section: <a class="reference internal" href="mwdt.html"><span class="doc">The MetaWare Development Toolkit</span></a>.</p>
 </div>
 <div class="section" id="with-qemu">
 <h4>With QEMU<a class="headerlink" href="#with-qemu" title="Permalink to this headline">¶</a></h4>
-<p>You can debug an application that is being run on QEMU with help of the built-in GDB server of QEMU. On the QEMU side,  you need to enable the GDB sever and optionally instruct the QEMU to not start the application execution automatically, but instead wait for user input. For that you need to pass <code class="docutils literal notranslate"><span class="pre">-g</span> <span class="pre">1234</span></code> commands to <cite>qemu-riscv32</cite> so that the full command-line looks like this:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ qemu-riscv32 -g <span class="m">1234</span> a.out
+<p>You can debug an application that is being run on QEMU with help of the built-in GDB server of QEMU. On the QEMU side, you need to enable the GDB sever and optionally instruct the QEMU not to start the application execution automatically, but instead wait for user input. For that you need to pass <code class="docutils literal notranslate"><span class="pre">-s</span> <span class="pre">-S</span></code> commands to <cite>qemu-system-riscv32</cite> so that the full command-line looks like this:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ qemu-system-riscv32 -semihosting -nographic -machine virt -cpu rv32 -bios none -kernel a.out -s -S
 </pre></div>
 </div>
 <p>Then you can attach the GDB client and start debugging. Do the following in a separate console:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ riscv64-elf-gdb a.out
 
 <span class="o">(</span>gdb<span class="o">)</span> target remote :1234
+Remote debugging using :1234
+0x00001000 in ?? <span class="o">()</span>
 
 <span class="o">(</span>gdb<span class="o">)</span> b main
-Breakpoint <span class="m">1</span> at 0x1018a
+Breakpoint <span class="m">1</span> at 0x800000b4: file ~/test.c, line <span class="m">10</span>.
 
 <span class="o">(</span>gdb<span class="o">)</span> <span class="k">continue</span>
 Continuing.
 
-Breakpoint <span class="m">1</span>, 0x0001018a in main <span class="o">()</span>
+Breakpoint <span class="m">1</span>, main <span class="o">()</span> at ~/test.c:10
+<span class="m">10</span>              init_semihosting<span class="o">()</span><span class="p">;</span>
 
 <span class="o">(</span>gdb<span class="o">)</span> c
 Continuing.
-<span class="o">[</span>Inferior <span class="m">1</span> <span class="o">(</span>process <span class="m">660082</span><span class="o">)</span> exited normally<span class="o">]</span>
+<span class="o">[</span>Inferior <span class="m">1</span> <span class="o">(</span>process <span class="m">1</span><span class="o">)</span> exited normally<span class="o">]</span>
 </pre></div>
 </div>
+<p>Note that the first location where the CPU is waiting for commands is 0x0000_1000. It’s a virt board reset vector location; see <a class="reference external" href="https://elixir.bootlin.com/qemu/v8.2.0/source/hw/riscv/boot.c#L396">https://elixir.bootlin.com/qemu/v8.2.0/source/hw/riscv/boot.c#L396</a>. It is not possible to suppress execution of that reset vector code as it’s an essential part of the QEMU board, this of that as a boot-ROM. You can only bypass it if you load the target executable from the GDB client with the <code class="docutils literal notranslate"><span class="pre">load</span></code> command. Then execution starts from the loaded application entry point.</p>
 </div>
 </div>
 </div>

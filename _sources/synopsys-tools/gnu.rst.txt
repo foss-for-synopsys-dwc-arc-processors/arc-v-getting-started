@@ -2,7 +2,7 @@ GNU tools for ARC-V
 ===================
 
 The GNU toolchain for ARC-V processors is a pre-built and verified distribution of a
-GCC-based set of tools for building appplications targeting supported ARC-V processors.
+GCC-based set of tools for building applications  targeting supported ARC-V processors.
 
 This toolchain is built on the pillars of proven and widely used open-source
 components such as GCC, Binutils, GDB, and Newlib. While many 
@@ -119,8 +119,7 @@ To enable compiler optimizations for those CPU families you must use certain
 * ``rmx500`` for the ARC-V RMX-500 family
 * ``rhx`` for the ARC-V RHX family
  
-The architecture options used by the ARC-V RMX-100 and RMX-500 families are ``-march=rv32im_zba_zbb_zbs_zicsr -mabi=ilp32``
-The architecture options used by the ARC-V RHX family are ``-march=rv32im_zba_zbb_zbs_zca_zcb_zicsr -mabi=ilp32``
+The architecture options used by the ARC-V RMX-100, RMX-500 and RHX families are ``-march=rv32im_zba_zbb_zbs_zicsr_zca_zcb_zcmp -mabi=ilp32``.
  
 ARC-V .specs File
 ~~~~~~~~~~~~~~~~~
@@ -153,17 +152,17 @@ Consider the following sample application:
 
    #include <stdio.h>
 
+   extern void init_semihosting ();
+
    int main(void) {
+      init_semihosting();
       printf("Hello world!\n");
       return 0;
    }
 
 
-Build and Run a Simple Application
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-On Synopsys nSIM
-^^^^^^^^^^^^^^^^
+Build and Run a Simple Application for Synopsys nSIM
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The following commands can be used for compiling the sample for later execution in the nSIM simulator:
 
@@ -172,7 +171,7 @@ The following commands can be used for compiling the sample for later execution 
    .. code-block:: shell
 
       $ riscv64-elf-gcc --specs=semihost.specs --specs=arcv.specs -mabi=ilp32 \
-                        -mtune=rmx100 -march=rv32im_zba_zbb_zbs_zicsr \
+                        -mtune=rmx100 -march=rv32im_zba_zbb_zbs_zca_zcb_zcmp_zicsr \
                         test.c -o a.out
 
 * For an ARC-V RMX-500 processor:
@@ -180,7 +179,7 @@ The following commands can be used for compiling the sample for later execution 
    .. code-block:: shell
 
       $ riscv64-elf-gcc --specs=semihost.specs --specs=arcv.specs -mabi=ilp32 \
-                        -mtune=rmx500 -march=rv32im_zba_zbb_zbs_zicsr \
+                        -mtune=rmx500 -march=rv32im_zba_zbb_zbs_zca_zcb_zcmp_zicsr \
                         test.c -o a.out
 
 * For an ARC-V RHX processors: 
@@ -188,7 +187,7 @@ The following commands can be used for compiling the sample for later execution 
    .. code-block:: shell
 
       $ riscv64-elf-gcc --specs=semihost.specs --specs=arcv.specs -mabi=ilp32 \
-                        -mtune=rhx -march=rv32im_zba_zbb_zbs_zca_zcb_zicsr \
+                        -mtune=rhx -march=rv32im_zba_zbb_zbs_zca_zcb_zcmp_zicsr \
                         test.c -o a.out
 
 
@@ -204,44 +203,97 @@ After building, use the following command line to run the sample in nSIM:
 
 For more details on use of the Synopsys nSIM simulator, see the section dedicated to it here: :doc:`nsim-ncam`.
 
-On QEMU
-^^^^^^^^^
+Build and Run a Simple Application for QEMU
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+It is best to use the latest official QEMU version for the following exercises.
+As of today, it's v8.2; see release notes here https://wiki.qemu.org/ChangeLog/8.2.
+The sources are on GitLab (https://gitlab.com/qemu-project/qemu) 
+or in the official GitHub mirror (https://github.com/qemu/qemu).
+
+.. note::
+
+   To get the latest version of QEMU on your system it might be much easier to build it
+   from sources rather than trying to find a pre-built version which suits your host type and operating system.
+
+   Instructions for building on Linux are on QEMU's Wiki: https://github.com/qemu/qemu
+
+   First you need to install required additional packages, which depend on the
+   Linux distribution used on the host. For example for Ubuntu 20.04 the following needs to
+   be done:
+
+   .. code-block:: shell
+
+      $ apt-get install build-essential git libglib2.0-dev libfdt-dev \
+        libpixman-1-dev zlib1g-dev ninja-build python3-venv
+
+   After installation of prerequisites you can download sources, configure, and build in the following way:
+
+   .. code-block:: shell
+
+      # Clone v8.2.0 from GitHub repository
+      $ git clone --depth 1 --branch v8.2.0 git@github.com:qemu/qemu.git
+
+      # Configure project for build selecting only RISCV32 full system emulation,
+      $ ./configure --target-list=riscv32-softmmu
+
+      # Build QEMU
+      $ make
+
+   After the build is complete ``qemu-system-riscv32`` is placed in the ``build`` folder,
+   which you can add to the ``PATH`` environment variable for convenience, and use the short binary name 
+   instead of the full path.
+
+
+The following commands can be used for compiling the sample for later execution in QEMU.
+Basically the same compiler options are used, except that you need to make sure
+DDR memory is used and the ``.text`` section starts in the DDR beginning at 0x8000_0000, where
+the board jumps on start automatically. For that, you need to override two linker symbols otherwise defined in
+ARC-V's default linker script ``arcv.ld``: ``txtmem_addr`` and ``datamem_addr``. 
+
+Then the command lines look like this:
 
 * For an ARC-V RMX-100 processor:
 
    .. code-block:: shell
 
-      $ riscv64-elf-gcc test.c -mcmodel=medlow -mabi=ilp32 \
-        -mtune=rmx100 -march=rv32im_zba_zbb_zbs_zicsr \
-        -o a.out
+      $ riscv64-elf-gcc --specs=semihost.specs --specs=arcv.specs -mabi=ilp32 \
+                        -mtune=rmx100 -march=rv32im_zba_zbb_zbs_zca_zcb_zcmp_zicsr \
+                        -Wl,-defsym=txtmem_addr=0x80000000 -Wl,-defsym=datamem_addr=0x80100000 \
+                        test.c -o a.out
 
 * For an ARC-V RMX-500 processor:
 
    .. code-block:: shell
 
-      $ riscv64-elf-gcc test.c -mcmodel=medlow -mabi=ilp32 \
-        -mtune=rmx500 -march=rv32im_zba_zbb_zbs_zicsr \
-        -o a.out
+      $ riscv64-elf-gcc --specs=semihost.specs --specs=arcv.specs -mabi=ilp32 \
+                        -mtune=rmx500 -march=rv32im_zba_zbb_zbs_zca_zcb_zcmp_zicsr \
+                        -Wl,-defsym=txtmem_addr=0x80000000 -Wl,-defsym=datamem_addr=0x80100000 \
+                        test.c -o a.out
 
-* For an ARC-V RHX processors:
+* For an ARC-V RHX processor: 
 
    .. code-block:: shell
 
-      $ riscv64-elf-gcc test.c -mcmodel=medlow -mabi=ilp32 \
-        -mtune=rhx -march=rv32im_zba_zbb_zbs_zca_zcb_zicsr \
-        -o a.out
+      $ riscv64-elf-gcc --specs=semihost.specs --specs=arcv.specs -mabi=ilp32 \
+                        -mtune=rhx -march=rv32im_zba_zbb_zbs_zca_zcb_zcmp_zicsr \
+                        -Wl,-defsym=txtmem_addr=0x80000000 -Wl,-defsym=datamem_addr=0x80100000 \
+                        test.c -o a.out
 
-After building, use the following command line to run the built sample in QEMU:
+
+After building, use the following command line to run the sample in QEMU:
 
 .. code-block:: shell
 
-   $ qemu-riscv32 a.out
+   $ qemu-system-riscv32 -semihosting -nographic -machine virt -cpu rv32 -bios none -kernel a.out
 
    Hello world!
 
+For more details on use of the QEMU simulator, see the official documentation here: https://www.qemu.org/docs/master/.
 
-Debug Simple Application
-~~~~~~~~~~~~~~~~~~~~~~~~
+
+Debugging a Simple Application
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. With Synopsys nSIM
 .. ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -254,11 +306,11 @@ For detailed information on how to debug an application with the Synopsys LLDB D
 With QEMU
 ^^^^^^^^^
 
-You can debug an application that is being run on QEMU with help of the built-in GDB server of QEMU. On the QEMU side,  you need to enable the GDB sever and optionally instruct the QEMU to not start the application execution automatically, but instead wait for user input. For that you need to pass ``-g 1234`` commands to `qemu-riscv32` so that the full command-line looks like this:
+You can debug an application that is being run on QEMU with help of the built-in GDB server of QEMU. On the QEMU side, you need to enable the GDB sever and optionally instruct the QEMU not to start the application execution automatically, but instead wait for user input. For that you need to pass ``-s -S`` commands to `qemu-system-riscv32` so that the full command-line looks like this:
 
 .. code-block:: shell
 
-   $ qemu-riscv32 -g 1234 a.out
+   $ qemu-system-riscv32 -semihosting -nographic -machine virt -cpu rv32 -bios none -kernel a.out -s -S
 
 Then you can attach the GDB client and start debugging. Do the following in a separate console:
 
@@ -267,15 +319,20 @@ Then you can attach the GDB client and start debugging. Do the following in a se
    $ riscv64-elf-gdb a.out
 
    (gdb) target remote :1234
+   Remote debugging using :1234
+   0x00001000 in ?? ()
 
    (gdb) b main
-   Breakpoint 1 at 0x1018a
+   Breakpoint 1 at 0x800000b4: file ~/test.c, line 10.
 
    (gdb) continue
    Continuing.
 
-   Breakpoint 1, 0x0001018a in main ()
+   Breakpoint 1, main () at ~/test.c:10
+   10              init_semihosting();
 
    (gdb) c
    Continuing.
-   [Inferior 1 (process 660082) exited normally]
+   [Inferior 1 (process 1) exited normally]
+
+Note that the first location where the CPU is waiting for commands is 0x0000_1000. It's a virt board reset vector location; see https://elixir.bootlin.com/qemu/v8.2.0/source/hw/riscv/boot.c#L396. It is not possible to suppress execution of that reset vector code as it's an essential part of the QEMU board, this of that as a boot-ROM. You can only bypass it if you load the target executable from the GDB client with the ``load`` command. Then execution starts from the loaded application entry point.
