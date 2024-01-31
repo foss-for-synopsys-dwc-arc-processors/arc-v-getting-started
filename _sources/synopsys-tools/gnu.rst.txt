@@ -335,4 +335,4 @@ Then you can attach the GDB client and start debugging. Do the following in a se
    Continuing.
    [Inferior 1 (process 1) exited normally]
 
-Note that the first location where the CPU is waiting for commands is 0x0000_1000. It's a virt board reset vector location; see https://elixir.bootlin.com/qemu/v8.2.0/source/hw/riscv/boot.c#L396. It is not possible to suppress execution of that reset vector code as it's an essential part of the QEMU board, this of that as a boot-ROM. You can only bypass it if you load the target executable from the GDB client with the ``load`` command. Then execution starts from the loaded application entry point.
+Note that the first location where the CPU is waiting for commands is 0x0000_1000. It's a virt board reset vector location; see https://elixir.bootlin.com/qemu/v8.2.0/source/hw/riscv/boot.c#L396. It is not possible to suppress execution of that reset vector code as it's an essential part of the QEMU board (think of it as a boot-ROM). You can only bypass it if you load the target executable from the GDB client with the ``load`` command. Then execution starts from the loaded application entry point.

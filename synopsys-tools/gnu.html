@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>GNU tools for ARC-V &mdash; MetaWare_ARC-V_QuickStart html-0.1-17-g4e5895d documentation</title>
+  <title>GNU tools for ARC-V &mdash; MetaWare_ARC-V_QuickStart html-0.1-19-gf1d3755 documentation</title>
   
 
   
@@ -65,7 +65,7 @@
             
             
               <div class="version">
-                html-0.1-17-g4e5895d
+                html-0.1-19-gf1d3755
               </div>
             
           
@@ -500,7 +500,7 @@ Continuing.
 <span class="o">[</span>Inferior <span class="m">1</span> <span class="o">(</span>process <span class="m">1</span><span class="o">)</span> exited normally<span class="o">]</span>
 </pre></div>
 </div>
-<p>Note that the first location where the CPU is waiting for commands is 0x0000_1000. It’s a virt board reset vector location; see <a class="reference external" href="https://elixir.bootlin.com/qemu/v8.2.0/source/hw/riscv/boot.c#L396">https://elixir.bootlin.com/qemu/v8.2.0/source/hw/riscv/boot.c#L396</a>. It is not possible to suppress execution of that reset vector code as it’s an essential part of the QEMU board, this of that as a boot-ROM. You can only bypass it if you load the target executable from the GDB client with the <code class="docutils literal notranslate"><span class="pre">load</span></code> command. Then execution starts from the loaded application entry point.</p>
+<p>Note that the first location where the CPU is waiting for commands is 0x0000_1000. It’s a virt board reset vector location; see <a class="reference external" href="https://elixir.bootlin.com/qemu/v8.2.0/source/hw/riscv/boot.c#L396">https://elixir.bootlin.com/qemu/v8.2.0/source/hw/riscv/boot.c#L396</a>. It is not possible to suppress execution of that reset vector code as it’s an essential part of the QEMU board (think of it as a boot-ROM). You can only bypass it if you load the target executable from the GDB client with the <code class="docutils literal notranslate"><span class="pre">load</span></code> command. Then execution starts from the loaded application entry point.</p>
 </div>
 </div>
 </div>
