@@ -336,3 +336,101 @@ Then you can attach the GDB client and start debugging. Do the following in a se
    [Inferior 1 (process 1) exited normally]
 
 Note that the first location where the CPU is waiting for commands is 0x0000_1000. It's a virt board reset vector location; see https://elixir.bootlin.com/qemu/v8.2.0/source/hw/riscv/boot.c#L396. It is not possible to suppress execution of that reset vector code as it's an essential part of the QEMU board (think of it as a boot-ROM). You can only bypass it if you load the target executable from the GDB client with the ``load`` command. Then execution starts from the loaded application entry point.
+
+Testing Specific RISC-V Extensions
+----------------------------------
+
+One of the benefits of RISC-V ISA is its extensibility. As a matter of fact, only a handful of instructions form the minimally required base. But the most interesting part is in utilizing application-specific extensions, which let you achieve benefits in certain situations.
+
+In embedded and especially deeply embedded applications, one of the key objectives is to keep the memory footprint of the target application as tiny as possible. And the RISC-V Zc* extensions help to achieve exactly that. This section demonstrates a couple of those extensions in action. See also the documentation and related information on each extension on the corresponding GitHub resource here: https://github.com/riscv/riscv-code-size-reduction.
+
+
+Zcmp Extension
+~~~~~~~~~~~~~~
+
+Consider the following code snippet:
+
+.. code-block::
+
+   $ cat t01.c
+
+   void test (void) {
+       asm volatile (""
+       	        :
+       	        :
+                : "s0", "s1", "s2", "s3",
+                  "s4", "s5", "s6", "s7",
+                  "s8", "s9", "s10", "s11");
+   }
+
+
+Here is a generated assembly listing targeting the Zcmp extension:
+
+.. code-block::
+
+   $ riscv64-unknown-elf-gcc -march=rv32im_zcmp -mabi=ilp32 t01.c -S -O1 -o -
+
+       .file   "t01.c"
+       .option nopic
+       .attribute arch, "rv32i2p1_m2p0_zca1p0_zcmp1p0"
+       .attribute unaligned_access, 0
+       .attribute stack_align, 16
+       .text
+       .align  1
+       .globl  test
+       .type   test, @function
+   test:
+        cm.push {ra, s0-s11}, -64
+        cm.popret       {ra, s0-s11}, 64
+        .size   test, .-test
+        .ident  "GCC: (RISC-V elf toolchain - build 6278) 13.2.0"
+
+Note the generated ``cm.push`` and ``cm.popret`` instructions, which confirm that the compiler is capable of using the extension.
+
+Zcb Extension
+~~~~~~~~~~~~~
+
+Another RISC-V extension that is easy to see in action also comes from the code-size-reduction group: Zcb.
+Consider the following C function:
+
+.. code-block::
+
+   $ cat t03.c
+
+   int test (int a, int b) {
+       return a + b;
+   }
+
+Now compile and disassemble it:
+
+.. code-block::
+
+   $ riscv64-elf-gcc -march=rv32im_zca_zcb -mabi=ilp32 t03.c -c -O1
+   $ riscv64-unknown-elf-objdump -d t03.o
+
+   t03.o:     file format elf32-littleriscv
+   
+   
+   Disassembly of section .text:
+   
+   00000000 <test>:
+      0:   952e                    add     a0,a0,a1
+      2:   8082                    ret
+
+
+Note the short 16-bit encoding of the ``add`` instruction. Without use of Zc extensions, compiler generates a full 32-bit encoding as in the example below.
+
+
+.. code-block::
+
+   $ riscv64-elf-gcc -march=rv32im -mabi=ilp32 t03.c -c -O1
+   $ riscv64-unknown-elf-objdump -d t03.o
+   
+   t03.o:     file format elf32-littleriscv
+   
+   
+   Disassembly of section .text:
+   
+   00000000 <test>:
+      0:   00b50533                add     a0,a0,a1
+      4:   00008067                ret

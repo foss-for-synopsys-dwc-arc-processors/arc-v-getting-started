@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>The MetaWare Development Toolkit &mdash; MetaWare_ARC-V_QuickStart html-0.1-19-gf1d3755 documentation</title>
+  <title>The MetaWare Development Toolkit &mdash; MetaWare_ARC-V_QuickStart  documentation</title>
   
 
   
@@ -64,10 +64,6 @@
           
             
             
-              <div class="version">
-                html-0.1-19-gf1d3755
-              </div>
-            
           
 
           
@@ -96,19 +92,15 @@
 <li class="toctree-l2"><a class="reference internal" href="updates.html">Latest Updates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gnu.html">GNU tools for ARC-V</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">The MetaWare Development Toolkit</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#basic-information">Basic Information</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#known-issues-and-limitations">Known Issues and Limitations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#installation-and-licensing">Installation and Licensing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#the-first-sample-application">The First Sample Application</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#building-the-queens-example">Building the Queens Example</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#alternative-compilation">Alternative Compilation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#running-the-queens-example-in-nsim">Running the Queens Example in nSIM</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#debugging">Debugging</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#command-line-interface">Command-Line Interface</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#installing-the-visual-studio-code-extension">Installing the Visual Studio Code Extension</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#debugging-with-visual-studio-code">Debugging with Visual Studio Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mwdt-v-2023-12">MWDT V-2023.12</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#new-features-and-enhancements">New Features and Enhancements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#supported-platforms">Supported Platforms</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tools-limitations">Tools Limitations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#basic-information">Basic Information</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#known-issues-and-limitations">Known Issues and Limitations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#installation-and-licensing">Installation and Licensing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-first-sample-application">The First Sample Application</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#debugging">Debugging</a></li>
 </ul>
 </li>
 </ul>
@@ -186,8 +178,46 @@
             
   <div class="section" id="the-metaware-development-toolkit">
 <h1>The MetaWare Development Toolkit<a class="headerlink" href="#the-metaware-development-toolkit" title="Permalink to this headline">¶</a></h1>
+<p>The well-known MetaWare Development Toolkit has expanded its supported cores to ensure the generation of highly efficient code for the new RISC-V ARC-V family of processors.</p>
+<p>The MetaWare Development Toolkit includes a variety of tools that should facilitate software development — compiler, linker, LLDB-based debugger (<code class="docutils literal notranslate"><span class="pre">lldbac</span></code>), simulator, and so on.</p>
+<div class="section" id="mwdt-v-2023-12">
+<h2>MWDT V-2023.12<a class="headerlink" href="#mwdt-v-2023-12" title="Permalink to this headline">¶</a></h2>
+<p>The V-2023.12 version of the MetaWare Development Toolkit introduces experimental support for the ARC-V RMX processor series based on the RISC-V instruction-set architecture.</p>
+<p>More information about this family can be found on the Synopsys website: <a class="reference external" href="https://www.synopsys.com/designware-ip/processor-solutions/arc-v-processors/arc-v-rmx.html">Power-Efficient RISC-V Processors for Embedded Applications</a>.</p>
+<div class="section" id="new-features-and-enhancements">
+<h3>New Features and Enhancements<a class="headerlink" href="#new-features-and-enhancements" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="support-for-risc-v-based-arc-v-rmx-processors">
+<h4>Support for RISC-V based ARC-V RMX Processors<a class="headerlink" href="#support-for-risc-v-based-arc-v-rmx-processors" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Experimental support is added for the RISC-V based ARC-V processors.</p></li>
+<li><p>Added support for the following RISC-V extensions: <code class="docutils literal notranslate"><span class="pre">Zi</span></code>, <code class="docutils literal notranslate"><span class="pre">Zm</span></code>, <code class="docutils literal notranslate"><span class="pre">Za</span></code>, <code class="docutils literal notranslate"><span class="pre">Zc</span></code>, <code class="docutils literal notranslate"><span class="pre">Zba</span></code>, <code class="docutils literal notranslate"><span class="pre">Zbb</span></code>, <code class="docutils literal notranslate"><span class="pre">Zbc</span></code>, <code class="docutils literal notranslate"><span class="pre">Zbs</span></code>, <code class="docutils literal notranslate"><span class="pre">Zfinx</span></code>, <code class="docutils literal notranslate"><span class="pre">Zdinx</span></code>, <code class="docutils literal notranslate"><span class="pre">Zicsr</span></code>, <code class="docutils literal notranslate"><span class="pre">Zifencei</span></code>, <code class="docutils literal notranslate"><span class="pre">Zihintpause</span></code> and <code class="docutils literal notranslate"><span class="pre">Zicbom</span></code>.</p></li>
+<li><p>Added support for the following code-size reduction extensions: <code class="docutils literal notranslate"><span class="pre">Zca</span></code>, <code class="docutils literal notranslate"><span class="pre">Zcb</span></code>, <code class="docutils literal notranslate"><span class="pre">Zcf</span></code>, <code class="docutils literal notranslate"><span class="pre">Zcd</span></code> and <code class="docutils literal notranslate"><span class="pre">Zcmp</span></code>.</p></li>
+<li><p>Added support for basic debugging in <code class="docutils literal notranslate"><span class="pre">lldbac</span></code> (command-line mode) and in Visual Studio Code (GUI mode).</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As this is the first release of the MetaWare Development Toolkit with ARC-V support, some functionality might have issues, some processor features might not yet be fully supported, and performance might be lower than expected performance of the final product.</p>
+</div>
+</div>
+</div>
+<div class="section" id="supported-platforms">
+<h3>Supported Platforms<a class="headerlink" href="#supported-platforms" title="Permalink to this headline">¶</a></h3>
+<p>Supported host operating systems and platforms limitations can be found in the <em>MetaWare Release Notes</em> document in <code class="docutils literal notranslate"><span class="pre">/MetaWare/arc/docs/pdf</span></code>.</p>
+</div>
+<div class="section" id="tools-limitations">
+<h3>Tools Limitations<a class="headerlink" href="#tools-limitations" title="Permalink to this headline">¶</a></h3>
+<p>Limitations of the experimental debugger support for ARC-V targets:</p>
+<ul class="simple">
+<li><p>The experimental debugger invoked with <code class="docutils literal notranslate"><span class="pre">lldbac</span></code> or <code class="docutils literal notranslate"><span class="pre">lldbac-dap</span></code> supports only ARC-V targets.</p></li>
+<li><p>Only the GDB RSP and RASCAL target connection protocols are supported. The MCD protocol is not supported. JTAG connections can only be established using an external GDB server.</p></li>
+<li><p>Only the following semihosting operations are supported: WRITE, READ, OPEN, CLOSE, ISTTY, FLEN, GETCMDLINE, EXIT.</p></li>
+<li><p>By default, the windows defined by the MetaWare debugger VS Code extension are not synchronized automatically with the selected stack frame. To enable stack-frame synchronization, add any expression to the <strong>Watch</strong> window in the <strong>Run and Debug</strong> tab and keep the Watch window open.</p></li>
+<li><p>Instruction (address) profiling is only supported in the GUI, not in command-line mode.</p></li>
+<li><p>The GUI does not open the <strong>Disassembly</strong> window automatically when debugger cannot find the source file. Open the <strong>Disassembly</strong> window manually in this case.</p></li>
+</ul>
+</div>
 <div class="section" id="basic-information">
-<h2>Basic Information<a class="headerlink" href="#basic-information" title="Permalink to this headline">¶</a></h2>
+<h3>Basic Information<a class="headerlink" href="#basic-information" title="Permalink to this headline">¶</a></h3>
 <p>The MetaWare Development Toolkit supports building and debugging for ARC-V processors.</p>
 <ul>
 <li><p>IDE: The MetaWare IDE does not support ARC-V targets; instead, a VS Code plugin is provided as a <code class="docutils literal notranslate"><span class="pre">.vsix</span></code> file in the <code class="docutils literal notranslate"><span class="pre">MetaWare/arc/lldbac</span></code> folder. You must have an installed instance of VS Code from Microsoft to use this extension. The <em>MetaWare Debugger User Guide</em> in <code class="docutils literal notranslate"><span class="pre">/MetaWare/arc/docs/pdf/arc-v</span></code> has step-by-step instructions on how to install and configure this extension.</p>
@@ -204,27 +234,27 @@
 </ul>
 </div>
 <div class="section" id="known-issues-and-limitations">
-<h2>Known Issues and Limitations<a class="headerlink" href="#known-issues-and-limitations" title="Permalink to this headline">¶</a></h2>
+<h3>Known Issues and Limitations<a class="headerlink" href="#known-issues-and-limitations" title="Permalink to this headline">¶</a></h3>
 <p>Up-to-date lists of known and fixed issues are available online at <a class="reference external" href="https://www.synopsys.com/dw/doc.php/arc_tools/dw_arc_metaware/user_docs/mwdtkf/index.html">https://www.synopsys.com/dw/doc.php/arc_tools/dw_arc_metaware/user_docs/mwdtkf/index.html</a>.</p>
 </div>
 <div class="section" id="installation-and-licensing">
-<h2>Installation and Licensing<a class="headerlink" href="#installation-and-licensing" title="Permalink to this headline">¶</a></h2>
+<h3>Installation and Licensing<a class="headerlink" href="#installation-and-licensing" title="Permalink to this headline">¶</a></h3>
 <p>See the section on installation and licensing in the <em>MetaWare Quick Start Guide</em>.</p>
 </div>
 <div class="section" id="the-first-sample-application">
-<span id="id1"></span><h2>The First Sample Application<a class="headerlink" href="#the-first-sample-application" title="Permalink to this headline">¶</a></h2>
+<span id="id1"></span><h3>The First Sample Application<a class="headerlink" href="#the-first-sample-application" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="building-the-queens-example">
-<h3>Building the Queens Example<a class="headerlink" href="#building-the-queens-example" title="Permalink to this headline">¶</a></h3>
+<h4>Building the Queens Example<a class="headerlink" href="#building-the-queens-example" title="Permalink to this headline">¶</a></h4>
 <p>A simple working Queens demo that shows how to compile, link, and execute a program for an ARC-V target is available in <code class="docutils literal notranslate"><span class="pre">MetaWare/arc/examples/arcv_queens</span></code>.</p>
 <p>Prerequisite:
 Run <code class="docutils literal notranslate"><span class="pre">setenv_mwdt.bat</span></code> (<code class="docutils literal notranslate"><span class="pre">.sh</span></code> on Linux) in the top-level directory (<code class="docutils literal notranslate"><span class="pre">ARC/</span></code> by default) to set the environment variables that describe where the MetaWare Development Toolkit and nSIM are installed.</p>
 <p>Makefiles are provided for <code class="docutils literal notranslate"><span class="pre">ccac</span></code> and <code class="docutils literal notranslate"><span class="pre">clangac</span></code>.</p>
 <div class="section" id="makefile">
-<h4>Makefile<a class="headerlink" href="#makefile" title="Permalink to this headline">¶</a></h4>
+<h5>Makefile<a class="headerlink" href="#makefile" title="Permalink to this headline">¶</a></h5>
 <p>This makefile uses CCAC to compile and link the program. It is then run on nSIM directly (no debugger).</p>
 </div>
 <div class="section" id="makefile-clang">
-<h4>Makefile.clang<a class="headerlink" href="#makefile-clang" title="Permalink to this headline">¶</a></h4>
+<h5>Makefile.clang<a class="headerlink" href="#makefile-clang" title="Permalink to this headline">¶</a></h5>
 <p>This makefile uses the Clang driver to compile and link the program and run it directly on nSIM (no debugger).</p>
 <p>This method is a bit more complicated because you have to tell Clang where the C runtime is and how to use that runtime during compiling and linking.</p>
 <p>Normally you place this information in a configuration file and then invoke Clang with that configuration file. For the steps to create and use a configuration file, see
@@ -242,7 +272,7 @@ Run <code class="docutils literal notranslate"><span class="pre">setenv_mwdt.bat
 </div>
 </div>
 <div class="section" id="alternative-compilation">
-<h3>Alternative Compilation<a class="headerlink" href="#alternative-compilation" title="Permalink to this headline">¶</a></h3>
+<h4>Alternative Compilation<a class="headerlink" href="#alternative-compilation" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>% ccac -tcf=rmx100.tcf -O2 -g queens.c
 </pre></div>
 </div>
@@ -250,7 +280,7 @@ Run <code class="docutils literal notranslate"><span class="pre">setenv_mwdt.bat
 To use the semihosting interface, add <code class="docutils literal notranslate"><span class="pre">-Hhostlib=semihost</span></code> to the <code class="docutils literal notranslate"><span class="pre">ccac</span></code> options.</p>
 </div>
 <div class="section" id="running-the-queens-example-in-nsim">
-<h3>Running the Queens Example in nSIM<a class="headerlink" href="#running-the-queens-example-in-nsim" title="Permalink to this headline">¶</a></h3>
+<h4>Running the Queens Example in nSIM<a class="headerlink" href="#running-the-queens-example-in-nsim" title="Permalink to this headline">¶</a></h4>
 <p>The tools for ARC-V include the nSIM simulator. You can invoke the standalone nSIM simulator for ARC-V using the <code class="docutils literal notranslate"><span class="pre">nsimdrv</span></code> driver or the <code class="docutils literal notranslate"><span class="pre">runrv</span></code> convenience script.</p>
 <p>To execute the Queens demo on an ARC-V nSIM simulator, use the Makefile in <code class="docutils literal notranslate"><span class="pre">MetaWare/arc/examples/arcv_queens</span></code>.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>% make run
@@ -270,9 +300,9 @@ If the run is successful, the following message appears in the console.</p>
 </div>
 </div>
 <div class="section" id="debugging">
-<h2>Debugging<a class="headerlink" href="#debugging" title="Permalink to this headline">¶</a></h2>
+<h3>Debugging<a class="headerlink" href="#debugging" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="command-line-interface">
-<h3>Command-Line Interface<a class="headerlink" href="#command-line-interface" title="Permalink to this headline">¶</a></h3>
+<h4>Command-Line Interface<a class="headerlink" href="#command-line-interface" title="Permalink to this headline">¶</a></h4>
 <p>Launch the debugger:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>% lldbac a.out
 </pre></div>
@@ -346,7 +376,7 @@ If the run is successful, the following message appears in the console.</p>
 </div>
 </div>
 <div class="section" id="installing-the-visual-studio-code-extension">
-<h3>Installing the Visual Studio Code Extension<a class="headerlink" href="#installing-the-visual-studio-code-extension" title="Permalink to this headline">¶</a></h3>
+<h4>Installing the Visual Studio Code Extension<a class="headerlink" href="#installing-the-visual-studio-code-extension" title="Permalink to this headline">¶</a></h4>
 <p>To run a GUI session, install and configure the VS Code extension using the following steps.</p>
 <ol class="arabic simple">
 <li><p>Install VS Code from the official site, <a class="reference external" href="https://code.visualstudio.com/download">https://code.visualstudio.com/download</a>.</p></li>
@@ -374,7 +404,7 @@ Replace <code class="docutils literal notranslate"><span class="pre">&lt;METAWAR
 <img alt="../_images/lldbac_dap_path.png" src="../_images/lldbac_dap_path.png" />
 </div>
 <div class="section" id="debugging-with-visual-studio-code">
-<h3>Debugging with Visual Studio Code<a class="headerlink" href="#debugging-with-visual-studio-code" title="Permalink to this headline">¶</a></h3>
+<h4>Debugging with Visual Studio Code<a class="headerlink" href="#debugging-with-visual-studio-code" title="Permalink to this headline">¶</a></h4>
 <p>After installing the Visual Studio Code extension, execute the following steps to create a new launch configuration:</p>
 <ol class="arabic simple">
 <li><p>Open your workspace folder.</p></li>
@@ -436,6 +466,7 @@ Below is a brief description of the main GUI debugger features.</p>
 <li><p>Check the column that appears to the right of the address column. Each entry in this column indicates how many times the counter was incremented while the counter was executing the instruction at the corresponding address.</p></li>
 </ol>
 <img alt="../_images/disassembly-profiling.png" src="../_images/disassembly-profiling.png" />
+</div>
 </div>
 </div>
 </div>

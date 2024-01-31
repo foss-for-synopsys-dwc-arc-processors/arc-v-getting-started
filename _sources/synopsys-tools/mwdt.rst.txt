@@ -1,4 +1,47 @@
 The MetaWare Development Toolkit
---------------------------------
+================================
+
+The well-known MetaWare Development Toolkit has expanded its supported cores to ensure the generation of highly efficient code for the new RISC-V ARC-V family of processors.
+
+The MetaWare Development Toolkit includes a variety of tools that should facilitate software development — compiler, linker, LLDB-based debugger (``lldbac``), simulator, and so on.
+
+MWDT V-2023.12
+--------------
+
+The V-2023.12 version of the MetaWare Development Toolkit introduces experimental support for the ARC-V RMX processor series based on the RISC-V instruction-set architecture.
+
+More information about this family can be found on the Synopsys website: `Power-Efficient RISC-V Processors for Embedded Applications <https://www.synopsys.com/designware-ip/processor-solutions/arc-v-processors/arc-v-rmx.html>`_.
+
+New Features and Enhancements
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Support for RISC-V based ARC-V RMX Processors
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* Experimental support is added for the RISC-V based ARC-V processors.
+* Added support for the following RISC-V extensions: ``Zi``, ``Zm``, ``Za``, ``Zc``, ``Zba``, ``Zbb``, ``Zbc``, ``Zbs``, ``Zfinx``, ``Zdinx``, ``Zicsr``, ``Zifencei``, ``Zihintpause`` and ``Zicbom``.
+* Added support for the following code-size reduction extensions: ``Zca``, ``Zcb``, ``Zcf``, ``Zcd`` and ``Zcmp``.
+* Added support for basic debugging in ``lldbac`` (command-line mode) and in Visual Studio Code (GUI mode).
+
+.. note::
+    As this is the first release of the MetaWare Development Toolkit with ARC-V support, some functionality might have issues, some processor features might not yet be fully supported, and performance might be lower than expected performance of the final product.
+
+Supported Platforms
+~~~~~~~~~~~~~~~~~~~
+
+Supported host operating systems and platforms limitations can be found in the *MetaWare Release Notes* document in ``/MetaWare/arc/docs/pdf``. 
+
+Tools Limitations
+~~~~~~~~~~~~~~~~~
+
+Limitations of the experimental debugger support for ARC-V targets:
+
+* The experimental debugger invoked with ``lldbac`` or ``lldbac-dap`` supports only ARC-V targets.
+* Only the GDB RSP and RASCAL target connection protocols are supported. The MCD protocol is not supported. JTAG connections can only be established using an external GDB server.
+* Only the following semihosting operations are supported: WRITE, READ, OPEN, CLOSE, ISTTY, FLEN, GETCMDLINE, EXIT.
+* By default, the windows defined by the MetaWare debugger VS Code extension are not synchronized automatically with the selected stack frame. To enable stack-frame synchronization, add any expression to the **Watch** window in the **Run and Debug** tab and keep the Watch window open.
+* Instruction (address) profiling is only supported in the GUI, not in command-line mode.
+* The GUI does not open the **Disassembly** window automatically when debugger cannot find the source file. Open the **Disassembly** window manually in this case.
+
 
 .. include:: ../mwdt_specifics.rst

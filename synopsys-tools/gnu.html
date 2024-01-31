@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>GNU tools for ARC-V &mdash; MetaWare_ARC-V_QuickStart html-0.1-19-gf1d3755 documentation</title>
+  <title>GNU tools for ARC-V &mdash; MetaWare_ARC-V_QuickStart  documentation</title>
   
 
   
@@ -64,10 +64,6 @@
           
             
             
-              <div class="version">
-                html-0.1-19-gf1d3755
-              </div>
-            
           
 
           
@@ -110,6 +106,11 @@
 <li class="toctree-l4"><a class="reference internal" href="#build-and-run-a-simple-application-for-synopsys-nsim">Build and Run a Simple Application for Synopsys nSIM</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#build-and-run-a-simple-application-for-qemu">Build and Run a Simple Application for QEMU</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#debugging-a-simple-application">Debugging a Simple Application</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#testing-specific-risc-v-extensions">Testing Specific RISC-V Extensions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#zcmp-extension">Zcmp Extension</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#zcb-extension">Zcb Extension</a></li>
 </ul>
 </li>
 </ul>
@@ -501,6 +502,87 @@ Continuing.
 </pre></div>
 </div>
 <p>Note that the first location where the CPU is waiting for commands is 0x0000_1000. It’s a virt board reset vector location; see <a class="reference external" href="https://elixir.bootlin.com/qemu/v8.2.0/source/hw/riscv/boot.c#L396">https://elixir.bootlin.com/qemu/v8.2.0/source/hw/riscv/boot.c#L396</a>. It is not possible to suppress execution of that reset vector code as it’s an essential part of the QEMU board (think of it as a boot-ROM). You can only bypass it if you load the target executable from the GDB client with the <code class="docutils literal notranslate"><span class="pre">load</span></code> command. Then execution starts from the loaded application entry point.</p>
+</div>
+</div>
+</div>
+<div class="section" id="testing-specific-risc-v-extensions">
+<h2>Testing Specific RISC-V Extensions<a class="headerlink" href="#testing-specific-risc-v-extensions" title="Permalink to this headline">¶</a></h2>
+<p>One of the benefits of RISC-V ISA is its extensibility. As a matter of fact, only a handful of instructions form the minimally required base. But the most interesting part is in utilizing application-specific extensions, which let you achieve benefits in certain situations.</p>
+<p>In embedded and especially deeply embedded applications, one of the key objectives is to keep the memory footprint of the target application as tiny as possible. And the RISC-V Zc* extensions help to achieve exactly that. This section demonstrates a couple of those extensions in action. See also the documentation and related information on each extension on the corresponding GitHub resource here: <a class="reference external" href="https://github.com/riscv/riscv-code-size-reduction">https://github.com/riscv/riscv-code-size-reduction</a>.</p>
+<div class="section" id="zcmp-extension">
+<h3>Zcmp Extension<a class="headerlink" href="#zcmp-extension" title="Permalink to this headline">¶</a></h3>
+<p>Consider the following code snippet:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cat t01.c
+
+void test (void) {
+    asm volatile (&quot;&quot;
+             :
+             :
+             : &quot;s0&quot;, &quot;s1&quot;, &quot;s2&quot;, &quot;s3&quot;,
+               &quot;s4&quot;, &quot;s5&quot;, &quot;s6&quot;, &quot;s7&quot;,
+               &quot;s8&quot;, &quot;s9&quot;, &quot;s10&quot;, &quot;s11&quot;);
+}
+</pre></div>
+</div>
+<p>Here is a generated assembly listing targeting the Zcmp extension:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ riscv64-unknown-elf-gcc -march=rv32im_zcmp -mabi=ilp32 t01.c -S -O1 -o -
+
+    .file   &quot;t01.c&quot;
+    .option nopic
+    .attribute arch, &quot;rv32i2p1_m2p0_zca1p0_zcmp1p0&quot;
+    .attribute unaligned_access, 0
+    .attribute stack_align, 16
+    .text
+    .align  1
+    .globl  test
+    .type   test, @function
+test:
+     cm.push {ra, s0-s11}, -64
+     cm.popret       {ra, s0-s11}, 64
+     .size   test, .-test
+     .ident  &quot;GCC: (RISC-V elf toolchain - build 6278) 13.2.0&quot;
+</pre></div>
+</div>
+<p>Note the generated <code class="docutils literal notranslate"><span class="pre">cm.push</span></code> and <code class="docutils literal notranslate"><span class="pre">cm.popret</span></code> instructions, which confirm that the compiler is capable of using the extension.</p>
+</div>
+<div class="section" id="zcb-extension">
+<h3>Zcb Extension<a class="headerlink" href="#zcb-extension" title="Permalink to this headline">¶</a></h3>
+<p>Another RISC-V extension that is easy to see in action also comes from the code-size-reduction group: Zcb.
+Consider the following C function:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cat t03.c
+
+int test (int a, int b) {
+    return a + b;
+}
+</pre></div>
+</div>
+<p>Now compile and disassemble it:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ riscv64-elf-gcc -march=rv32im_zca_zcb -mabi=ilp32 t03.c -c -O1
+$ riscv64-unknown-elf-objdump -d t03.o
+
+t03.o:     file format elf32-littleriscv
+
+
+Disassembly of section .text:
+
+00000000 &lt;test&gt;:
+   0:   952e                    add     a0,a0,a1
+   2:   8082                    ret
+</pre></div>
+</div>
+<p>Note the short 16-bit encoding of the <code class="docutils literal notranslate"><span class="pre">add</span></code> instruction. Without use of Zc extensions, compiler generates a full 32-bit encoding as in the example below.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ riscv64-elf-gcc -march=rv32im -mabi=ilp32 t03.c -c -O1
+$ riscv64-unknown-elf-objdump -d t03.o
+
+t03.o:     file format elf32-littleriscv
+
+
+Disassembly of section .text:
+
+00000000 &lt;test&gt;:
+   0:   00b50533                add     a0,a0,a1
+   4:   00008067                ret
+</pre></div>
 </div>
 </div>
 </div>
