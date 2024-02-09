@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>GNU tools for ARC-V &mdash; MetaWare_ARC-V_QuickStart  documentation</title>
+  <title>GNU tools for ARC-V &mdash; MetaWare_ARC-V_QuickStart html-1.0 documentation</title>
   
 
   
@@ -63,6 +63,10 @@
 
           
             
+            
+              <div class="version">
+                html-1.0
+              </div>
             
           
 
@@ -230,7 +234,7 @@ This release introduces support for the ARC-V RMX and RHX processors series base
 <div class="section" id="binary-distribution">
 <h4>Binary Distribution<a class="headerlink" href="#binary-distribution" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
-<li><p>Supported host operating systems: Windows 10 64-bit, Ubuntu 18.04.x, 20.04.x, CentOS/RHEL 7.x</p></li>
+<li><p>Supported host operating systems: Windows 10/11 64-bit, Ubuntu 18.04.x, 20.04.x, CentOS/RHEL 7.x</p></li>
 <li><p>Prebuilt bare-metal toolchains for 64-bit Windows &amp; Linux hosts; see table with references and list of artifacts.</p></li>
 </ul>
 </div>
@@ -281,12 +285,12 @@ This release introduces support for the ARC-V RMX and RHX processors series base
 <div class="section" id="prebuilt-toolchains-available-for-download">
 <h3>Prebuilt Toolchains Available for Download<a class="headerlink" href="#prebuilt-toolchains-available-for-download" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/foss-for-synopsys-dwc-arc-processors/toolchain/releases/download/arc-2023.12-rc2/arc_gnu_2023.12-rc2_prebuilt_riscv64_elf_le_linux_install.tar.bz2">Bare-metal ARC-V cross-toolchain for 64-bit Linux hosts</a></p></li>
-<li><p><a class="reference external" href="https://github.com/foss-for-synopsys-dwc-arc-processors/toolchain/releases/download/arc-2023.12-rc2/arc_gnu_2023.12-rc2_prebuilt_riscv64_elf_le_win_install.tar.bz2">Bare-metal ARC-V cross-toolchain for 64-bit Windows 10 &amp; 11 hosts</a></p></li>
+<li><p><a class="reference external" href="https://github.com/foss-for-synopsys-dwc-arc-processors/toolchain/releases/download/arc-2023.12-release/arc_gnu_2023.12_prebuilt_riscv64_elf_le_linux_install.tar.bz2">Bare-metal ARC-V cross-toolchain for 64-bit Linux hosts</a></p></li>
+<li><p><a class="reference external" href="https://github.com/foss-for-synopsys-dwc-arc-processors/toolchain/releases/download/arc-2023.12-release/arc_gnu_2023.12_prebuilt_riscv64_elf_le_win_install.tar.bz2">Bare-metal ARC-V cross-toolchain for 64-bit Windows 10 &amp; 11 hosts</a></p></li>
 </ul>
 <p>Archive SHA-256 checksums are:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">c85a48c3622651902e7e36ada7a73a92a0daef13f879c6c79bd37d5769ab38f9</span> <span class="n">arc_gnu_2023</span><span class="o">.</span><span class="mi">12</span><span class="o">-</span><span class="n">rc2_prebuilt_riscv64_elf_le_win_install</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">bz2</span>
-<span class="n">fb1639673647d2fb4f5be4fc449f675d6f7ed746027b7697872bb285755aaf6d</span> <span class="n">arc_gnu_2023</span><span class="o">.</span><span class="mi">12</span><span class="o">-</span><span class="n">rc2_prebuilt_riscv64_elf_le_linux_install</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">bz2</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">4e555</span><span class="n">c1b214eb97fd3bf9e1ffa43d69a0d274deb295fec66bdfdebef714b7bf7</span> <span class="n">arc_gnu_2023</span><span class="o">.</span><span class="mi">12</span><span class="n">_prebuilt_riscv64_elf_le_win_install</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">bz2</span>
+<span class="mi">9</span><span class="n">dedb6e496e52a45ce536c9a1970a44401319c42ea17b7b8f6655b6204b9b444</span> <span class="n">arc_gnu_2023</span><span class="o">.</span><span class="mi">12</span><span class="n">_prebuilt_riscv64_elf_le_linux_install</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">bz2</span>
 </pre></div>
 </div>
 </div>
@@ -355,7 +359,7 @@ For example, using semihosting: <code class="docutils literal notranslate"><span
 <blockquote>
 <div><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ riscv64-elf-gcc --specs<span class="o">=</span>semihost.specs --specs<span class="o">=</span>arcv.specs -mabi<span class="o">=</span>ilp32 <span class="se">\</span>
                   -mtune<span class="o">=</span>rmx100 -march<span class="o">=</span>rv32im_zba_zbb_zbs_zca_zcb_zcmp_zicsr <span class="se">\</span>
-                  test.c -o a.out
+                  -T arcv.ld test.c -o a.out
 </pre></div>
 </div>
 </div></blockquote>
@@ -364,7 +368,7 @@ For example, using semihosting: <code class="docutils literal notranslate"><span
 <blockquote>
 <div><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ riscv64-elf-gcc --specs<span class="o">=</span>semihost.specs --specs<span class="o">=</span>arcv.specs -mabi<span class="o">=</span>ilp32 <span class="se">\</span>
                   -mtune<span class="o">=</span>rmx500 -march<span class="o">=</span>rv32im_zba_zbb_zbs_zca_zcb_zcmp_zicsr <span class="se">\</span>
-                  test.c -o a.out
+                  -T arcv.ld test.c -o a.out
 </pre></div>
 </div>
 </div></blockquote>
@@ -373,7 +377,7 @@ For example, using semihosting: <code class="docutils literal notranslate"><span
 <blockquote>
 <div><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ riscv64-elf-gcc --specs<span class="o">=</span>semihost.specs --specs<span class="o">=</span>arcv.specs -mabi<span class="o">=</span>ilp32 <span class="se">\</span>
                   -mtune<span class="o">=</span>rhx -march<span class="o">=</span>rv32im_zba_zbb_zbs_zca_zcb_zcmp_zicsr <span class="se">\</span>
-                  test.c -o a.out
+                  -T arcv.ld test.c -o a.out
 </pre></div>
 </div>
 </div></blockquote>
@@ -434,7 +438,7 @@ ARC-V’s default linker script <code class="docutils literal notranslate"><span
 <div><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ riscv64-elf-gcc --specs<span class="o">=</span>semihost.specs --specs<span class="o">=</span>arcv.specs -mabi<span class="o">=</span>ilp32 <span class="se">\</span>
                   -mtune<span class="o">=</span>rmx100 -march<span class="o">=</span>rv32im_zba_zbb_zbs_zca_zcb_zcmp_zicsr <span class="se">\</span>
                   -Wl,-defsym<span class="o">=</span><span class="nv">txtmem_addr</span><span class="o">=</span>0x80000000 -Wl,-defsym<span class="o">=</span><span class="nv">datamem_addr</span><span class="o">=</span>0x80100000 <span class="se">\</span>
-                  test.c -o a.out
+                  -T arcv.ld test.c -o a.out
 </pre></div>
 </div>
 </div></blockquote>
@@ -444,7 +448,7 @@ ARC-V’s default linker script <code class="docutils literal notranslate"><span
 <div><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ riscv64-elf-gcc --specs<span class="o">=</span>semihost.specs --specs<span class="o">=</span>arcv.specs -mabi<span class="o">=</span>ilp32 <span class="se">\</span>
                   -mtune<span class="o">=</span>rmx500 -march<span class="o">=</span>rv32im_zba_zbb_zbs_zca_zcb_zcmp_zicsr <span class="se">\</span>
                   -Wl,-defsym<span class="o">=</span><span class="nv">txtmem_addr</span><span class="o">=</span>0x80000000 -Wl,-defsym<span class="o">=</span><span class="nv">datamem_addr</span><span class="o">=</span>0x80100000 <span class="se">\</span>
-                  test.c -o a.out
+                  -T arcv.ld test.c -o a.out
 </pre></div>
 </div>
 </div></blockquote>
@@ -454,7 +458,7 @@ ARC-V’s default linker script <code class="docutils literal notranslate"><span
 <div><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ riscv64-elf-gcc --specs<span class="o">=</span>semihost.specs --specs<span class="o">=</span>arcv.specs -mabi<span class="o">=</span>ilp32 <span class="se">\</span>
                   -mtune<span class="o">=</span>rhx -march<span class="o">=</span>rv32im_zba_zbb_zbs_zca_zcb_zcmp_zicsr <span class="se">\</span>
                   -Wl,-defsym<span class="o">=</span><span class="nv">txtmem_addr</span><span class="o">=</span>0x80000000 -Wl,-defsym<span class="o">=</span><span class="nv">datamem_addr</span><span class="o">=</span>0x80100000 <span class="se">\</span>
-                  test.c -o a.out
+                  -T arcv.ld test.c -o a.out
 </pre></div>
 </div>
 </div></blockquote>
@@ -474,8 +478,8 @@ Hello world!
 <h4>With the Synopsys LLDB Debugger and Visual Studio Code IDE<a class="headerlink" href="#with-the-synopsys-lldb-debugger-and-visual-studio-code-ide" title="Permalink to this headline">¶</a></h4>
 <p>For detailed information on how to debug an application with the Synopsys LLDB Debugger and Visual Studio Code IDE, see the following section: <a class="reference internal" href="mwdt.html"><span class="doc">The MetaWare Development Toolkit</span></a>.</p>
 </div>
-<div class="section" id="with-qemu">
-<h4>With QEMU<a class="headerlink" href="#with-qemu" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="with-qemu-and-gdb">
+<h4>With QEMU and GDB<a class="headerlink" href="#with-qemu-and-gdb" title="Permalink to this headline">¶</a></h4>
 <p>You can debug an application that is being run on QEMU with help of the built-in GDB server of QEMU. On the QEMU side, you need to enable the GDB sever and optionally instruct the QEMU not to start the application execution automatically, but instead wait for user input. For that you need to pass <code class="docutils literal notranslate"><span class="pre">-s</span> <span class="pre">-S</span></code> commands to <cite>qemu-system-riscv32</cite> so that the full command-line looks like this:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ qemu-system-riscv32 -semihosting -nographic -machine virt -cpu rv32 -bios none -kernel a.out -s -S
 </pre></div>

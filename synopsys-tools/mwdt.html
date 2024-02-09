@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>The MetaWare Development Toolkit &mdash; MetaWare_ARC-V_QuickStart  documentation</title>
+  <title>The MetaWare Development Toolkit &mdash; MetaWare_ARC-V_QuickStart html-1.0 documentation</title>
   
 
   
@@ -64,6 +64,10 @@
           
             
             
+              <div class="version">
+                html-1.0
+              </div>
+            
           
 
           
@@ -92,6 +96,7 @@
 <li class="toctree-l2"><a class="reference internal" href="updates.html">Latest Updates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gnu.html">GNU tools for ARC-V</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">The MetaWare Development Toolkit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#getting-the-metaware-development-toolkit">Getting the MetaWare Development Toolkit</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#mwdt-v-2023-12">MWDT V-2023.12</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#new-features-and-enhancements">New Features and Enhancements</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#supported-platforms">Supported Platforms</a></li>
@@ -99,7 +104,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#basic-information">Basic Information</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#known-issues-and-limitations">Known Issues and Limitations</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#installation-and-licensing">Installation and Licensing</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#the-first-sample-application">The First Sample Application</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-first-metaware-sample-application">The First MetaWare Sample Application</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#debugging">Debugging</a></li>
 </ul>
 </li>
@@ -178,8 +183,19 @@
             
   <div class="section" id="the-metaware-development-toolkit">
 <h1>The MetaWare Development Toolkit<a class="headerlink" href="#the-metaware-development-toolkit" title="Permalink to this headline">¶</a></h1>
-<p>The well-known MetaWare Development Toolkit has expanded its supported cores to ensure the generation of highly efficient code for the new RISC-V ARC-V family of processors.</p>
-<p>The MetaWare Development Toolkit includes a variety of tools that should facilitate software development — compiler, linker, LLDB-based debugger (<code class="docutils literal notranslate"><span class="pre">lldbac</span></code>), simulator, and so on.</p>
+<p>The well-known MetaWare Development Toolkit (MWDT) has expanded its supported cores to ensure the generation of highly efficient code for the new RISC-V ARC-V family of processors.</p>
+<p>The MetaWare Development Toolkit includes a variety of tools that facilitate software development — LLVM-based compiler, linker, LLDB-based debugger (<code class="docutils literal notranslate"><span class="pre">lldbac</span></code>), processor simulator, and so on.</p>
+<div class="section" id="getting-the-metaware-development-toolkit">
+<h2>Getting the MetaWare Development Toolkit<a class="headerlink" href="#getting-the-metaware-development-toolkit" title="Permalink to this headline">¶</a></h2>
+<p>The Synopsys Eval Portal (<a class="reference external" href="https://eval.synopsys.com/">https://eval.synopsys.com/</a>) allows you to request an evaluation license for Synopsys software products. MetaWare Development Toolkit is the one relevant for ARC-V processors. Follow these steps:</p>
+<ol class="arabic simple">
+<li><p>Log in to the portal (or register for an account).</p></li>
+<li><p>Complete an Evaluation Request Form for your chosen software product(s).</p></li>
+<li><p>Submit your shopping cart to complete your evaluation request. Receive email confirmation with a 30-day evaluation key.</p></li>
+<li><p>Download the software and begin your evaluation.</p></li>
+<li><p>Email-based support is available by writing to <a class="reference external" href="mailto:mwdt-eval-support&#37;&#52;&#48;synopsys&#46;com">mwdt-eval-support<span>&#64;</span>synopsys<span>&#46;</span>com</a>.</p></li>
+</ol>
+</div>
 <div class="section" id="mwdt-v-2023-12">
 <h2>MWDT V-2023.12<a class="headerlink" href="#mwdt-v-2023-12" title="Permalink to this headline">¶</a></h2>
 <p>The V-2023.12 version of the MetaWare Development Toolkit introduces experimental support for the ARC-V RMX processor series based on the RISC-V instruction-set architecture.</p>
@@ -223,14 +239,14 @@
 <li><p>IDE: The MetaWare IDE does not support ARC-V targets; instead, a VS Code plugin is provided as a <code class="docutils literal notranslate"><span class="pre">.vsix</span></code> file in the <code class="docutils literal notranslate"><span class="pre">MetaWare/arc/lldbac</span></code> folder. You must have an installed instance of VS Code from Microsoft to use this extension. The <em>MetaWare Debugger User Guide</em> in <code class="docutils literal notranslate"><span class="pre">/MetaWare/arc/docs/pdf/arc-v</span></code> has step-by-step instructions on how to install and configure this extension.</p>
 <p>The extension adds support for ARC-V debug sessions using the ARC-V MetaWare debugger. It supports basic debug operations such as running, halting, stepping, reading/writing registers, inspecting variables, setting breakpoints, and so on. The extension also includes some custom windows, for example an <strong>ARC-V Traps</strong> window and a <strong>Disassembly</strong> window.</p>
 </li>
-<li><p>Compiler: The MetaWare <code class="docutils literal notranslate"><span class="pre">ccac</span></code> compiler driver supports building for ARC-V. See the <em>MetaWare CCAC Programmer’s Guide</em> for details. You can also build using <code class="docutils literal notranslate"><span class="pre">clangac</span></code> directly. See <a class="reference internal" href="#the-first-sample-application">The First Sample Application</a>.</p>
+<li><p>Compiler: The MetaWare <code class="docutils literal notranslate"><span class="pre">ccac</span></code> compiler driver supports building for ARC-V. <code class="docutils literal notranslate"><span class="pre">ccac</span></code> is an enhanced compiler driver tuned for maximum efficiency and providing smooth migration path for existing ARC users. See the <em>MetaWare CCAC Programmer’s Guide</em> for details. You can also build using the <code class="docutils literal notranslate"><span class="pre">clangac</span></code> driver, which is compatible with the LLVM default <code class="docutils literal notranslate"><span class="pre">clang</span></code> driver. This driver is the best choice for migrating existing code from non-ARC processors. See <a class="reference internal" href="#the-first-metaware-sample-application">The First MetaWare Sample Application</a>.</p>
 <ul class="simple">
-<li><p>Assembler: The MetaWare <code class="docutils literal notranslate"><span class="pre">asac</span></code> assembler does not support ARC-V. The <code class="docutils literal notranslate"><span class="pre">ccac</span></code> driver invokes an LLVM assembler behind the scenes. If you need to invoke the assembler directly, use <code class="docutils literal notranslate"><span class="pre">llvm-asac</span></code>.</p></li>
+<li><p>Assembler: The <code class="docutils literal notranslate"><span class="pre">ccac</span></code> and <code class="docutils literal notranslate"><span class="pre">clangac</span></code> drivers invoke an LLVM assembler behind the scenes. If you need to invoke the assembler directly, use <code class="docutils literal notranslate"><span class="pre">llvm-asac</span></code>. The MetaWare <code class="docutils literal notranslate"><span class="pre">asac</span></code> assembler does not support ARC-V.</p></li>
 <li><p>Linker: The MetaWare linker supports linking for ARC-V using the <code class="docutils literal notranslate"><span class="pre">ccac</span></code> driver or using <code class="docutils literal notranslate"><span class="pre">lldac</span></code> directly. See the <em>MetaWare ELF Linker and Utilities User’s Guide</em> for details.</p></li>
 </ul>
 </li>
 <li><p>Debugger: The MetaWare debugger supports ARC-V targets; see the dedicated documentation in <code class="docutils literal notranslate"><span class="pre">/MetaWare/arc/docs/pdf/arc-v</span></code>. The debugger uses the nSIM simulator, which supports ARC-V targets.</p></li>
-<li><p>Utilities: It is generally better to use the LLVM versions also provided in <code class="docutils literal notranslate"><span class="pre">/bin</span></code>. For example, it is better to use <code class="docutils literal notranslate"><span class="pre">llvm-objdump</span></code> instead of <code class="docutils literal notranslate"><span class="pre">elfdump</span></code>. The classic MetaWare <code class="docutils literal notranslate"><span class="pre">elfdump</span></code> is not updated to perform disassembly of ARC-V instructions. You can still use the classic MetaWare utilities, but some features (such as disassembly) are not available for ARC-V targets.</p></li>
+<li><p>Utilities: It is best to use the LLVM versions of ELF utilities provided in <code class="docutils literal notranslate"><span class="pre">/bin</span></code> for ARC-V builds. For example, it is better to use <code class="docutils literal notranslate"><span class="pre">llvm-objdump</span></code> instead of <code class="docutils literal notranslate"><span class="pre">elfdump</span></code>. The classic MetaWare <code class="docutils literal notranslate"><span class="pre">elfdump</span></code> is not updated to perform disassembly of ARC-V instructions. You can still use the classic MetaWare utilities, but some features (such as disassembly) are not available for ARC-V targets.</p></li>
 </ul>
 </div>
 <div class="section" id="known-issues-and-limitations">
@@ -241,8 +257,8 @@
 <h3>Installation and Licensing<a class="headerlink" href="#installation-and-licensing" title="Permalink to this headline">¶</a></h3>
 <p>See the section on installation and licensing in the <em>MetaWare Quick Start Guide</em>.</p>
 </div>
-<div class="section" id="the-first-sample-application">
-<span id="id1"></span><h3>The First Sample Application<a class="headerlink" href="#the-first-sample-application" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="the-first-metaware-sample-application">
+<span id="id1"></span><h3>The First MetaWare Sample Application<a class="headerlink" href="#the-first-metaware-sample-application" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="building-the-queens-example">
 <h4>Building the Queens Example<a class="headerlink" href="#building-the-queens-example" title="Permalink to this headline">¶</a></h4>
 <p>A simple working Queens demo that shows how to compile, link, and execute a program for an ARC-V target is available in <code class="docutils literal notranslate"><span class="pre">MetaWare/arc/examples/arcv_queens</span></code>.</p>
@@ -276,8 +292,8 @@ Run <code class="docutils literal notranslate"><span class="pre">setenv_mwdt.bat
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>% ccac -tcf=rmx100.tcf -O2 -g queens.c
 </pre></div>
 </div>
-<p>This method uses the hostlink interface.
-To use the semihosting interface, add <code class="docutils literal notranslate"><span class="pre">-Hhostlib=semihost</span></code> to the <code class="docutils literal notranslate"><span class="pre">ccac</span></code> options.</p>
+<p>This method uses the Hostlink interface, which is a MetaWare-specific host-access library.
+To use the standard RISC-V compatible semihosting interface, add <code class="docutils literal notranslate"><span class="pre">-Hhostlib=semihost</span></code> to the <code class="docutils literal notranslate"><span class="pre">ccac</span></code> options.</p>
 </div>
 <div class="section" id="running-the-queens-example-in-nsim">
 <h4>Running the Queens Example in nSIM<a class="headerlink" href="#running-the-queens-example-in-nsim" title="Permalink to this headline">¶</a></h4>
@@ -287,11 +303,11 @@ To use the semihosting interface, add <code class="docutils literal notranslate"
 </pre></div>
 </div>
 <p>The alternative way is to use the <code class="docutils literal notranslate"><span class="pre">nsimdrv</span></code> driver or <code class="docutils literal notranslate"><span class="pre">runrv</span></code> script directly from the console:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>% nsimdrv -tcf ${METAWARE_ROOT}/arc/tcf/rmx100.tcf a.out     # Running the executable in nSIM using nsimdrv driver (hostlink interface)
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>% nsimdrv -tcf ${METAWARE_ROOT}/arc/tcf/rmx100.tcf a.out     # Running the executable in nSIM using nsimdrv driver (Hostlink interface)
 % runrv -p nsim_semihosting=1 -Za -Zm -Zbb a.out             # Running the executable in nSIM using runrv script (semihosting interface)
 </pre></div>
 </div>
-<p>Be sure to launch the simulator with the same hosting interface as specified in the executable (hostlink or semihosting).
+<p>Be sure to launch the simulator with the same hosting interface as specified in the executable (Hostlink or semihosting).
 If the run is successful, the following message appears in the console.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>go
     1   5   8   6   3   7   2   4
@@ -311,7 +327,7 @@ If the run is successful, the following message appears in the console.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; platform connect my_core nsim-gdb-properties=&quot;tcf=rmx100.tcf nsim_semihosting=1&quot;
 </pre></div>
 </div>
-<p>Omit <code class="docutils literal notranslate"><span class="pre">nsim_semihosting=1</span></code> if your program was compiled with the hostlink interface.</p>
+<p>Omit <code class="docutils literal notranslate"><span class="pre">nsim_semihosting=1</span></code> if your program was compiled with the Hostlink interface.</p>
 <p>Start the executable:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; process launch -s
 </pre></div>

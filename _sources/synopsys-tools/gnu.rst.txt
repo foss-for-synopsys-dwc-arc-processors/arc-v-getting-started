@@ -43,7 +43,7 @@ Support for RISC-V based ARC-V RMX and RHX Processors
 Binary Distribution
 ^^^^^^^^^^^^^^^^^^^
 
-* Supported host operating systems: Windows 10 64-bit, Ubuntu 18.04.x, 20.04.x, CentOS/RHEL 7.x
+* Supported host operating systems: Windows 10/11 64-bit, Ubuntu 18.04.x, 20.04.x, CentOS/RHEL 7.x
 * Prebuilt bare-metal toolchains for 64-bit Windows & Linux hosts; see table with references and list of artifacts.
 
 Toolchain Components
@@ -86,16 +86,16 @@ Also visit the GitHub discussions link for a community forum tailored to ARC-V p
 Prebuilt Toolchains Available for Download
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-* `Bare-metal ARC-V cross-toolchain for 64-bit Linux hosts <https://github.com/foss-for-synopsys-dwc-arc-processors/toolchain/releases/download/arc-2023.12-rc2/arc_gnu_2023.12-rc2_prebuilt_riscv64_elf_le_linux_install.tar.bz2>`_
-* `Bare-metal ARC-V cross-toolchain for 64-bit Windows 10 & 11 hosts <https://github.com/foss-for-synopsys-dwc-arc-processors/toolchain/releases/download/arc-2023.12-rc2/arc_gnu_2023.12-rc2_prebuilt_riscv64_elf_le_win_install.tar.bz2>`_
+* `Bare-metal ARC-V cross-toolchain for 64-bit Linux hosts <https://github.com/foss-for-synopsys-dwc-arc-processors/toolchain/releases/download/arc-2023.12-release/arc_gnu_2023.12_prebuilt_riscv64_elf_le_linux_install.tar.bz2>`_
+* `Bare-metal ARC-V cross-toolchain for 64-bit Windows 10 & 11 hosts <https://github.com/foss-for-synopsys-dwc-arc-processors/toolchain/releases/download/arc-2023.12-release/arc_gnu_2023.12_prebuilt_riscv64_elf_le_win_install.tar.bz2>`_
 
 
 Archive SHA-256 checksums are:
 
 .. code-block::
 
-  c85a48c3622651902e7e36ada7a73a92a0daef13f879c6c79bd37d5769ab38f9 arc_gnu_2023.12-rc2_prebuilt_riscv64_elf_le_win_install.tar.bz2
-  fb1639673647d2fb4f5be4fc449f675d6f7ed746027b7697872bb285755aaf6d arc_gnu_2023.12-rc2_prebuilt_riscv64_elf_le_linux_install.tar.bz2
+  4e555c1b214eb97fd3bf9e1ffa43d69a0d274deb295fec66bdfdebef714b7bf7 arc_gnu_2023.12_prebuilt_riscv64_elf_le_win_install.tar.bz2
+  9dedb6e496e52a45ce536c9a1970a44401319c42ea17b7b8f6655b6204b9b444 arc_gnu_2023.12_prebuilt_riscv64_elf_le_linux_install.tar.bz2
 
 Command-Line Reference
 ----------------------
@@ -172,7 +172,7 @@ The following commands can be used for compiling the sample for later execution 
 
       $ riscv64-elf-gcc --specs=semihost.specs --specs=arcv.specs -mabi=ilp32 \
                         -mtune=rmx100 -march=rv32im_zba_zbb_zbs_zca_zcb_zcmp_zicsr \
-                        test.c -o a.out
+                        -T arcv.ld test.c -o a.out
 
 * For an ARC-V RMX-500 processor:
 
@@ -180,7 +180,7 @@ The following commands can be used for compiling the sample for later execution 
 
       $ riscv64-elf-gcc --specs=semihost.specs --specs=arcv.specs -mabi=ilp32 \
                         -mtune=rmx500 -march=rv32im_zba_zbb_zbs_zca_zcb_zcmp_zicsr \
-                        test.c -o a.out
+                        -T arcv.ld test.c -o a.out
 
 * For an ARC-V RHX processors: 
 
@@ -188,7 +188,7 @@ The following commands can be used for compiling the sample for later execution 
 
       $ riscv64-elf-gcc --specs=semihost.specs --specs=arcv.specs -mabi=ilp32 \
                         -mtune=rhx -march=rv32im_zba_zbb_zbs_zca_zcb_zcmp_zicsr \
-                        test.c -o a.out
+                        -T arcv.ld test.c -o a.out
 
 
 After building, use the following command line to run the sample in nSIM:
@@ -260,7 +260,7 @@ Then the command lines look like this:
       $ riscv64-elf-gcc --specs=semihost.specs --specs=arcv.specs -mabi=ilp32 \
                         -mtune=rmx100 -march=rv32im_zba_zbb_zbs_zca_zcb_zcmp_zicsr \
                         -Wl,-defsym=txtmem_addr=0x80000000 -Wl,-defsym=datamem_addr=0x80100000 \
-                        test.c -o a.out
+                        -T arcv.ld test.c -o a.out
 
 * For an ARC-V RMX-500 processor:
 
@@ -269,7 +269,7 @@ Then the command lines look like this:
       $ riscv64-elf-gcc --specs=semihost.specs --specs=arcv.specs -mabi=ilp32 \
                         -mtune=rmx500 -march=rv32im_zba_zbb_zbs_zca_zcb_zcmp_zicsr \
                         -Wl,-defsym=txtmem_addr=0x80000000 -Wl,-defsym=datamem_addr=0x80100000 \
-                        test.c -o a.out
+                        -T arcv.ld test.c -o a.out
 
 * For an ARC-V RHX processor: 
 
@@ -278,7 +278,7 @@ Then the command lines look like this:
       $ riscv64-elf-gcc --specs=semihost.specs --specs=arcv.specs -mabi=ilp32 \
                         -mtune=rhx -march=rv32im_zba_zbb_zbs_zca_zcb_zcmp_zicsr \
                         -Wl,-defsym=txtmem_addr=0x80000000 -Wl,-defsym=datamem_addr=0x80100000 \
-                        test.c -o a.out
+                        -T arcv.ld test.c -o a.out
 
 
 After building, use the following command line to run the sample in QEMU:
@@ -303,8 +303,8 @@ With the Synopsys LLDB Debugger and Visual Studio Code IDE
 
 For detailed information on how to debug an application with the Synopsys LLDB Debugger and Visual Studio Code IDE, see the following section: :doc:`mwdt`.
 
-With QEMU
-^^^^^^^^^
+With QEMU and GDB
+^^^^^^^^^^^^^^^^^
 
 You can debug an application that is being run on QEMU with help of the built-in GDB server of QEMU. On the QEMU side, you need to enable the GDB sever and optionally instruct the QEMU not to start the application execution automatically, but instead wait for user input. For that you need to pass ``-s -S`` commands to `qemu-system-riscv32` so that the full command-line looks like this:
 

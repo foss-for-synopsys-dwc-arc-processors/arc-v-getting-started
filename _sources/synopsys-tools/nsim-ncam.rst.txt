@@ -7,14 +7,38 @@ nSIM Overview
 Basic Information
 ~~~~~~~~~~~~~~~~~
 
-Full Changelog
-~~~~~~~~~~~~~~
+Synopsys nSIM is an instruction-set simulator that can be used with the MetaWare debugger or with SystemC. It provides an instruction-accurate processor model for Synopsys ARC-V processors, letting you run actual programs in a fast and accurate way.
 
-Supported Features
-~~~~~~~~~~~~~~~~~~
+.. note::
+    nSIM requires Synopsys Common Licensing (SCL) version 2016.12 or later.
+
+nSIM V-2023.12
+--------------
+
+Improvements
+~~~~~~~~~~~~
+
+Experimental support for the ARC-V RMX-100 and RXM-500 families of processors, including experimental support for the following features:
+
+* RV32I and RV32E base instruction sets
+* ``M``, ``A``, ``F``, ``D``, ``C``, ``Zc*``, ``Zb*``, ``Zicsr``, ``Zifenci``, ``Zfinx``, ``Zdinx``, ``Zicond``, ``Zhintpause``, and ``Zicbom`` ISA extensions
+* Just-In-Time mode for the instruction sets and ISA extensions listed here
+* Host I/O through semihosting and MetaWare hostlink
+* CLINT and PLIC interrupts
+* Debugger support using nSIM GDB-server for ARC-V GDB and LLDB debuggers
+* Experimental SystemC, Virtualizer, and Platform Architect support (the ARC-V SystemC model supports memory interfaces only)
+
+.. note::
+    To support both the ARC-V family and previous ARC the nSIM SystemC directory has been restructured. The new directory structure is not backward-compatible. If you have existing virtual platforms created for use with prior nSIM releases, your platform most likely needs to be updated and rebuilt or recompiled.
+
+For additional information the on ARC-V family of processors, see  `Synopsys ARC Development Tools <https://www.synopsys.com/designware-ip/processor-solutions/arc-development-tools.html>`_.
 
 Known Issues and Limitations
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Support for ARC-V family of processors is experimental and support for features is limited.
+
+Up-to-date lists of known and fixed issues are available online at https://www.synopsys.com/dw/doc.php/arc_tools/dw_arc_nsim/nSIM_FixedIssues.pdf
 
 NCAM Overview
 -------------
@@ -22,46 +46,69 @@ NCAM Overview
 Basic Information
 ~~~~~~~~~~~~~~~~~
 
-Full Changelog
-~~~~~~~~~~~~~~
+NCAM (Near Cycle-Accurate Mode) is a hardware performance simulation mode of nSIM, which is derived from micro-architecture specifications and therefore cycle-approximate.
+
+.. note::
+    NCAM requires an nSIM Pro license.
+
+NCAM V-2023.12
+--------------
 
 Supported Features
 ~~~~~~~~~~~~~~~~~~
 
+* Provided experimental and uncalibrated RMX-100 NCAM model
+
 Known Issues and Limitations
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Obtaining the Installer
------------------------
+There are no known issues for this release so far.
 
-Installing the Tools
---------------------
+.. Obtaining the Installer
+.. -----------------------
+
+.. Installing the Tools
+.. --------------------
 
 License
 -------
 
-Reusing an existing License
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Before running Synopsys tools, you must install and configure the Synopsys Common Licensing (SCL) software, retrieve your license key file, and define the license file environment variable. For detailed information about SCL installation and setup, see the *Synopsys Licensing Quickstart Guide* at the following Web address: http://www.synopsys.com/Support/LI/Licensing
 
-Obtaining an Evaluation License and Setting It Locally
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. Reusing an existing License
+.. ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Command-Line Reference
-----------------------
+.. Obtaining an Evaluation License and Setting it Locally
+.. ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. Command-Line Reference
+.. ----------------------
 
 .. (ARC-V specific command-line options, linker command files, etc.)
 
 Standalone Execution Without a Debugger
 ---------------------------------------
 
+A standalone command-line version of the nSIM simulator is provided in addition to support for using nSIM with MetaWare debugger or SystemC. To run the ARC nSIM standalone simulator use the ``nsimdrv`` executable.
+
+For more information, check the "Standalone nSIM" section in the nSIM User’s Guide.
+
 GDB Interface
 -------------
 
-ARC-V Specific Parameters
-~~~~~~~~~~~~~~~~~~~~~~~~~
+To use the ARC nSIM simulator with the GDB debugger, you need to start a GDB server program to act as a TCP/IP remote target interface to GDB.
+This GDB server program can be run standalone (using ``nsimdrv``) or can be instantiated from within the nSIM SystemC wrapper.
 
-Example of Use with Cross-GDB Connected
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+For additional information and exact steps, check the following materials:
 
-* With a target application already loaded by nSIM
-* With the target application loaded from the GDB
+* "GNU for ARC Toolset Support" section in the *nSIM User’s Guide* document in ``/nSIM/nSIM/docs/pdf``.
+* "Connecting to GDB Remote Process in Command Line Mode" section in the *MetaWare Debugger User Guide* document in ``/MetaWare/arc/docs/pdf/arc-v``.
+
+.. ARC-V Specific Parameters
+.. ~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. Example of Use with Cross-GDB Connected
+.. ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. * With a target application already loaded by nSIM
+.. * With the target application loaded from the GDB

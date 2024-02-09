@@ -1,9 +1,20 @@
 The MetaWare Development Toolkit
 ================================
 
-The well-known MetaWare Development Toolkit has expanded its supported cores to ensure the generation of highly efficient code for the new RISC-V ARC-V family of processors.
+The well-known MetaWare Development Toolkit (MWDT) has expanded its supported cores to ensure the generation of highly efficient code for the new RISC-V ARC-V family of processors.
 
-The MetaWare Development Toolkit includes a variety of tools that should facilitate software development — compiler, linker, LLDB-based debugger (``lldbac``), simulator, and so on.
+The MetaWare Development Toolkit includes a variety of tools that facilitate software development — LLVM-based compiler, linker, LLDB-based debugger (``lldbac``), processor simulator, and so on.
+
+Getting the MetaWare Development Toolkit
+----------------------------------------
+
+The Synopsys Eval Portal (https://eval.synopsys.com/) allows you to request an evaluation license for Synopsys software products. MetaWare Development Toolkit is the one relevant for ARC-V processors. Follow these steps:
+
+1. Log in to the portal (or register for an account).
+2. Complete an Evaluation Request Form for your chosen software product(s).
+3. Submit your shopping cart to complete your evaluation request. Receive email confirmation with a 30-day evaluation key.
+4. Download the software and begin your evaluation.
+5. Email-based support is available by writing to mwdt-eval-support@synopsys.com.
 
 MWDT V-2023.12
 --------------

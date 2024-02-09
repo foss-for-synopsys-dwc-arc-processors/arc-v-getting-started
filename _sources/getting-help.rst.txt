@@ -13,14 +13,11 @@ Visit the GitHub discussions link for a community forum tailored to ARC-V proces
 - GitHub discussions: https://github.com/foss-for-synopsys-dwc-arc-processors/arc-v-getting-started/discussions
 - GitHub issues: https://github.com/foss-for-synopsys-dwc-arc-processors/arc-v-getting-started/issues
 
+
 Mailing List for Evaluation Support
 -----------------------------------
 
-The Synopsys Eval Portal (https://eval.synopsys.com/) allows you to request an evaluation license for Synopsys software products. Follow these steps:
-
-1. Log in to the portal (or register for an account).
-2. Complete an Evaluation Request Form for your chosen software product(s).
-3. Submit your shopping cart to complete your request.
+Email-based support is provided for customers evaluating the MetaWare Development Toolkit. If you need help, contact us at mwdt-eval-support@synopsys.com. 
 
 
 Synopsys SolvNetPlus

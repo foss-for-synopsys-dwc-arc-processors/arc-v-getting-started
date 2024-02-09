@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>nSIM and NCAM &mdash; MetaWare_ARC-V_QuickStart  documentation</title>
+  <title>nSIM and NCAM &mdash; MetaWare_ARC-V_QuickStart html-1.0 documentation</title>
   
 
   
@@ -64,6 +64,10 @@
           
             
             
+              <div class="version">
+                html-1.0
+              </div>
+            
           
 
           
@@ -95,32 +99,25 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">nSIM and NCAM</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#nsim-overview">nSIM Overview</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#basic-information">Basic Information</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#full-changelog">Full Changelog</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#supported-features">Supported Features</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#nsim-v-2023-12">nSIM V-2023.12</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#improvements">Improvements</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#known-issues-and-limitations">Known Issues and Limitations</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#ncam-overview">NCAM Overview</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#id1">Basic Information</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id2">Full Changelog</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id3">Supported Features</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id4">Known Issues and Limitations</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#obtaining-the-installer">Obtaining the Installer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#installing-the-tools">Installing the Tools</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#license">License</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#reusing-an-existing-license">Reusing an existing License</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#obtaining-an-evaluation-license-and-setting-it-locally">Obtaining an Evaluation License and Setting It Locally</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ncam-v-2023-12">NCAM V-2023.12</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#supported-features">Supported Features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Known Issues and Limitations</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#command-line-reference">Command-Line Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#license">License</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#standalone-execution-without-a-debugger">Standalone Execution Without a Debugger</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#gdb-interface">GDB Interface</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#arc-v-specific-parameters">ARC-V Specific Parameters</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#example-of-use-with-cross-gdb-connected">Example of Use with Cross-GDB Connected</a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="#gdb-interface">GDB Interface</a></li>
 </ul>
 </li>
 </ul>
@@ -199,65 +196,81 @@
 <h2>nSIM Overview<a class="headerlink" href="#nsim-overview" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="basic-information">
 <h3>Basic Information<a class="headerlink" href="#basic-information" title="Permalink to this headline">¶</a></h3>
+<p>Synopsys nSIM is an instruction-set simulator that can be used with the MetaWare debugger or with SystemC. It provides an instruction-accurate processor model for Synopsys ARC-V processors, letting you run actual programs in a fast and accurate way.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>nSIM requires Synopsys Common Licensing (SCL) version 2016.12 or later.</p>
 </div>
-<div class="section" id="full-changelog">
-<h3>Full Changelog<a class="headerlink" href="#full-changelog" title="Permalink to this headline">¶</a></h3>
 </div>
-<div class="section" id="supported-features">
-<h3>Supported Features<a class="headerlink" href="#supported-features" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="nsim-v-2023-12">
+<h2>nSIM V-2023.12<a class="headerlink" href="#nsim-v-2023-12" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="improvements">
+<h3>Improvements<a class="headerlink" href="#improvements" title="Permalink to this headline">¶</a></h3>
+<p>Experimental support for the ARC-V RMX-100 and RXM-500 families of processors, including experimental support for the following features:</p>
+<ul class="simple">
+<li><p>RV32I and RV32E base instruction sets</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">M</span></code>, <code class="docutils literal notranslate"><span class="pre">A</span></code>, <code class="docutils literal notranslate"><span class="pre">F</span></code>, <code class="docutils literal notranslate"><span class="pre">D</span></code>, <code class="docutils literal notranslate"><span class="pre">C</span></code>, <code class="docutils literal notranslate"><span class="pre">Zc*</span></code>, <code class="docutils literal notranslate"><span class="pre">Zb*</span></code>, <code class="docutils literal notranslate"><span class="pre">Zicsr</span></code>, <code class="docutils literal notranslate"><span class="pre">Zifenci</span></code>, <code class="docutils literal notranslate"><span class="pre">Zfinx</span></code>, <code class="docutils literal notranslate"><span class="pre">Zdinx</span></code>, <code class="docutils literal notranslate"><span class="pre">Zicond</span></code>, <code class="docutils literal notranslate"><span class="pre">Zhintpause</span></code>, and <code class="docutils literal notranslate"><span class="pre">Zicbom</span></code> ISA extensions</p></li>
+<li><p>Just-In-Time mode for the instruction sets and ISA extensions listed here</p></li>
+<li><p>Host I/O through semihosting and MetaWare hostlink</p></li>
+<li><p>CLINT and PLIC interrupts</p></li>
+<li><p>Debugger support using nSIM GDB-server for ARC-V GDB and LLDB debuggers</p></li>
+<li><p>Experimental SystemC, Virtualizer, and Platform Architect support (the ARC-V SystemC model supports memory interfaces only)</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To support both the ARC-V family and previous ARC the nSIM SystemC directory has been restructured. The new directory structure is not backward-compatible. If you have existing virtual platforms created for use with prior nSIM releases, your platform most likely needs to be updated and rebuilt or recompiled.</p>
+</div>
+<p>For additional information the on ARC-V family of processors, see  <a class="reference external" href="https://www.synopsys.com/designware-ip/processor-solutions/arc-development-tools.html">Synopsys ARC Development Tools</a>.</p>
 </div>
 <div class="section" id="known-issues-and-limitations">
 <h3>Known Issues and Limitations<a class="headerlink" href="#known-issues-and-limitations" title="Permalink to this headline">¶</a></h3>
+<p>Support for ARC-V family of processors is experimental and support for features is limited.</p>
+<p>Up-to-date lists of known and fixed issues are available online at <a class="reference external" href="https://www.synopsys.com/dw/doc.php/arc_tools/dw_arc_nsim/nSIM_FixedIssues.pdf">https://www.synopsys.com/dw/doc.php/arc_tools/dw_arc_nsim/nSIM_FixedIssues.pdf</a></p>
 </div>
 </div>
 <div class="section" id="ncam-overview">
 <h2>NCAM Overview<a class="headerlink" href="#ncam-overview" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id1">
 <h3>Basic Information<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>NCAM (Near Cycle-Accurate Mode) is a hardware performance simulation mode of nSIM, which is derived from micro-architecture specifications and therefore cycle-approximate.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>NCAM requires an nSIM Pro license.</p>
+</div>
+</div>
+</div>
+<div class="section" id="ncam-v-2023-12">
+<h2>NCAM V-2023.12<a class="headerlink" href="#ncam-v-2023-12" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="supported-features">
+<h3>Supported Features<a class="headerlink" href="#supported-features" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Provided experimental and uncalibrated RMX-100 NCAM model</p></li>
+</ul>
 </div>
 <div class="section" id="id2">
-<h3>Full Changelog<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<h3>Known Issues and Limitations<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>There are no known issues for this release so far.</p>
 </div>
-<div class="section" id="id3">
-<h3>Supported Features<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="id4">
-<h3>Known Issues and Limitations<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
-</div>
-</div>
-<div class="section" id="obtaining-the-installer">
-<h2>Obtaining the Installer<a class="headerlink" href="#obtaining-the-installer" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="installing-the-tools">
-<h2>Installing the Tools<a class="headerlink" href="#installing-the-tools" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="license">
 <h2>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="reusing-an-existing-license">
-<h3>Reusing an existing License<a class="headerlink" href="#reusing-an-existing-license" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="obtaining-an-evaluation-license-and-setting-it-locally">
-<h3>Obtaining an Evaluation License and Setting It Locally<a class="headerlink" href="#obtaining-an-evaluation-license-and-setting-it-locally" title="Permalink to this headline">¶</a></h3>
-</div>
-</div>
-<div class="section" id="command-line-reference">
-<h2>Command-Line Reference<a class="headerlink" href="#command-line-reference" title="Permalink to this headline">¶</a></h2>
+<p>Before running Synopsys tools, you must install and configure the Synopsys Common Licensing (SCL) software, retrieve your license key file, and define the license file environment variable. For detailed information about SCL installation and setup, see the <em>Synopsys Licensing Quickstart Guide</em> at the following Web address: <a class="reference external" href="http://www.synopsys.com/Support/LI/Licensing">http://www.synopsys.com/Support/LI/Licensing</a></p>
 </div>
 <div class="section" id="standalone-execution-without-a-debugger">
 <h2>Standalone Execution Without a Debugger<a class="headerlink" href="#standalone-execution-without-a-debugger" title="Permalink to this headline">¶</a></h2>
+<p>A standalone command-line version of the nSIM simulator is provided in addition to support for using nSIM with MetaWare debugger or SystemC. To run the ARC nSIM standalone simulator use the <code class="docutils literal notranslate"><span class="pre">nsimdrv</span></code> executable.</p>
+<p>For more information, check the “Standalone nSIM” section in the nSIM User’s Guide.</p>
 </div>
 <div class="section" id="gdb-interface">
 <h2>GDB Interface<a class="headerlink" href="#gdb-interface" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="arc-v-specific-parameters">
-<h3>ARC-V Specific Parameters<a class="headerlink" href="#arc-v-specific-parameters" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="example-of-use-with-cross-gdb-connected">
-<h3>Example of Use with Cross-GDB Connected<a class="headerlink" href="#example-of-use-with-cross-gdb-connected" title="Permalink to this headline">¶</a></h3>
+<p>To use the ARC nSIM simulator with the GDB debugger, you need to start a GDB server program to act as a TCP/IP remote target interface to GDB.
+This GDB server program can be run standalone (using <code class="docutils literal notranslate"><span class="pre">nsimdrv</span></code>) or can be instantiated from within the nSIM SystemC wrapper.</p>
+<p>For additional information and exact steps, check the following materials:</p>
 <ul class="simple">
-<li><p>With a target application already loaded by nSIM</p></li>
-<li><p>With the target application loaded from the GDB</p></li>
+<li><p>“GNU for ARC Toolset Support” section in the <em>nSIM User’s Guide</em> document in <code class="docutils literal notranslate"><span class="pre">/nSIM/nSIM/docs/pdf</span></code>.</p></li>
+<li><p>“Connecting to GDB Remote Process in Command Line Mode” section in the <em>MetaWare Debugger User Guide</em> document in <code class="docutils literal notranslate"><span class="pre">/MetaWare/arc/docs/pdf/arc-v</span></code>.</p></li>
 </ul>
-</div>
 </div>
 </div>
 
