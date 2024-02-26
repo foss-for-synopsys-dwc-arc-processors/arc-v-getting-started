@@ -17,7 +17,7 @@ MetaWare Development Toolkit 2023.12 Released
 ---------------------------------------------
 
 The latest version of the MetaWare Development Toolkit is now released and
-avaialble for all users with an appropriate license to download from
+available for all users with an appropriate license to download from
 Synopsys `SolvNetPlus <https://solvnet.synopsys.com/>`_.
 
 This is the first release with support for ARC-V processors.

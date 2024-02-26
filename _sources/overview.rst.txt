@@ -12,15 +12,15 @@ application workloads.
 New Generation of RISC-V Synopsys ARC Processors
 ------------------------------------------------
 
-The ARC-V RMX-100 and RMX-500 Series
+ARC-V RMX-100 and RMX-500 Series
 ----------------------------------------
 
 The 32-bit ARC-V RMX series includes the three-stage-pipeline RMX-100
 and the five-stage-pipeline RMX-500 processors, which are optimized
 for ultra-low power embedded applications. The processors offer
-optional DSP support for greater signal processing efficiency. The
-RMX processors offer ISO 26262 ASIL B and D functional-safety compliance as
-well as ISO 21434 cybersecurity compliance.
+optional DSP support for greater signal processing efficiency. The RMX-100 processor offers 
+support for ISO 26262 functional-safety compliance (QM and ASIL-D), and the RMX-500 processor offers support for functional-safety compliance (QM, ASIL-D, ASIL-B, and hybrid mode), 
+as well as ISO 21434 cybersecurity compliance.
 
 More information is available on the Synopsys website:
 
@@ -29,7 +29,7 @@ More information is available on the Synopsys website:
 * `Synopsys ARC-V RMX-500 Processor IP <https://www.synopsys.com/dw/ipdir.php?ds=arc-v-rmx-500>`_
 
 
-The ARC-V RHX Series
+ARC-V RHX Series
 --------------------
 
 The 32-bit ARC-V RHX-100 series consists of superscalar,
@@ -58,8 +58,10 @@ compliant versions of its processors.
 
 
 More information is available on the Synopsys website:
+
 * `Maximum Performance Efficiency for Host Applications <https://www.synopsys.com/designware-ip/processor-solutions/arc-v-processors/arc-v-rpx.html>`_
 * `ARC-V RPX-100 Procssor IP <https://www.synopsys.com/dw/ipdir.php?ds=arc-v-rpx-100>`_
+
 
 Additional Information
 ----------------------
