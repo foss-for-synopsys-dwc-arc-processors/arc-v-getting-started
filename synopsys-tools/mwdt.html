@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>The MetaWare Development Toolkit &mdash; ARC-V Processors Getting Started html-1.1 documentation</title>
+  <title>The MetaWare Development Toolkit &mdash; ARC-V Processors Getting Started html-1.2 documentation</title>
   
 
   
@@ -65,7 +65,7 @@
             
             
               <div class="version">
-                html-1.1
+                html-1.2
               </div>
             
           
@@ -97,7 +97,11 @@
 <li class="toctree-l2"><a class="reference internal" href="gnu.html">GNU tools for ARC-V</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">The MetaWare Development Toolkit</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#getting-the-metaware-development-toolkit">Getting the MetaWare Development Toolkit</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#mwdt-v-2023-12">MWDT V-2023.12</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#metaware-development-toolkit-v-2024-03">MetaWare Development Toolkit V-2024.03</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#new-features-and-enhancements-for-risc-v-based-arc-v-processors">New Features and Enhancements for RISC-V based ARC-V Processors</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#metaware-development-toolkit-v-2023-12">MetaWare Development Toolkit V-2023.12</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#new-features-and-enhancements">New Features and Enhancements</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#supported-platforms">Supported Platforms</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#tools-limitations">Tools Limitations</a></li>
@@ -196,8 +200,24 @@
 <li><p>Email-based support is available by writing to <a class="reference external" href="mailto:mwdt-eval-support&#37;&#52;&#48;synopsys&#46;com">mwdt-eval-support<span>&#64;</span>synopsys<span>&#46;</span>com</a>.</p></li>
 </ol>
 </div>
-<div class="section" id="mwdt-v-2023-12">
-<h2>MWDT V-2023.12<a class="headerlink" href="#mwdt-v-2023-12" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="metaware-development-toolkit-v-2024-03">
+<h2>MetaWare Development Toolkit V-2024.03<a class="headerlink" href="#metaware-development-toolkit-v-2024-03" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="new-features-and-enhancements-for-risc-v-based-arc-v-processors">
+<h3>New Features and Enhancements for RISC-V based ARC-V Processors<a class="headerlink" href="#new-features-and-enhancements-for-risc-v-based-arc-v-processors" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Optimized performance on ARC-V targets.</p></li>
+<li><p>Added support for the RISC-V deviation specification (in particular, the <code class="docutils literal notranslate"><span class="pre">long</span> <span class="pre">double</span></code> type is 64 bits, not 128 bits).</p></li>
+<li><p>Added TCF support for ARC-V targets.</p></li>
+<li><p>Improved the performance of linker relaxation for ARC-V targets.</p></li>
+<li><p>Added the <code class="docutils literal notranslate"><span class="pre">-Zicbop</span></code> and <code class="docutils literal notranslate"><span class="pre">-Zicboz</span></code> options to enable the cache-block instructions for ARC-V targets.</p></li>
+<li><p>Added driver option <code class="docutils literal notranslate"><span class="pre">-Hlibc=lib</span></code> for ARC-V processors to select between the Picolib C runtime library (<code class="docutils literal notranslate"><span class="pre">-Hlibc=pico</span></code>) and the default MetaWare C runtime library (<code class="docutils literal notranslate"><span class="pre">-Hlibc=mw</span></code>). Note that this option also switches the default include paths. The current Picolib C version is 1.8.6.</p></li>
+<li><p>Added a <code class="docutils literal notranslate"><span class="pre">run-lldbac</span></code> debugger script for ARC-V targets so that you can run a GUI or command-line session using the same set of command-line options.</p></li>
+<li><p>Added more semihosting calls for ARC-V targets (note that the HEAPINFO and EXIT_EXTENDED semihosting calls are still not supported).</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="metaware-development-toolkit-v-2023-12">
+<h2>MetaWare Development Toolkit V-2023.12<a class="headerlink" href="#metaware-development-toolkit-v-2023-12" title="Permalink to this headline">¶</a></h2>
 <p>The V-2023.12 version of the MetaWare Development Toolkit introduces experimental support for the ARC-V RMX processor series based on the RISC-V instruction-set architecture.</p>
 <p>More information about this family can be found on the Synopsys website: <a class="reference external" href="https://www.synopsys.com/designware-ip/processor-solutions/arc-v-processors/arc-v-rmx.html">Power-Efficient RISC-V Processors for Embedded Applications</a>.</p>
 <div class="section" id="new-features-and-enhancements">

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>nSIM and NCAM &mdash; ARC-V Processors Getting Started html-1.1 documentation</title>
+  <title>nSIM and NCAM &mdash; ARC-V Processors Getting Started html-1.2 documentation</title>
   
 
   
@@ -65,7 +65,7 @@
             
             
               <div class="version">
-                html-1.1
+                html-1.2
               </div>
             
           
@@ -101,18 +101,22 @@
 <li class="toctree-l4"><a class="reference internal" href="#basic-information">Basic Information</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#nsim-v-2023-12">nSIM V-2023.12</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#nsim-v-2024-03">nSIM V-2024.03</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#improvements">Improvements</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#nsim-v-2023-12">nSIM V-2023.12</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Improvements</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#known-issues-and-limitations">Known Issues and Limitations</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#ncam-overview">NCAM Overview</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id1">Basic Information</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Basic Information</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#ncam-v-2023-12">NCAM V-2023.12</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#supported-features">Supported Features</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id2">Known Issues and Limitations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">Known Issues and Limitations</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#license">License</a></li>
@@ -203,10 +207,29 @@
 </div>
 </div>
 </div>
-<div class="section" id="nsim-v-2023-12">
-<h2>nSIM V-2023.12<a class="headerlink" href="#nsim-v-2023-12" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="nsim-v-2024-03">
+<h2>nSIM V-2024.03<a class="headerlink" href="#nsim-v-2024-03" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="improvements">
 <h3>Improvements<a class="headerlink" href="#improvements" title="Permalink to this headline">¶</a></h3>
+<p>Continued experimental support for the ARC-V families of processors, including experimental support for the following features:</p>
+<ul class="simple">
+<li><p>RPX family of processors</p></li>
+<li><p>RV64I and RV64E base instruction sets</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Zfh</span></code>, <code class="docutils literal notranslate"><span class="pre">Zhinx</span></code>, <code class="docutils literal notranslate"><span class="pre">Zfhmin</span></code> and <code class="docutils literal notranslate"><span class="pre">Zhinxmin</span></code> ISA extensions (not yet supported in JIT mode)</p></li>
+<li><p>Performance counters</p></li>
+<li><p>Enhanced profiling with the MetaWare debugger for ARC-V processors</p></li>
+<li><p>ARC-V run-control interfaces for ARC-V SystemC models</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To support both the ARC-V family and previous ARC processors, the nSIM SystemC directory has been restructured. The new directory structure is not backward-compatible. If you have existing virtual platforms created for use with prior nSIM releases, your platform most likely needs to be updated and rebuilt or recompiled.</p>
+</div>
+</div>
+</div>
+<div class="section" id="nsim-v-2023-12">
+<h2>nSIM V-2023.12<a class="headerlink" href="#nsim-v-2023-12" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>Improvements<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>Experimental support for the ARC-V RMX-100 and RXM-500 families of processors, including experimental support for the following features:</p>
 <ul class="simple">
 <li><p>RV32I and RV32E base instruction sets</p></li>
@@ -221,7 +244,7 @@
 <p class="admonition-title">Note</p>
 <p>To support both the ARC-V family and previous ARC the nSIM SystemC directory has been restructured. The new directory structure is not backward-compatible. If you have existing virtual platforms created for use with prior nSIM releases, your platform most likely needs to be updated and rebuilt or recompiled.</p>
 </div>
-<p>For additional information the on ARC-V family of processors, see  <a class="reference external" href="https://www.synopsys.com/designware-ip/processor-solutions/arc-development-tools.html">Synopsys ARC Development Tools</a>.</p>
+<p>For additional information on the ARC-V family of processors, see  <a class="reference external" href="https://www.synopsys.com/designware-ip/processor-solutions/arc-development-tools.html">Synopsys ARC Development Tools</a>.</p>
 </div>
 <div class="section" id="known-issues-and-limitations">
 <h3>Known Issues and Limitations<a class="headerlink" href="#known-issues-and-limitations" title="Permalink to this headline">¶</a></h3>
@@ -231,8 +254,8 @@
 </div>
 <div class="section" id="ncam-overview">
 <h2>NCAM Overview<a class="headerlink" href="#ncam-overview" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id1">
-<h3>Basic Information<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id2">
+<h3>Basic Information<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>NCAM (Near Cycle-Accurate Mode) is a hardware performance simulation mode of nSIM, which is derived from micro-architecture specifications and therefore cycle-approximate.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -248,8 +271,8 @@
 <li><p>Provided experimental and uncalibrated RMX-100 NCAM model</p></li>
 </ul>
 </div>
-<div class="section" id="id2">
-<h3>Known Issues and Limitations<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id3">
+<h3>Known Issues and Limitations<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <p>There are no known issues for this release so far.</p>
 </div>
 </div>

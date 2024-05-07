@@ -16,8 +16,23 @@ The Synopsys Eval Portal (https://eval.synopsys.com/) allows you to request an e
 4. Download the software and begin your evaluation.
 5. Email-based support is available by writing to mwdt-eval-support@synopsys.com.
 
-MWDT V-2023.12
---------------
+MetaWare Development Toolkit V-2024.03
+--------------------------------------
+
+New Features and Enhancements for RISC-V based ARC-V Processors
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* Optimized performance on ARC-V targets.
+* Added support for the RISC-V deviation specification (in particular, the ``long double`` type is 64 bits, not 128 bits).
+* Added TCF support for ARC-V targets.
+* Improved the performance of linker relaxation for ARC-V targets.
+* Added the ``-Zicbop`` and ``-Zicboz`` options to enable the cache-block instructions for ARC-V targets.
+* Added driver option ``-Hlibc=lib`` for ARC-V processors to select between the Picolib C runtime library (``-Hlibc=pico``) and the default MetaWare C runtime library (``-Hlibc=mw``). Note that this option also switches the default include paths. The current Picolib C version is 1.8.6.
+* Added a ``run-lldbac`` debugger script for ARC-V targets so that you can run a GUI or command-line session using the same set of command-line options.
+* Added more semihosting calls for ARC-V targets (note that the HEAPINFO and EXIT_EXTENDED semihosting calls are still not supported).
+
+MetaWare Development Toolkit V-2023.12
+--------------------------------------
 
 The V-2023.12 version of the MetaWare Development Toolkit introduces experimental support for the ARC-V RMX processor series based on the RISC-V instruction-set architecture.
 

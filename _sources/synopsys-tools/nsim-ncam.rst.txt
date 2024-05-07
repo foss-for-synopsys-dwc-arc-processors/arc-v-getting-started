@@ -12,6 +12,24 @@ Synopsys nSIM is an instruction-set simulator that can be used with the MetaWare
 .. note::
     nSIM requires Synopsys Common Licensing (SCL) version 2016.12 or later.
 
+nSIM V-2024.03
+--------------
+
+Improvements
+~~~~~~~~~~~~
+
+Continued experimental support for the ARC-V families of processors, including experimental support for the following features:
+
+* RPX family of processors
+* RV64I and RV64E base instruction sets
+* ``Zfh``, ``Zhinx``, ``Zfhmin`` and ``Zhinxmin`` ISA extensions (not yet supported in JIT mode)
+* Performance counters
+* Enhanced profiling with the MetaWare debugger for ARC-V processors
+* ARC-V run-control interfaces for ARC-V SystemC models
+
+.. note::
+    To support both the ARC-V family and previous ARC processors, the nSIM SystemC directory has been restructured. The new directory structure is not backward-compatible. If you have existing virtual platforms created for use with prior nSIM releases, your platform most likely needs to be updated and rebuilt or recompiled.
+
 nSIM V-2023.12
 --------------
 
@@ -31,7 +49,7 @@ Experimental support for the ARC-V RMX-100 and RXM-500 families of processors, i
 .. note::
     To support both the ARC-V family and previous ARC the nSIM SystemC directory has been restructured. The new directory structure is not backward-compatible. If you have existing virtual platforms created for use with prior nSIM releases, your platform most likely needs to be updated and rebuilt or recompiled.
 
-For additional information the on ARC-V family of processors, see  `Synopsys ARC Development Tools <https://www.synopsys.com/designware-ip/processor-solutions/arc-development-tools.html>`_.
+For additional information on the ARC-V family of processors, see  `Synopsys ARC Development Tools <https://www.synopsys.com/designware-ip/processor-solutions/arc-development-tools.html>`_.
 
 Known Issues and Limitations
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
