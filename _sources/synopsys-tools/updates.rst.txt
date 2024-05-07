@@ -13,14 +13,14 @@ See the *Release Notes* and more information about using the ARC GNU tools
 with ARC-V processors here: :doc:`gnu`.
 
 
-MetaWare Development Toolkit 2023.12 Released
----------------------------------------------
+MetaWare Development Toolkit V-2024.03 Released
+-----------------------------------------------
 
 The latest version of the MetaWare Development Toolkit is now released and
 available for all users with an appropriate license to download from
 Synopsys `SolvNetPlus <https://solvnet.synopsys.com/>`_.
 
-This is the first release with support for ARC-V processors.
+This release extends support for ARC-V processors across different tools.
 
 You can find more information on how to use the MetaWare Development Toolkit with ARC-V processors
 here: :doc:`mwdt`.
