@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>GNU tools for ARC-V &mdash; ARC-V Processors Getting Started html-1.3 documentation</title>
+  <title>GNU tools for ARC-V &mdash; ARC-V Processors Getting Started html-1.4 documentation</title>
   
 
   
@@ -65,7 +65,7 @@
             
             
               <div class="version">
-                html-1.3
+                html-1.4
               </div>
             
           
@@ -95,11 +95,18 @@
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Synopsys ARC-V Tools</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="updates.html">Latest Updates</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">GNU tools for ARC-V</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#gnu-toolchain-for-arc-v-processors-v2023-12">GNU Toolchain for ARC-V Processors v2023.12</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gnu-toolchain-for-arc-v-processors-v2024-06">GNU Toolchain for ARC-V Processors v2024.06</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#new-features-and-enhancements">New Features and Enhancements</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#known-issues">Known Issues</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#getting-help">Getting Help</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#prebuilt-toolchains-available-for-download">Prebuilt Toolchains Available for Download</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#gnu-toolchain-for-arc-v-processors-v2023-12">GNU Toolchain for ARC-V Processors v2023.12</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id5">New Features and Enhancements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">Known Issues</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">Getting Help</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10">Prebuilt Toolchains Available for Download</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#command-line-reference">Command-Line Reference</a><ul>
@@ -117,6 +124,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#zcb-extension">Zcb Extension</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#building-a-toolchain-for-a-particular-architecture">Building a Toolchain for a Particular Architecture</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="mwdt.html">The MetaWare Development Toolkit</a></li>
@@ -202,6 +210,97 @@ it is reasonably easy to build your own, the ARC GNU toolchain is prepared
 specifically to produce the best possible results for ARC processors.
 It also makes sure the results produced are reliable
 in all supported environments.</p>
+<div class="section" id="gnu-toolchain-for-arc-v-processors-v2024-06">
+<h2>GNU Toolchain for ARC-V Processors v2024.06<a class="headerlink" href="#gnu-toolchain-for-arc-v-processors-v2024-06" title="Permalink to this headline">¶</a></h2>
+<p>This is the 2024.06 version of the GNU Toolchain for Synopsys ARC-V Processor IP.
+This is the first release that supports the latest GNU tools for both ARC Classic
+and ARC-V processors simultaneously.</p>
+<p>More information about these processors can be found on Synopsys website:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.synopsys.com/designware-ip/processor-solutions/arc-v-processors/arc-v-rmx.html">Power-Efficient RISC-V Processors for Embedded Applications</a>.</p></li>
+<li><p><a class="reference external" href="https://www.synopsys.com/designware-ip/processor-solutions/arc-v-processors/arc-v-rhx.html">Maximum Performance Efficiency for Real-time Applications</a>.</p></li>
+</ul>
+<div class="section" id="new-features-and-enhancements">
+<h3>New Features and Enhancements<a class="headerlink" href="#new-features-and-enhancements" title="Permalink to this headline">¶</a></h3>
+<p>There are no major changes for ARC targets except ARC-specific fixes.
+All components are updated on top of upstream releases.</p>
+<div class="section" id="binary-distribution">
+<h4>Binary Distribution<a class="headerlink" href="#binary-distribution" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Supported host operating systems: Windows 10/11 64-bit, 20.04.x, CentOS/RHEL 7.x</p></li>
+<li><p>Prebuilt bare-metal toolchains for 64-bit Windows and Linux hosts; see table with references and list of artifacts.</p></li>
+</ul>
+</div>
+<div class="section" id="toolchain-components">
+<h4>Toolchain Components<a class="headerlink" href="#toolchain-components" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>GCC 14.1 with ARC patches</p>
+<ul>
+<li><p>Uses upstream 14.1 release; see <a class="reference external" href="https://gcc.gnu.org/pipermail/gcc/2024-May/243921.html">release announcement</a> and <a class="reference external" href="https://gcc.gnu.org/gcc-14/changes.html">complete list of changes</a>.</p></li>
+<li><p>Initial support of RVV extensions is added in upstream GCC 14.</p></li>
+</ul>
+</li>
+<li><p>Binutils 2.42 with ARC patches</p>
+<ul>
+<li><p>Uses upstream 2.42 release; see <a class="reference external" href="https://sourceware.org/pipermail/binutils/2024-January/132213.html">release notes</a>.</p></li>
+</ul>
+</li>
+<li><p>GDB 14.2 with ARC patches</p>
+<ul>
+<li><p>Uses upstream 14.2 release; see <a class="reference external" href="https://sourceware.org/pipermail/gdb-announce/2023/000137.html">release announcement for 14.1</a> and
+<a class="reference external" href="https://sourceware.org/git/gitweb.cgi?p=binutils-gdb.git;a=blob_plain;f=gdb/NEWS;hb=gdb-14.1-release">complete list of changes for 14.1</a>
+for major changes.</p></li>
+</ul>
+</li>
+<li><p>Newlib 4.4.0 with ARC patches</p>
+<ul>
+<li><p>Uses upstream 4.4.0 release; see <a class="reference external" href="https://sourceware.org/pipermail/newlib/2023/020873.html">release announcement</a>.</p></li>
+<li><p>The upstream Newlib source tree now contains the latest changes for ARC Classic.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="known-issues">
+<h3>Known Issues<a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>The size-optimized Newlib Nano configuration (used when <code class="docutils literal notranslate"><span class="pre">-specs=nano.specs</span></code> is passed to GCC)
+does not support <strong>printf()</strong> for <code class="docutils literal notranslate"><span class="pre">float</span></code> and <code class="docutils literal notranslate"><span class="pre">double</span></code> by default. Nano <strong>printf()</strong> is size-optimized
+and does not include support of <code class="docutils literal notranslate"><span class="pre">float</span></code> and <code class="docutils literal notranslate"><span class="pre">double</span></code>. If you need that feature, pass
+<code class="docutils literal notranslate"><span class="pre">-u</span> <span class="pre">_printf_float</span></code> to GCC when you compile your applications. This option picks up support of <code class="docutils literal notranslate"><span class="pre">float</span></code>
+and <code class="docutils literal notranslate"><span class="pre">double</span></code> for size optimized <strong>printf()</strong> on demand.</p></li>
+<li><p>Some complex combinations of <code class="docutils literal notranslate"><span class="pre">-march=</span></code> and <code class="docutils literal notranslate"><span class="pre">-mabi=</span></code> options might lead to unpredictable errors
+during compilation. Such issues are related to general support of RISC-V extensions in GCC. See
+<a class="reference external" href="https://github.com/foss-for-synopsys-dwc-arc-processors/toolchain/issues/610">#610</a>.</p></li>
+<li><p>GCC 14 generates incorrect include directories if it’s configured with the <code class="docutils literal notranslate"><span class="pre">--with-sysroot=...</span></code>
+and <code class="docutils literal notranslate"><span class="pre">--with-native-system-header-dir=...</span></code> options. This is a valid set of options for
+building GCC, but it leads to GCC including invalid paths in an include
+search list when <code class="docutils literal notranslate"><span class="pre">-save-temps</span></code> is used while building binaries. This issue is not
+critical and will be addressed later. See
+<a class="reference external" href="https://github.com/foss-for-synopsys-dwc-arc-processors/toolchain/issues/628">#628</a>.</p></li>
+</ul>
+</div>
+<div class="section" id="getting-help">
+<h3>Getting Help<a class="headerlink" href="#getting-help" title="Permalink to this headline">¶</a></h3>
+<p>Visit the GitHub discussions link for a community forum tailored to ARC-V processors. To report issues and enhancement requests, use GitHub issues (if you are not sure, start with discussions, as a discussion can always be converted into an issue).</p>
+<ul class="simple">
+<li><p>GitHub discussions: <a class="reference external" href="https://github.com/foss-for-synopsys-dwc-arc-processors/arc-v-getting-started/discussions">https://github.com/foss-for-synopsys-dwc-arc-processors/arc-v-getting-started/discussions</a></p></li>
+<li><p>GitHub issues: <a class="reference external" href="https://github.com/foss-for-synopsys-dwc-arc-processors/arc-v-getting-started/issues">https://github.com/foss-for-synopsys-dwc-arc-processors/arc-v-getting-started/issues</a></p></li>
+</ul>
+</div>
+<div class="section" id="prebuilt-toolchains-available-for-download">
+<h3>Prebuilt Toolchains Available for Download<a class="headerlink" href="#prebuilt-toolchains-available-for-download" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/foss-for-synopsys-dwc-arc-processors/toolchain/releases/download/arc-2024.06-rc1/arc_gnu_2024.06-rc1_prebuilt_riscv64_elf_le_linux_install.tar.bz2">Bare-metal ARC-V cross-toolchain for 64-bit Linux hosts</a></p></li>
+<li><p><a class="reference external" href="https://github.com/foss-for-synopsys-dwc-arc-processors/toolchain/releases/download/arc-2024.06-rc1/arc_gnu_2024.06-rc1_prebuilt_riscv64_elf_le_win_install.tar.bz2">Bare-metal ARC-V cross-toolchain for 64-bit Windows 10 &amp; 11 hosts</a></p></li>
+</ul>
+<p>Archive SHA-256 checksums are:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">b7c2b3f1ce3cda1d1472a0412c474e9a6ca1fe5ee48db4910664050456e28ceb</span> <span class="n">arc_gnu_2024</span><span class="o">.</span><span class="mi">06</span><span class="o">-</span><span class="n">rc1_prebuilt_riscv64_elf_le_win_install</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">bz2</span>
+<span class="mi">02580</span><span class="n">b4b8194695c3f5a6248fc52c1c0e16b252d7b4c2a24a059f653e2eb9eef</span> <span class="n">arc_gnu_2024</span><span class="o">.</span><span class="mi">06</span><span class="o">-</span><span class="n">rc1_prebuilt_riscv64_elf_le_linux_install</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">bz2</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="section" id="gnu-toolchain-for-arc-v-processors-v2023-12">
 <h2>GNU Toolchain for ARC-V Processors v2023.12<a class="headerlink" href="#gnu-toolchain-for-arc-v-processors-v2023-12" title="Permalink to this headline">¶</a></h2>
 <p>This is the 2023.12 version of the GNU Toolchain for Synopsys ARC-V Processor IP.
@@ -215,8 +314,8 @@ This release introduces support for the ARC-V RMX and RHX processors series base
 <p class="admonition-title">Note</p>
 <p>This release of the ARC GNU tools doesn’t include prebuilt toolchains for <a class="reference external" href="https://www.synopsys.com/designware-ip/processor-solutions/arc-classic-processors.html">ARC Classic processor families</a>. Users of ARC 600, ARC 700, ARC EM, ARCv2 HS (HS3x and HS4x) and ARCv3 HS (HS5x and HS6x) should keep using <a class="reference external" href="https://github.com/foss-for-synopsys-dwc-arc-processors/toolchain/releases/tag/arc-2023.09-release">ARC GNU Tools 2023.09</a> (latest version).</p>
 </div>
-<div class="section" id="new-features-and-enhancements">
-<h3>New Features and Enhancements<a class="headerlink" href="#new-features-and-enhancements" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id5">
+<h3>New Features and Enhancements<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="support-for-risc-v-based-arc-v-rmx-and-rhx-processors">
 <h4>Support for RISC-V based ARC-V RMX and RHX Processors<a class="headerlink" href="#support-for-risc-v-based-arc-v-rmx-and-rhx-processors" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
@@ -231,15 +330,15 @@ This release introduces support for the ARC-V RMX and RHX processors series base
 <li><p>As this is the first release of prebuilt GNU tools with ARC-V support, some functionality might have issues, some processor features might not yet be fully supported, and performance might be lower than expected performance of the final product.</p></li>
 </ul>
 </div>
-<div class="section" id="binary-distribution">
-<h4>Binary Distribution<a class="headerlink" href="#binary-distribution" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id6">
+<h4>Binary Distribution<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li><p>Supported host operating systems: Windows 10/11 64-bit, Ubuntu 18.04.x, 20.04.x, CentOS/RHEL 7.x</p></li>
 <li><p>Prebuilt bare-metal toolchains for 64-bit Windows &amp; Linux hosts; see table with references and list of artifacts.</p></li>
 </ul>
 </div>
-<div class="section" id="toolchain-components">
-<h4>Toolchain Components<a class="headerlink" href="#toolchain-components" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id7">
+<h4>Toolchain Components<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li><p>GCC 13.2 with ARC patches</p>
 <ul>
@@ -269,21 +368,20 @@ This release introduces support for the ARC-V RMX and RHX processors series base
 </ul>
 </div>
 </div>
-<div class="section" id="known-issues">
-<h3>Known Issues<a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h3>
-<p>There are no known issues for this release so far.</p>
+<div class="section" id="id8">
+<h3>Known Issues<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>No known issues for this release so far.</p>
 </div>
-<div class="section" id="getting-help">
-<h3>Getting Help<a class="headerlink" href="#getting-help" title="Permalink to this headline">¶</a></h3>
-<p>A <em>Getting Started</em> manual covering all aspects of the ARC-V family of processors is available here: <a class="reference external" href="https://foss-for-synopsys-dwc-arc-processors.github.io/arc-v-getting-started">https://foss-for-synopsys-dwc-arc-processors.github.io/arc-v-getting-started</a>.</p>
+<div class="section" id="id9">
+<h3>Getting Help<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
 <p>Also visit the GitHub discussions link for a community forum tailored to ARC-V processors. To report issues and enhancement requests, use GitHub issues (if you are not sure, start with discussions, since a discussion can always be converted into an issue).</p>
 <ul class="simple">
 <li><p>GitHub discussions: <a class="reference external" href="https://github.com/foss-for-synopsys-dwc-arc-processors/arc-v-getting-started/discussions">https://github.com/foss-for-synopsys-dwc-arc-processors/arc-v-getting-started/discussions</a></p></li>
 <li><p>GitHub issues: <a class="reference external" href="https://github.com/foss-for-synopsys-dwc-arc-processors/arc-v-getting-started/issues">https://github.com/foss-for-synopsys-dwc-arc-processors/arc-v-getting-started/issues</a></p></li>
 </ul>
 </div>
-<div class="section" id="prebuilt-toolchains-available-for-download">
-<h3>Prebuilt Toolchains Available for Download<a class="headerlink" href="#prebuilt-toolchains-available-for-download" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id10">
+<h3>Prebuilt Toolchains Available for Download<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/foss-for-synopsys-dwc-arc-processors/toolchain/releases/download/arc-2023.12-release/arc_gnu_2023.12_prebuilt_riscv64_elf_le_linux_install.tar.bz2">Bare-metal ARC-V cross-toolchain for 64-bit Linux hosts</a></p></li>
 <li><p><a class="reference external" href="https://github.com/foss-for-synopsys-dwc-arc-processors/toolchain/releases/download/arc-2023.12-release/arc_gnu_2023.12_prebuilt_riscv64_elf_le_win_install.tar.bz2">Bare-metal ARC-V cross-toolchain for 64-bit Windows 10 &amp; 11 hosts</a></p></li>
@@ -385,7 +483,7 @@ For example, using semihosting: <code class="docutils literal notranslate"><span
 </ul>
 <p>After building, use the following command line to run the sample in nSIM:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ nsimdrv -prop<span class="o">=</span><span class="nv">nsim_isa_family</span><span class="o">=</span>rv32 <span class="se">\</span>
-  -prop<span class="o">=</span><span class="nv">nsim_isa_ext</span><span class="o">=</span>-all.i.zicsr.zifencei.zihintpause.b.zca.zcb.zcmp.zcmt.a.m.zbb <span class="se">\</span>
+  -prop<span class="o">=</span><span class="nv">nsim_isa_ext</span><span class="o">=</span>-all.i.zicsr.zifencei.zihintpause.b.zca.zcb.zcmp.zcmt.a.m.zbb.zba.zbs <span class="se">\</span>
   -prop<span class="o">=</span><span class="nv">nsim_semihosting</span><span class="o">=</span><span class="m">1</span> -off<span class="o">=</span>enable_exceptions a.out
 
 Hello world!
@@ -396,26 +494,31 @@ Hello world!
 <div class="section" id="build-and-run-a-simple-application-for-qemu">
 <h3>Build and Run a Simple Application for QEMU<a class="headerlink" href="#build-and-run-a-simple-application-for-qemu" title="Permalink to this headline">¶</a></h3>
 <p>It is best to use the latest official QEMU version for the following exercises.
-As of today, it’s v8.2; see release notes here <a class="reference external" href="https://wiki.qemu.org/ChangeLog/8.2">https://wiki.qemu.org/ChangeLog/8.2</a>.
+As of today, it’s v9.0; see the release notes here: <a class="reference external" href="https://wiki.qemu.org/ChangeLog/9.0">https://wiki.qemu.org/ChangeLog/9.0</a>.
 The sources are on GitLab (<a class="reference external" href="https://gitlab.com/qemu-project/qemu">https://gitlab.com/qemu-project/qemu</a>)
 or in the official GitHub mirror (<a class="reference external" href="https://github.com/qemu/qemu">https://github.com/qemu/qemu</a>).</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>To get the latest version of QEMU on your system it might be much easier to build it
 from sources rather than trying to find a pre-built version which suits your host type and operating system.</p>
-<p>Instructions for building on Linux are on QEMU’s Wiki: <a class="reference external" href="https://github.com/qemu/qemu">https://github.com/qemu/qemu</a></p>
+<p>Instructions for building on Linux are on QEMU’s Wiki: <a class="reference external" href="https://wiki.qemu.org/Hosts/Linux">https://wiki.qemu.org/Hosts/Linux</a></p>
 <p>First you need to install required additional packages, which depend on the
-Linux distribution used on the host. For example for Ubuntu 20.04 the following needs to
-be done:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ apt-get install build-essential git libglib2.0-dev libfdt-dev <span class="se">\</span>
-  libpixman-1-dev zlib1g-dev ninja-build python3-venv
+Linux distribution used on the host.</p>
+<p>For example, for Ubuntu 20.04 the following needs to be done:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ apt install build-essential git libglib2.0-dev libfdt-dev <span class="se">\</span>
+              libpixman-1-dev zlib1g-dev ninja-build python3-venv
+</pre></div>
+</div>
+<p>For AlmaLinux 8 the following needs to be done:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ dnf install git glib2-devel libfdt-devel pixman-devel zlib-devel <span class="se">\</span>
+              bzip2 ninja-build python3 python38
 </pre></div>
 </div>
 <p>After installation of prerequisites you can download sources, configure, and build in the following way:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Clone v8.2.0 from GitHub repository</span>
-$ git clone --depth <span class="m">1</span> --branch v8.2.0 git@github.com:qemu/qemu.git
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Clone v9.0 from GitHub repository</span>
+$ git clone --depth <span class="m">1</span> -b stable-9.0 https://github.com/qemu/qemu.git
 
-<span class="c1"># Configure project for build selecting only RISCV32 full system emulation,</span>
+<span class="c1"># Configure project for build selecting only RISCV32 full system emulation</span>
 $ ./configure --target-list<span class="o">=</span>riscv32-softmmu
 
 <span class="c1"># Build QEMU</span>
@@ -428,14 +531,14 @@ instead of the full path.</p>
 </div>
 <p>The following commands can be used for compiling the sample for later execution in QEMU.
 Basically the same compiler options are used, except that you need to make sure
-DDR memory is used and the <code class="docutils literal notranslate"><span class="pre">.text</span></code> section starts in the DDR beginning at 0x8000_0000, where
+DDR memory is used and the <code class="docutils literal notranslate"><span class="pre">.text</span></code> section starts in the DDR beginning at <code class="docutils literal notranslate"><span class="pre">0x8000_0000</span></code>, where
 the board jumps on start automatically. For that, you need to override two linker symbols otherwise defined in
 ARC-V’s default linker script <code class="docutils literal notranslate"><span class="pre">arcv.ld</span></code>: <code class="docutils literal notranslate"><span class="pre">txtmem_addr</span></code> and <code class="docutils literal notranslate"><span class="pre">datamem_addr</span></code>.</p>
 <p>Then the command lines look like this:</p>
 <ul>
 <li><p>For an ARC-V RMX-100 processor:</p>
 <blockquote>
-<div><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ riscv64-elf-gcc --specs<span class="o">=</span>semihost.specs --specs<span class="o">=</span>arcv.specs -mabi<span class="o">=</span>ilp32 <span class="se">\</span>
+<div><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ riscv64-elf-gcc -specs<span class="o">=</span>semihost.specs -specs<span class="o">=</span>arcv.specs -mabi<span class="o">=</span>ilp32 <span class="se">\</span>
                   -mtune<span class="o">=</span>rmx100 -march<span class="o">=</span>rv32im_zba_zbb_zbs_zca_zcb_zcmp_zicsr <span class="se">\</span>
                   -Wl,-defsym<span class="o">=</span><span class="nv">txtmem_addr</span><span class="o">=</span>0x80000000 -Wl,-defsym<span class="o">=</span><span class="nv">datamem_addr</span><span class="o">=</span>0x80100000 <span class="se">\</span>
                   -T arcv.ld test.c -o a.out
@@ -445,7 +548,7 @@ ARC-V’s default linker script <code class="docutils literal notranslate"><span
 </li>
 <li><p>For an ARC-V RMX-500 processor:</p>
 <blockquote>
-<div><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ riscv64-elf-gcc --specs<span class="o">=</span>semihost.specs --specs<span class="o">=</span>arcv.specs -mabi<span class="o">=</span>ilp32 <span class="se">\</span>
+<div><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ riscv64-elf-gcc -specs<span class="o">=</span>semihost.specs -specs<span class="o">=</span>arcv.specs -mabi<span class="o">=</span>ilp32 <span class="se">\</span>
                   -mtune<span class="o">=</span>rmx500 -march<span class="o">=</span>rv32im_zba_zbb_zbs_zca_zcb_zcmp_zicsr <span class="se">\</span>
                   -Wl,-defsym<span class="o">=</span><span class="nv">txtmem_addr</span><span class="o">=</span>0x80000000 -Wl,-defsym<span class="o">=</span><span class="nv">datamem_addr</span><span class="o">=</span>0x80100000 <span class="se">\</span>
                   -T arcv.ld test.c -o a.out
@@ -455,7 +558,7 @@ ARC-V’s default linker script <code class="docutils literal notranslate"><span
 </li>
 <li><p>For an ARC-V RHX processor:</p>
 <blockquote>
-<div><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ riscv64-elf-gcc --specs<span class="o">=</span>semihost.specs --specs<span class="o">=</span>arcv.specs -mabi<span class="o">=</span>ilp32 <span class="se">\</span>
+<div><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ riscv64-elf-gcc -specs<span class="o">=</span>semihost.specs -specs<span class="o">=</span>arcv.specs -mabi<span class="o">=</span>ilp32 <span class="se">\</span>
                   -mtune<span class="o">=</span>rhx -march<span class="o">=</span>rv32im_zba_zbb_zbs_zca_zcb_zcmp_zicsr <span class="se">\</span>
                   -Wl,-defsym<span class="o">=</span><span class="nv">txtmem_addr</span><span class="o">=</span>0x80000000 -Wl,-defsym<span class="o">=</span><span class="nv">datamem_addr</span><span class="o">=</span>0x80100000 <span class="se">\</span>
                   -T arcv.ld test.c -o a.out
@@ -529,7 +632,7 @@ void test (void) {
 </pre></div>
 </div>
 <p>Here is a generated assembly listing targeting the Zcmp extension:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ riscv64-unknown-elf-gcc -march=rv32im_zcmp -mabi=ilp32 t01.c -S -O1 -o -
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ riscv64-elf-gcc -march=rv32im_zcmp -mabi=ilp32 t01.c -S -O1 -o -
 
     .file   &quot;t01.c&quot;
     .option nopic
@@ -562,7 +665,7 @@ int test (int a, int b) {
 </div>
 <p>Now compile and disassemble it:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ riscv64-elf-gcc -march=rv32im_zca_zcb -mabi=ilp32 t03.c -c -O1
-$ riscv64-unknown-elf-objdump -d t03.o
+$ riscv64-elf-objdump -d t03.o
 
 t03.o:     file format elf32-littleriscv
 
@@ -576,7 +679,7 @@ Disassembly of section .text:
 </div>
 <p>Note the short 16-bit encoding of the <code class="docutils literal notranslate"><span class="pre">add</span></code> instruction. Without use of Zc extensions, compiler generates a full 32-bit encoding as in the example below.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ riscv64-elf-gcc -march=rv32im -mabi=ilp32 t03.c -c -O1
-$ riscv64-unknown-elf-objdump -d t03.o
+$ riscv64-elf-objdump -d t03.o
 
 t03.o:     file format elf32-littleriscv
 
@@ -589,6 +692,75 @@ Disassembly of section .text:
 </pre></div>
 </div>
 </div>
+</div>
+<div class="section" id="building-a-toolchain-for-a-particular-architecture">
+<h2>Building a Toolchain for a Particular Architecture<a class="headerlink" href="#building-a-toolchain-for-a-particular-architecture" title="Permalink to this headline">¶</a></h2>
+<p>The GNU toolchain for ARC-V targets contains a set of precompiled standard libraries
+for different combinations of <code class="docutils literal notranslate"><span class="pre">-march</span></code>, <code class="docutils literal notranslate"><span class="pre">-mabi</span></code> and <code class="docutils literal notranslate"><span class="pre">-mcmodel</span></code>. You can
+find a list of available configurations this way:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ riscv64-elf-gcc --print-multi-lib
+.;
+rv32i/ilp32;@march=rv32i@mabi=ilp32
+rv32i/ilp32/medany;@march=rv32i@mabi=ilp32@mcmodel=medany
+rv32iac/ilp32;@march=rv32iac@mabi=ilp32
+rv32iac/ilp32/medany;@march=rv32iac@mabi=ilp32@mcmodel=medany
+rv32im/ilp32;@march=rv32im@mabi=ilp32
+rv32im/ilp32/medany;@march=rv32im@mabi=ilp32@mcmodel=medany
+rv32imac/ilp32;@march=rv32imac@mabi=ilp32
+rv32imac/ilp32/medany;@march=rv32imac@mabi=ilp32@mcmodel=medany
+rv32imafc_zicsr/ilp32f;@march=rv32imafc_zicsr@mabi=ilp32f
+rv32imafc_zicsr/ilp32f/medany;@march=rv32imafc_zicsr@mabi=ilp32f@mcmodel=medany
+rv32imafd_zicsr/ilp32d;@march=rv32imafd_zicsr@mabi=ilp32d
+rv32imafd_zicsr/ilp32d/medany;@march=rv32imafd_zicsr@mabi=ilp32d@mcmodel=medany
+rv32imafdc_zicsr/ilp32d;@march=rv32imafdc_zicsr@mabi=ilp32d
+rv32imafdc_zicsr/ilp32d/medany;@march=rv32imafdc_zicsr@mabi=ilp32d@mcmodel=medany
+rv64imac/lp64;@march=rv64imac@mabi=lp64
+rv64imac/lp64/medany;@march=rv64imac@mabi=lp64@mcmodel=medany
+rv64imafdc_zicsr/lp64d;@march=rv64imafdc_zicsr@mabi=lp64d
+rv64imafdc_zicsr/lp64d/medany;@march=rv64imafdc_zicsr@mabi=lp64d@mcmodel=medany
+</pre></div>
+</div>
+<p>Libraries for this toolchain were built with these combinations of
+configurations:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-march=rv32i</span> <span class="pre">-mabi=ilp32</span> <span class="pre">-mcmodel=medlow</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-march=rv32i</span> <span class="pre">-mabi=ilp32</span> <span class="pre">-mcmodel=medany</span></code></p></li>
+<li><p>…</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-march=rv32imafc_zicsr</span> <span class="pre">-mabi=ilp32f</span> <span class="pre">-mcmodel=medlow</span></code></p></li>
+<li><p>…</p></li>
+</ul>
+<p>The easiest way to build a toolchain for another custom configuration
+is to add a combination to the Crosstool-NG configuration. You can find
+a comprehensive guide about how to get and prepare Crosstool-NG here:
+<a class="reference external" href="https://github.com/foss-for-synopsys-dwc-arc-processors/toolchain">https://github.com/foss-for-synopsys-dwc-arc-processors/toolchain</a>.</p>
+<p>First, set up a standard ARC-V configuration file and enter a
+configuration menu:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">ct</span><span class="o">-</span><span class="n">ng</span> <span class="n">snps</span><span class="o">-</span><span class="n">riscv64</span><span class="o">-</span><span class="n">unknown</span><span class="o">-</span><span class="n">elf</span>
+<span class="o">./</span><span class="n">ct</span><span class="o">-</span><span class="n">ng</span> <span class="n">menuconfig</span>
+</pre></div>
+</div>
+<p>For example, if you want to build Crosstool-NG with just these configurations:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-march=rv32imafc_zicond_zicsr_zifencei</span> <span class="pre">-mabi=ilp32f</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-march=rv64imafdc_zicsr</span> <span class="pre">-mabi=lp64d</span></code></p></li>
+</ul>
+<p>Navigate to the <strong>C compiler</strong> menu and
+replace the value of <strong>Generator of RISC-V multilib variants</strong> with this string:
+<code class="docutils literal notranslate"><span class="pre">rv32imafc_zicond_zicsr_zifencei-ilp32f--;rv64imafdc_zicsr-lp64d--;</span></code>
+(place it right after the <strong>gcc extra config</strong> field).</p>
+<p>Then build the toolchain as usual:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">ct</span><span class="o">-</span><span class="n">ng</span> <span class="n">build</span>
+</pre></div>
+</div>
+<p>The output toolchain is located in the <code class="docutils literal notranslate"><span class="pre">riscv64-unknown-elf</span></code> directory:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./riscv64-unknown-elf/bin/riscv64-elf-gcc --print-multi-lib
+.;
+rv32imafc_zicond_zicsr_zifencei/ilp32f;@march=rv32imafc_zicond_zicsr_zifencei@mabi=ilp32f
+rv64imafdc_zicsr/lp64d;@march=rv64imafdc_zicsr@mabi=lp64d
+</pre></div>
+</div>
+<p>Now when you use <code class="docutils literal notranslate"><span class="pre">-march=rv32imafc_zicond_zicsr_zifencei</span> <span class="pre">-mabi=ilp32f</span></code>
+or compatible combinations, a corresponding precompiled library is used.</p>
 </div>
 </div>
 

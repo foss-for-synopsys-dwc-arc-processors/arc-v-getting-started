@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>The MetaWare Development Toolkit &mdash; ARC-V Processors Getting Started html-1.3 documentation</title>
+  <title>The MetaWare Development Toolkit &mdash; ARC-V Processors Getting Started html-1.4 documentation</title>
   
 
   
@@ -65,7 +65,7 @@
             
             
               <div class="version">
-                html-1.3
+                html-1.4
               </div>
             
           
@@ -97,8 +97,13 @@
 <li class="toctree-l2"><a class="reference internal" href="gnu.html">GNU tools for ARC-V</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">The MetaWare Development Toolkit</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#getting-the-metaware-development-toolkit">Getting the MetaWare Development Toolkit</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#metaware-development-toolkit-v-2024-03">MetaWare Development Toolkit V-2024.03</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#metaware-development-toolkit-v-2024-06">MetaWare Development Toolkit V-2024.06</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#new-features-and-enhancements-for-risc-v-based-arc-v-processors">New Features and Enhancements for RISC-V based ARC-V Processors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#new-features-and-enhancements-in-arc-vector-dsp-libraries-not-supported-for-arc-v-targets">New Features and Enhancements in ARC Vector DSP Libraries (Not Supported for ARC-V Targets)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#metaware-development-toolkit-v-2024-03">MetaWare Development Toolkit V-2024.03</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">New Features and Enhancements for RISC-V based ARC-V Processors</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#metaware-development-toolkit-v-2023-12">MetaWare Development Toolkit V-2023.12</a><ul>
@@ -200,10 +205,54 @@
 <li><p>Email-based support is available by writing to <a class="reference external" href="mailto:mwdt-eval-support&#37;&#52;&#48;synopsys&#46;com">mwdt-eval-support<span>&#64;</span>synopsys<span>&#46;</span>com</a>.</p></li>
 </ol>
 </div>
-<div class="section" id="metaware-development-toolkit-v-2024-03">
-<h2>MetaWare Development Toolkit V-2024.03<a class="headerlink" href="#metaware-development-toolkit-v-2024-03" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="metaware-development-toolkit-v-2024-06">
+<h2>MetaWare Development Toolkit V-2024.06<a class="headerlink" href="#metaware-development-toolkit-v-2024-06" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="new-features-and-enhancements-for-risc-v-based-arc-v-processors">
 <h3>New Features and Enhancements for RISC-V based ARC-V Processors<a class="headerlink" href="#new-features-and-enhancements-for-risc-v-based-arc-v-processors" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>C++20 support: The MetaWare compiler follows Clang 17.0.6 in terms of C++20 support. The C++20library is supported except for features related to threads, and those that require corresponding features  in the C library added since C11.</p></li>
+<li><p>The <strong>printf()</strong> floating-point handling has been enabled on RPX (64-bit ARC-V processors).</p></li>
+<li><p>Added options <code class="docutils literal notranslate"><span class="pre">-msave-restore</span></code> and <code class="docutils literal notranslate"><span class="pre">-mno_save-restore</span></code> to enable and disable use of library calls for register save and restore for ARC-V processors. For details, see the <em>MetaWare CCAC Programmer’s Guide</em>.</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">-Zno_*</span></code> versions to negate specification of the ARC-V extension options. For details, see the <em>MetaWare CCAC Programmer’s Guide</em>.</p></li>
+<li><p>The deprecated VectorC intrinsics with <code class="docutils literal notranslate"><span class="pre">deprecated</span></code> in their names have been removed from <code class="docutils literal notranslate"><span class="pre">arc_vector.h</span></code>.</p></li>
+<li><p>Picolib is now the default runtime library for ARC-V processors.</p></li>
+</ul>
+</div>
+<div class="section" id="new-features-and-enhancements-in-arc-vector-dsp-libraries-not-supported-for-arc-v-targets">
+<h3>New Features and Enhancements in ARC Vector DSP Libraries (Not Supported for ARC-V Targets)<a class="headerlink" href="#new-features-and-enhancements-in-arc-vector-dsp-libraries-not-supported-for-arc-v-targets" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Added half-precision complex batch FFT to the Vector DSP Library.</p></li>
+<li><p>Vector Linear Algebra Library:</p>
+<ul>
+<li><p>Added batched complex-SVD kernel.</p></li>
+<li><p>Added batched real-SVD kernel.</p></li>
+<li><p>Optimized performance of BLAS L2 functions.</p></li>
+</ul>
+</li>
+<li><p>VPX Emulation Library:</p>
+<ul>
+<li><p>Added <strong>_lr()</strong> and <strong>_sr()</strong> emulation of VPX status registers.</p></li>
+<li><p>Added thread safety for x86 emulation library.</p></li>
+</ul>
+</li>
+<li><p>Vision Library:</p>
+<ul>
+<li><p>Added support for area-scale mode in vision_scale() function.24.</p></li>
+<li><p>Optimized <strong>Bilateral3x3()</strong>.</p></li>
+<li><p>Added 16-bit version of <strong>filter2d3x3()</strong>.</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">s16</span></code> version of <strong>BoxNxN()</strong>.</p></li>
+<li><p>Added ORB Demo.</p></li>
+<li><p>Added support for <code class="docutils literal notranslate"><span class="pre">s16</span></code> input type for pixel-wise processing kernels.</p></li>
+<li><p>Added double buffering scheme in <strong>FrameProcessor()</strong>.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="metaware-development-toolkit-v-2024-03">
+<h2>MetaWare Development Toolkit V-2024.03<a class="headerlink" href="#metaware-development-toolkit-v-2024-03" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>New Features and Enhancements for RISC-V based ARC-V Processors<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Optimized performance on ARC-V targets.</p></li>
 <li><p>Added support for the RISC-V deviation specification (in particular, the <code class="docutils literal notranslate"><span class="pre">long</span> <span class="pre">double</span></code> type is 64 bits, not 128 bits).</p></li>
@@ -278,7 +327,7 @@
 <p>See the section on installation and licensing in the <em>MetaWare Quick Start Guide</em>.</p>
 </div>
 <div class="section" id="the-first-metaware-sample-application">
-<span id="id1"></span><h3>The First MetaWare Sample Application<a class="headerlink" href="#the-first-metaware-sample-application" title="Permalink to this headline">¶</a></h3>
+<span id="id2"></span><h3>The First MetaWare Sample Application<a class="headerlink" href="#the-first-metaware-sample-application" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="building-the-queens-example">
 <h4>Building the Queens Example<a class="headerlink" href="#building-the-queens-example" title="Permalink to this headline">¶</a></h4>
 <p>A simple working Queens demo that shows how to compile, link, and execute a program for an ARC-V target is available in <code class="docutils literal notranslate"><span class="pre">MetaWare/arc/examples/arcv_queens</span></code>.</p>
@@ -389,7 +438,7 @@ If the run is successful, the following message appears in the console.</p>
 </div>
 <p>Show and remove a breakpoint:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; break list
-&gt; break -d 3
+&gt; break del 3
 &gt; c
 </pre></div>
 </div>
@@ -412,7 +461,7 @@ If the run is successful, the following message appears in the console.</p>
 </div>
 </div>
 <div class="section" id="installing-the-visual-studio-code-extension">
-<h4>Installing the Visual Studio Code Extension<a class="headerlink" href="#installing-the-visual-studio-code-extension" title="Permalink to this headline">¶</a></h4>
+<span id="id3"></span><h4>Installing the Visual Studio Code Extension<a class="headerlink" href="#installing-the-visual-studio-code-extension" title="Permalink to this headline">¶</a></h4>
 <p>To run a GUI session, install and configure the VS Code extension using the following steps.</p>
 <ol class="arabic simple">
 <li><p>Install VS Code from the official site, <a class="reference external" href="https://code.visualstudio.com/download">https://code.visualstudio.com/download</a>.</p></li>

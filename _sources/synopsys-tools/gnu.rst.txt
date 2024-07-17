@@ -12,6 +12,94 @@ specifically to produce the best possible results for ARC processors.
 It also makes sure the results produced are reliable
 in all supported environments.
 
+GNU Toolchain for ARC-V Processors v2024.06
+-------------------------------------------
+
+This is the 2024.06 version of the GNU Toolchain for Synopsys ARC-V Processor IP.
+This is the first release that supports the latest GNU tools for both ARC Classic
+and ARC-V processors simultaneously.
+
+More information about these processors can be found on Synopsys website:
+
+* `Power-Efficient RISC-V Processors for Embedded Applications <https://www.synopsys.com/designware-ip/processor-solutions/arc-v-processors/arc-v-rmx.html>`_.
+* `Maximum Performance Efficiency for Real-time Applications <https://www.synopsys.com/designware-ip/processor-solutions/arc-v-processors/arc-v-rhx.html>`_.
+
+New Features and Enhancements
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+There are no major changes for ARC targets except ARC-specific fixes.
+All components are updated on top of upstream releases.
+
+Binary Distribution
+^^^^^^^^^^^^^^^^^^^
+
+* Supported host operating systems: Windows 10/11 64-bit, 20.04.x, CentOS/RHEL 7.x
+* Prebuilt bare-metal toolchains for 64-bit Windows and Linux hosts; see table with references and list of artifacts.
+
+Toolchain Components
+^^^^^^^^^^^^^^^^^^^^
+
+* GCC 14.1 with ARC patches
+
+  * Uses upstream 14.1 release; see `release announcement <https://gcc.gnu.org/pipermail/gcc/2024-May/243921.html>`__ and `complete list of changes <https://gcc.gnu.org/gcc-14/changes.html>`__.
+  * Initial support of RVV extensions is added in upstream GCC 14.
+
+* Binutils 2.42 with ARC patches
+
+  * Uses upstream 2.42 release; see `release notes <https://sourceware.org/pipermail/binutils/2024-January/132213.html>`_.
+
+* GDB 14.2 with ARC patches
+
+  * Uses upstream 14.2 release; see `release announcement for 14.1 <https://sourceware.org/pipermail/gdb-announce/2023/000137.html>`_ and
+    `complete list of changes for 14.1 <https://sourceware.org/git/gitweb.cgi?p=binutils-gdb.git;a=blob_plain;f=gdb/NEWS;hb=gdb-14.1-release>`_
+    for major changes.
+
+* Newlib 4.4.0 with ARC patches
+
+  * Uses upstream 4.4.0 release; see `release announcement <https://sourceware.org/pipermail/newlib/2023/020873.html>`_.
+  * The upstream Newlib source tree now contains the latest changes for ARC Classic.
+
+Known Issues
+~~~~~~~~~~~~
+
+* The size-optimized Newlib Nano configuration (used when ``-specs=nano.specs`` is passed to GCC)
+  does not support **printf()** for ``float`` and ``double`` by default. Nano **printf()** is size-optimized
+  and does not include support of ``float`` and ``double``. If you need that feature, pass
+  ``-u _printf_float`` to GCC when you compile your applications. This option picks up support of ``float``
+  and ``double`` for size optimized **printf()** on demand.
+
+* Some complex combinations of ``-march=`` and ``-mabi=`` options might lead to unpredictable errors
+  during compilation. Such issues are related to general support of RISC-V extensions in GCC. See
+  `#610 <https://github.com/foss-for-synopsys-dwc-arc-processors/toolchain/issues/610>`_.
+
+* GCC 14 generates incorrect include directories if it's configured with the ``--with-sysroot=...``
+  and ``--with-native-system-header-dir=...`` options. This is a valid set of options for
+  building GCC, but it leads to GCC including invalid paths in an include
+  search list when ``-save-temps`` is used while building binaries. This issue is not
+  critical and will be addressed later. See
+  `#628 <https://github.com/foss-for-synopsys-dwc-arc-processors/toolchain/issues/628>`_.
+
+Getting Help
+~~~~~~~~~~~~
+
+Visit the GitHub discussions link for a community forum tailored to ARC-V processors. To report issues and enhancement requests, use GitHub issues (if you are not sure, start with discussions, as a discussion can always be converted into an issue).
+
+* GitHub discussions: https://github.com/foss-for-synopsys-dwc-arc-processors/arc-v-getting-started/discussions
+* GitHub issues: https://github.com/foss-for-synopsys-dwc-arc-processors/arc-v-getting-started/issues
+
+Prebuilt Toolchains Available for Download
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* `Bare-metal ARC-V cross-toolchain for 64-bit Linux hosts <https://github.com/foss-for-synopsys-dwc-arc-processors/toolchain/releases/download/arc-2024.06-rc1/arc_gnu_2024.06-rc1_prebuilt_riscv64_elf_le_linux_install.tar.bz2>`__
+* `Bare-metal ARC-V cross-toolchain for 64-bit Windows 10 & 11 hosts <https://github.com/foss-for-synopsys-dwc-arc-processors/toolchain/releases/download/arc-2024.06-rc1/arc_gnu_2024.06-rc1_prebuilt_riscv64_elf_le_win_install.tar.bz2>`__
+
+Archive SHA-256 checksums are:
+
+.. code-block::
+
+  b7c2b3f1ce3cda1d1472a0412c474e9a6ca1fe5ee48db4910664050456e28ceb arc_gnu_2024.06-rc1_prebuilt_riscv64_elf_le_win_install.tar.bz2
+  02580b4b8194695c3f5a6248fc52c1c0e16b252d7b4c2a24a059f653e2eb9eef arc_gnu_2024.06-rc1_prebuilt_riscv64_elf_le_linux_install.tar.bz2
+
 GNU Toolchain for ARC-V Processors v2023.12
 -------------------------------------------
 
@@ -72,11 +160,11 @@ Toolchain Components
 
 Known Issues
 ~~~~~~~~~~~~
-There are no known issues for this release so far.
+
+No known issues for this release so far.
 
 Getting Help
 ~~~~~~~~~~~~
-A *Getting Started* manual covering all aspects of the ARC-V family of processors is available here: `<https://foss-for-synopsys-dwc-arc-processors.github.io/arc-v-getting-started>`_.
 
 Also visit the GitHub discussions link for a community forum tailored to ARC-V processors. To report issues and enhancement requests, use GitHub issues (if you are not sure, start with discussions, since a discussion can always be converted into an issue).
 
@@ -196,7 +284,7 @@ After building, use the following command line to run the sample in nSIM:
 .. code-block:: shell
 
    $ nsimdrv -prop=nsim_isa_family=rv32 \
-     -prop=nsim_isa_ext=-all.i.zicsr.zifencei.zihintpause.b.zca.zcb.zcmp.zcmt.a.m.zbb \
+     -prop=nsim_isa_ext=-all.i.zicsr.zifencei.zihintpause.b.zca.zcb.zcmp.zcmt.a.m.zbb.zba.zbs \
      -prop=nsim_semihosting=1 -off=enable_exceptions a.out
 
    Hello world!
@@ -207,7 +295,7 @@ Build and Run a Simple Application for QEMU
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 It is best to use the latest official QEMU version for the following exercises.
-As of today, it's v8.2; see release notes here https://wiki.qemu.org/ChangeLog/8.2.
+As of today, it's v9.0; see the release notes here: https://wiki.qemu.org/ChangeLog/9.0.
 The sources are on GitLab (https://gitlab.com/qemu-project/qemu) 
 or in the official GitHub mirror (https://github.com/qemu/qemu).
 
@@ -216,25 +304,33 @@ or in the official GitHub mirror (https://github.com/qemu/qemu).
    To get the latest version of QEMU on your system it might be much easier to build it
    from sources rather than trying to find a pre-built version which suits your host type and operating system.
 
-   Instructions for building on Linux are on QEMU's Wiki: https://github.com/qemu/qemu
+   Instructions for building on Linux are on QEMU's Wiki: https://wiki.qemu.org/Hosts/Linux
 
    First you need to install required additional packages, which depend on the
-   Linux distribution used on the host. For example for Ubuntu 20.04 the following needs to
-   be done:
+   Linux distribution used on the host.
+   
+   For example, for Ubuntu 20.04 the following needs to be done:
 
    .. code-block:: shell
 
-      $ apt-get install build-essential git libglib2.0-dev libfdt-dev \
-        libpixman-1-dev zlib1g-dev ninja-build python3-venv
+      $ apt install build-essential git libglib2.0-dev libfdt-dev \
+                    libpixman-1-dev zlib1g-dev ninja-build python3-venv
+   
+   For AlmaLinux 8 the following needs to be done:
+
+   .. code-block:: shell
+
+      $ dnf install git glib2-devel libfdt-devel pixman-devel zlib-devel \
+                    bzip2 ninja-build python3 python38
 
    After installation of prerequisites you can download sources, configure, and build in the following way:
 
    .. code-block:: shell
 
-      # Clone v8.2.0 from GitHub repository
-      $ git clone --depth 1 --branch v8.2.0 git@github.com:qemu/qemu.git
+      # Clone v9.0 from GitHub repository
+      $ git clone --depth 1 -b stable-9.0 https://github.com/qemu/qemu.git
 
-      # Configure project for build selecting only RISCV32 full system emulation,
+      # Configure project for build selecting only RISCV32 full system emulation
       $ ./configure --target-list=riscv32-softmmu
 
       # Build QEMU
@@ -247,7 +343,7 @@ or in the official GitHub mirror (https://github.com/qemu/qemu).
 
 The following commands can be used for compiling the sample for later execution in QEMU.
 Basically the same compiler options are used, except that you need to make sure
-DDR memory is used and the ``.text`` section starts in the DDR beginning at 0x8000_0000, where
+DDR memory is used and the ``.text`` section starts in the DDR beginning at ``0x8000_0000``, where
 the board jumps on start automatically. For that, you need to override two linker symbols otherwise defined in
 ARC-V's default linker script ``arcv.ld``: ``txtmem_addr`` and ``datamem_addr``. 
 
@@ -257,7 +353,7 @@ Then the command lines look like this:
 
    .. code-block:: shell
 
-      $ riscv64-elf-gcc --specs=semihost.specs --specs=arcv.specs -mabi=ilp32 \
+      $ riscv64-elf-gcc -specs=semihost.specs -specs=arcv.specs -mabi=ilp32 \
                         -mtune=rmx100 -march=rv32im_zba_zbb_zbs_zca_zcb_zcmp_zicsr \
                         -Wl,-defsym=txtmem_addr=0x80000000 -Wl,-defsym=datamem_addr=0x80100000 \
                         -T arcv.ld test.c -o a.out
@@ -266,7 +362,7 @@ Then the command lines look like this:
 
    .. code-block:: shell
 
-      $ riscv64-elf-gcc --specs=semihost.specs --specs=arcv.specs -mabi=ilp32 \
+      $ riscv64-elf-gcc -specs=semihost.specs -specs=arcv.specs -mabi=ilp32 \
                         -mtune=rmx500 -march=rv32im_zba_zbb_zbs_zca_zcb_zcmp_zicsr \
                         -Wl,-defsym=txtmem_addr=0x80000000 -Wl,-defsym=datamem_addr=0x80100000 \
                         -T arcv.ld test.c -o a.out
@@ -275,7 +371,7 @@ Then the command lines look like this:
 
    .. code-block:: shell
 
-      $ riscv64-elf-gcc --specs=semihost.specs --specs=arcv.specs -mabi=ilp32 \
+      $ riscv64-elf-gcc -specs=semihost.specs -specs=arcv.specs -mabi=ilp32 \
                         -mtune=rhx -march=rv32im_zba_zbb_zbs_zca_zcb_zcmp_zicsr \
                         -Wl,-defsym=txtmem_addr=0x80000000 -Wl,-defsym=datamem_addr=0x80100000 \
                         -T arcv.ld test.c -o a.out
@@ -368,7 +464,7 @@ Here is a generated assembly listing targeting the Zcmp extension:
 
 .. code-block::
 
-   $ riscv64-unknown-elf-gcc -march=rv32im_zcmp -mabi=ilp32 t01.c -S -O1 -o -
+   $ riscv64-elf-gcc -march=rv32im_zcmp -mabi=ilp32 t01.c -S -O1 -o -
 
        .file   "t01.c"
        .option nopic
@@ -406,7 +502,7 @@ Now compile and disassemble it:
 .. code-block::
 
    $ riscv64-elf-gcc -march=rv32im_zca_zcb -mabi=ilp32 t03.c -c -O1
-   $ riscv64-unknown-elf-objdump -d t03.o
+   $ riscv64-elf-objdump -d t03.o
 
    t03.o:     file format elf32-littleriscv
    
@@ -424,7 +520,7 @@ Note the short 16-bit encoding of the ``add`` instruction. Without use of Zc ext
 .. code-block::
 
    $ riscv64-elf-gcc -march=rv32im -mabi=ilp32 t03.c -c -O1
-   $ riscv64-unknown-elf-objdump -d t03.o
+   $ riscv64-elf-objdump -d t03.o
    
    t03.o:     file format elf32-littleriscv
    
@@ -434,3 +530,83 @@ Note the short 16-bit encoding of the ``add`` instruction. Without use of Zc ext
    00000000 <test>:
       0:   00b50533                add     a0,a0,a1
       4:   00008067                ret
+
+Building a Toolchain for a Particular Architecture
+--------------------------------------------------
+
+The GNU toolchain for ARC-V targets contains a set of precompiled standard libraries
+for different combinations of ``-march``, ``-mabi`` and ``-mcmodel``. You can
+find a list of available configurations this way:
+
+.. code-block::
+
+   $ riscv64-elf-gcc --print-multi-lib
+   .;
+   rv32i/ilp32;@march=rv32i@mabi=ilp32
+   rv32i/ilp32/medany;@march=rv32i@mabi=ilp32@mcmodel=medany
+   rv32iac/ilp32;@march=rv32iac@mabi=ilp32
+   rv32iac/ilp32/medany;@march=rv32iac@mabi=ilp32@mcmodel=medany
+   rv32im/ilp32;@march=rv32im@mabi=ilp32
+   rv32im/ilp32/medany;@march=rv32im@mabi=ilp32@mcmodel=medany
+   rv32imac/ilp32;@march=rv32imac@mabi=ilp32
+   rv32imac/ilp32/medany;@march=rv32imac@mabi=ilp32@mcmodel=medany
+   rv32imafc_zicsr/ilp32f;@march=rv32imafc_zicsr@mabi=ilp32f
+   rv32imafc_zicsr/ilp32f/medany;@march=rv32imafc_zicsr@mabi=ilp32f@mcmodel=medany
+   rv32imafd_zicsr/ilp32d;@march=rv32imafd_zicsr@mabi=ilp32d
+   rv32imafd_zicsr/ilp32d/medany;@march=rv32imafd_zicsr@mabi=ilp32d@mcmodel=medany
+   rv32imafdc_zicsr/ilp32d;@march=rv32imafdc_zicsr@mabi=ilp32d
+   rv32imafdc_zicsr/ilp32d/medany;@march=rv32imafdc_zicsr@mabi=ilp32d@mcmodel=medany
+   rv64imac/lp64;@march=rv64imac@mabi=lp64
+   rv64imac/lp64/medany;@march=rv64imac@mabi=lp64@mcmodel=medany
+   rv64imafdc_zicsr/lp64d;@march=rv64imafdc_zicsr@mabi=lp64d
+   rv64imafdc_zicsr/lp64d/medany;@march=rv64imafdc_zicsr@mabi=lp64d@mcmodel=medany
+
+Libraries for this toolchain were built with these combinations of
+configurations:
+
+* ``-march=rv32i -mabi=ilp32 -mcmodel=medlow``
+* ``-march=rv32i -mabi=ilp32 -mcmodel=medany``
+* ...
+* ``-march=rv32imafc_zicsr -mabi=ilp32f -mcmodel=medlow``
+* ...
+
+The easiest way to build a toolchain for another custom configuration
+is to add a combination to the Crosstool-NG configuration. You can find
+a comprehensive guide about how to get and prepare Crosstool-NG here:
+https://github.com/foss-for-synopsys-dwc-arc-processors/toolchain.
+
+First, set up a standard ARC-V configuration file and enter a
+configuration menu:
+
+.. code-block::
+
+   ./ct-ng snps-riscv64-unknown-elf
+   ./ct-ng menuconfig
+
+For example, if you want to build Crosstool-NG with just these configurations:
+
+-  ``-march=rv32imafc_zicond_zicsr_zifencei -mabi=ilp32f`` 
+-  ``-march=rv64imafdc_zicsr -mabi=lp64d``
+
+Navigate to the **C compiler** menu and
+replace the value of **Generator of RISC-V multilib variants** with this string:
+``rv32imafc_zicond_zicsr_zifencei-ilp32f--;rv64imafdc_zicsr-lp64d--;``
+(place it right after the **gcc extra config** field). 
+
+Then build the toolchain as usual:
+
+.. code-block::
+
+   ./ct-ng build
+
+The output toolchain is located in the ``riscv64-unknown-elf`` directory:
+
+.. code-block::
+
+   $ ./riscv64-unknown-elf/bin/riscv64-elf-gcc --print-multi-lib
+   .;
+   rv32imafc_zicond_zicsr_zifencei/ilp32f;@march=rv32imafc_zicond_zicsr_zifencei@mabi=ilp32f
+   rv64imafdc_zicsr/lp64d;@march=rv64imafdc_zicsr@mabi=lp64d
+
+Now when you use ``-march=rv32imafc_zicond_zicsr_zifencei -mabi=ilp32f``
+or compatible combinations, a corresponding precompiled library is used.

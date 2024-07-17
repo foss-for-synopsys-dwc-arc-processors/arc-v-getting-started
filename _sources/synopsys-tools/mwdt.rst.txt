@@ -16,6 +16,43 @@ The Synopsys Eval Portal (https://eval.synopsys.com/) allows you to request an e
 4. Download the software and begin your evaluation.
 5. Email-based support is available by writing to mwdt-eval-support@synopsys.com.
 
+MetaWare Development Toolkit V-2024.06
+--------------------------------------
+
+New Features and Enhancements for RISC-V based ARC-V Processors
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+*  C++20 support: The MetaWare compiler follows Clang 17.0.6 in terms of C++20 support. The C++20library is supported except for features related to threads, and those that require corresponding features  in the C library added since C11.
+*  The **printf()** floating-point handling has been enabled on RPX (64-bit ARC-V processors).
+*  Added options ``-msave-restore`` and ``-mno_save-restore`` to enable and disable use of library calls for register save and restore for ARC-V processors. For details, see the *MetaWare CCAC Programmer’s Guide*.
+*  Added ``-Zno_*`` versions to negate specification of the ARC-V extension options. For details, see the *MetaWare CCAC Programmer’s Guide*.
+*  The deprecated VectorC intrinsics with ``deprecated`` in their names have been removed from ``arc_vector.h``.
+*  Picolib is now the default runtime library for ARC-V processors.
+
+New Features and Enhancements in ARC Vector DSP Libraries (Not Supported for ARC-V Targets)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-  Added half-precision complex batch FFT to the Vector DSP Library.
+-  Vector Linear Algebra Library:
+
+   - Added batched complex-SVD kernel.
+   - Added batched real-SVD kernel.
+   - Optimized performance of BLAS L2 functions.
+
+-  VPX Emulation Library:
+
+   - Added **_lr()** and **_sr()** emulation of VPX status registers.
+   - Added thread safety for x86 emulation library.
+
+-  Vision Library:
+
+   - Added support for area-scale mode in vision_scale() function.24.
+   - Optimized **Bilateral3x3()**.
+   - Added 16-bit version of **filter2d3x3()**.
+   - Added ``s16`` version of **BoxNxN()**.
+   - Added ORB Demo.
+   - Added support for ``s16`` input type for pixel-wise processing kernels.
+   - Added double buffering scheme in **FrameProcessor()**.
+    
 MetaWare Development Toolkit V-2024.03
 --------------------------------------
 
