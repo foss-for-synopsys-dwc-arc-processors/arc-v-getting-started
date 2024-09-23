@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>The MetaWare Development Toolkit &mdash; ARC-V Processors Getting Started html-1.4 documentation</title>
+  <title>The MetaWare Development Toolkit &mdash; ARC-V Processors Getting Started html-1.5 documentation</title>
   
 
   
@@ -65,7 +65,7 @@
             
             
               <div class="version">
-                html-1.4
+                html-1.5
               </div>
             
           
@@ -115,6 +115,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#installation-and-licensing">Installation and Licensing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#the-first-metaware-sample-application">The First MetaWare Sample Application</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#debugging">Debugging</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#generating-custom-arc-v-libraries">Generating Custom ARC-V Libraries</a></li>
 </ul>
 </li>
 </ul>
@@ -305,7 +306,7 @@
 <h3>Basic Information<a class="headerlink" href="#basic-information" title="Permalink to this headline">¶</a></h3>
 <p>The MetaWare Development Toolkit supports building and debugging for ARC-V processors.</p>
 <ul>
-<li><p>IDE: The MetaWare IDE does not support ARC-V targets; instead, a VS Code plugin is provided as a <code class="docutils literal notranslate"><span class="pre">.vsix</span></code> file in the <code class="docutils literal notranslate"><span class="pre">MetaWare/arc/lldbac</span></code> folder. You must have an installed instance of VS Code from Microsoft to use this extension. The <em>MetaWare Debugger User Guide</em> in <code class="docutils literal notranslate"><span class="pre">/MetaWare/arc/docs/pdf/arc-v</span></code> has step-by-step instructions on how to install and configure this extension.</p>
+<li><p>IDE: The MetaWare IDE does not support ARC-V targets; instead, a VS Code plugin is provided as a <code class="docutils literal notranslate"><span class="pre">.vsix</span></code> file in the <code class="docutils literal notranslate"><span class="pre">MetaWare/arc/lldbac</span></code> folder. You must have an installed instance of VS Code from Microsoft to use this extension. See <a class="reference internal" href="#installing-the-visual-studio-code-extension">Installing the Visual Studio Code Extension</a>.</p>
 <p>The extension adds support for ARC-V debug sessions using the ARC-V MetaWare debugger. It supports basic debug operations such as running, halting, stepping, reading/writing registers, inspecting variables, setting breakpoints, and so on. The extension also includes some custom windows, for example an <strong>ARC-V Traps</strong> window and a <strong>Disassembly</strong> window.</p>
 </li>
 <li><p>Compiler: The MetaWare <code class="docutils literal notranslate"><span class="pre">ccac</span></code> compiler driver supports building for ARC-V. <code class="docutils literal notranslate"><span class="pre">ccac</span></code> is an enhanced compiler driver tuned for maximum efficiency and providing smooth migration path for existing ARC users. See the <em>MetaWare CCAC Programmer’s Guide</em> for details. You can also build using the <code class="docutils literal notranslate"><span class="pre">clangac</span></code> driver, which is compatible with the LLVM default <code class="docutils literal notranslate"><span class="pre">clang</span></code> driver. This driver is the best choice for migrating existing code from non-ARC processors. See <a class="reference internal" href="#the-first-metaware-sample-application">The First MetaWare Sample Application</a>.</p>
@@ -373,7 +374,7 @@ To use the standard RISC-V compatible semihosting interface, add <code class="do
 </div>
 <p>The alternative way is to use the <code class="docutils literal notranslate"><span class="pre">nsimdrv</span></code> driver or <code class="docutils literal notranslate"><span class="pre">runrv</span></code> script directly from the console:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>% nsimdrv -tcf ${METAWARE_ROOT}/arc/tcf/rmx100.tcf a.out     # Running the executable in nSIM using nsimdrv driver (Hostlink interface)
-% runrv -p nsim_semihosting=1 -Za -Zm -Zbb a.out             # Running the executable in nSIM using runrv script (semihosting interface)
+% runrv -semihost -Za -Zm -Zbb a.out                         # Running the executable in nSIM using runrv script (semihosting interface)
 </pre></div>
 </div>
 <p>Be sure to launch the simulator with the same hosting interface as specified in the executable (Hostlink or semihosting).
@@ -552,6 +553,26 @@ Below is a brief description of the main GUI debugger features.</p>
 </ol>
 <img alt="../_images/disassembly-profiling.png" src="../_images/disassembly-profiling.png" />
 </div>
+</div>
+<div class="section" id="generating-custom-arc-v-libraries">
+<h3>Generating Custom ARC-V Libraries<a class="headerlink" href="#generating-custom-arc-v-libraries" title="Permalink to this headline">¶</a></h3>
+<p>Many extensions are available for RISC-V/ARC-V targets. However, a few
+TCF templates are shipped with the MetaWare Development Toolkit, like <code class="docutils literal notranslate"><span class="pre">rmx100.tcf</span></code>
+and <code class="docutils literal notranslate"><span class="pre">rmx500.tcf</span></code>, with
+corresponding sets of precompiled libraries. Sometimes it is necessary to generate a set
+of standard libraries optimized for a particular combination of extensions. You can achieve
+this using the <code class="docutils literal notranslate"><span class="pre">buildlib</span></code> utility.</p>
+<p>The following is an example for the default RMX100 configuration:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>buildlib arcv_rmx100 -bd . -av5rmx -Zicsr -Zifencei -Zihintpause -Zba -Zbb -Zbs -Zca -Zcb -Zcmp -Zcmt -Zicbom
+</pre></div>
+</div>
+<p>Then you can use this library instead of a default one by adding the <code class="docutils literal notranslate"><span class="pre">-Hlib=&lt;full-path&gt;/arcv_rmx100</span></code> option on the command line.</p>
+<p>If you want to add support for the <code class="docutils literal notranslate"><span class="pre">f</span></code> and <code class="docutils literal notranslate"><span class="pre">d</span></code> extensions, do the following (<code class="docutils literal notranslate"><span class="pre">-Zcmp</span></code> and <code class="docutils literal notranslate"><span class="pre">-Zcmt</span></code>
+are removed since they are incompatible with <code class="docutils literal notranslate"><span class="pre">d</span></code> extension):</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>buildlib arcv_rmx100_fpu -bd . -av5rmx -Zicsr -Zifencei -Zihintpause -Zf -Zd -Zba -Zbb -Zbs -Zca -Zcb -Zcf -Zcd -Zicbom
+</pre></div>
+</div>
+<p>See the <strong>MetaWare ELF Linker and Utilities User’s Guide</strong> for details regarding <code class="docutils literal notranslate"><span class="pre">buildlib</span></code> utility.</p>
 </div>
 </div>
 </div>
