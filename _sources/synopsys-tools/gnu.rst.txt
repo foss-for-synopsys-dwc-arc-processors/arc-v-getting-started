@@ -192,7 +192,7 @@ Because the ARC-V GNU toolchain is built on top of standard components such as
 GCC, Binutils, and GDB, all functionality of these tools stays in place and
 can be studied in detail in the corresponding manuals:
 
-* GCC documentation: https://gcc.gnu.org/onlinedocs/gcc-12.1.0/gcc/
+* GCC documentation: https://gcc.gnu.org/onlinedocs/gcc/
 * GNU LD documentation: https://sourceware.org/binutils/docs/ld/ 
 * GDB documentation: https://www.sourceware.org/gdb/documentation/
 
@@ -203,11 +203,11 @@ The ARC-V GNU compiler has support for the ARC-V RMX-100, RMX-500, and RHX CPU f
 To enable compiler optimizations for those CPU families you must use certain
 ``-mtune`` options. The valid ``-mtune`` options are:
 
-* ``rmx100`` for the ARC-V RMX-100 family
-* ``rmx500`` for the ARC-V RMX-500 family
-* ``rhx`` for the ARC-V RHX family
+* ``arc-v-rmx-100-series`` for the ARC-V RMX-100 family (``rmx100`` in v2023.12 and v2024.06 releases)
+* ``arc-v-rmx-500-series`` for the ARC-V RMX-500 family (``rmx500`` in v2023.12 and v2024.06 releases)
+* ``arc-v-rhx-100-series`` for the ARC-V RHX-100 family (``rhx`` in v2023.12 and v2024.06 releases)
  
-The architecture options used by the ARC-V RMX-100, RMX-500 and RHX families are ``-march=rv32im_zba_zbb_zbs_zicsr_zca_zcb_zcmp -mabi=ilp32``.
+The architecture options used by the ARC-V RMX-100, RMX-500 and RHX-100 families are ``-march=rv32im_zba_zbb_zbs_zicsr_zca_zcb_zcmp -mabi=ilp32``.
  
 ARC-V .specs File
 ~~~~~~~~~~~~~~~~~
@@ -259,7 +259,7 @@ The following commands can be used for compiling the sample for later execution 
    .. code-block:: shell
 
       $ riscv64-elf-gcc --specs=semihost.specs --specs=arcv.specs -mabi=ilp32 \
-                        -mtune=rmx100 -march=rv32im_zba_zbb_zbs_zca_zcb_zcmp_zicsr \
+                        -mtune=arc-v-rmx-100-series -march=rv32im_zba_zbb_zbs_zca_zcb_zcmp_zicsr \
                         -T arcv.ld test.c -o a.out
 
 * For an ARC-V RMX-500 processor:
@@ -267,15 +267,15 @@ The following commands can be used for compiling the sample for later execution 
    .. code-block:: shell
 
       $ riscv64-elf-gcc --specs=semihost.specs --specs=arcv.specs -mabi=ilp32 \
-                        -mtune=rmx500 -march=rv32im_zba_zbb_zbs_zca_zcb_zcmp_zicsr \
+                        -mtune=arc-v-rmx-500-series -march=rv32im_zba_zbb_zbs_zca_zcb_zcmp_zicsr \
                         -T arcv.ld test.c -o a.out
 
-* For an ARC-V RHX processors: 
+* For an ARC-V RHX-100 processors: 
 
    .. code-block:: shell
 
       $ riscv64-elf-gcc --specs=semihost.specs --specs=arcv.specs -mabi=ilp32 \
-                        -mtune=rhx -march=rv32im_zba_zbb_zbs_zca_zcb_zcmp_zicsr \
+                        -mtune=arc-v-rhx-100-series -march=rv32im_zba_zbb_zbs_zca_zcb_zcmp_zicsr \
                         -T arcv.ld test.c -o a.out
 
 
@@ -291,8 +291,8 @@ After building, use the following command line to run the sample in nSIM:
 
 For more details on use of the Synopsys nSIM simulator, see the section dedicated to it here: :doc:`nsim-ncam`.
 
-Build and Run a Simple Application for QEMU
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Build and Run a Simple Application for QEMU (32-Bit Targets)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 It is best to use the latest official QEMU version for the following exercises.
 As of today, it's v9.0; see the release notes here: https://wiki.qemu.org/ChangeLog/9.0.
@@ -354,7 +354,7 @@ Then the command lines look like this:
    .. code-block:: shell
 
       $ riscv64-elf-gcc -specs=semihost.specs -specs=arcv.specs -mabi=ilp32 \
-                        -mtune=rmx100 -march=rv32im_zba_zbb_zbs_zca_zcb_zcmp_zicsr \
+                        -mtune=arc-v-rmx-100-series -march=rv32im_zba_zbb_zbs_zca_zcb_zcmp_zicsr \
                         -Wl,-defsym=txtmem_addr=0x80000000 -Wl,-defsym=datamem_addr=0x80100000 \
                         -T arcv.ld test.c -o a.out
 
@@ -363,16 +363,16 @@ Then the command lines look like this:
    .. code-block:: shell
 
       $ riscv64-elf-gcc -specs=semihost.specs -specs=arcv.specs -mabi=ilp32 \
-                        -mtune=rmx500 -march=rv32im_zba_zbb_zbs_zca_zcb_zcmp_zicsr \
+                        -mtune=arc-v-rmx-500-series -march=rv32im_zba_zbb_zbs_zca_zcb_zcmp_zicsr \
                         -Wl,-defsym=txtmem_addr=0x80000000 -Wl,-defsym=datamem_addr=0x80100000 \
                         -T arcv.ld test.c -o a.out
 
-* For an ARC-V RHX processor: 
+* For an ARC-V RHX-100 processor: 
 
    .. code-block:: shell
 
       $ riscv64-elf-gcc -specs=semihost.specs -specs=arcv.specs -mabi=ilp32 \
-                        -mtune=rhx -march=rv32im_zba_zbb_zbs_zca_zcb_zcmp_zicsr \
+                        -mtune=arc-v-rhx-100-series -march=rv32im_zba_zbb_zbs_zca_zcb_zcmp_zicsr \
                         -Wl,-defsym=txtmem_addr=0x80000000 -Wl,-defsym=datamem_addr=0x80100000 \
                         -T arcv.ld test.c -o a.out
 
@@ -387,6 +387,65 @@ After building, use the following command line to run the sample in QEMU:
 
 For more details on use of the QEMU simulator, see the official documentation here: https://www.qemu.org/docs/master/.
 
+Build and Run a Simple Application for QEMU (64-Bit Targets)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+According to the RISC-V ABI specification:
+
+.. code-block::
+
+   The medium low code model, or medlow, allows the code to address the whole RV32 address space or the lower
+   2 GiB and highest 2 GiB of the RV64 address space (0xFFFFFFFF7FFFF800 ~ 0xFFFFFFFFFFFFFFFF and
+   0x0 ~ 0x000000007FFFF7FF). By using the lui and load / store instructions, when referring to an
+   object, or addi, when calculating an address literal, for example, a 32-bit address literal can
+   be produced.
+
+   The medium any code model, or medany, allows the code to address the range between -2 GiB and +2 GiB
+   from its position. By using auipc and load / store instructions, when referring to an object, or addi,
+   when calculating an address literal, for example, a signed 32-bit offset, relative to the value of the
+   pc register, can be produced.
+
+All pseudo-options like ``li``, ``la``, and so on, are transformed to real instructions according to the memory model used.
+By default, GCC uses ``-mcmodel=medlow``. That means that the final binary cannot use memory regions above
+``0x000000007FFFF7FF`` and below ``0xFFFFFFFF7FFFF800`` for 64-bit targets.
+
+To overcome those restrictions, it is necessary to pass ``-mcmodel=medany`` to choose the ``medany`` memory model. Note
+that the Synopsys GNU toolchain for ARC-V contains precompiled libraries for both the ``medlow`` and ``medany`` memory models.
+When ``-mcmodel=...`` is passed the appropriate libraries are linked with an application.
+
+Consider this example:
+
+.. code-block:: c
+
+   #include <stdio.h>
+
+   int main(int argc, char *argv[])
+   {
+           printf("argc: %d\n", argc);
+           for (int i = 0; i < argc; i++)
+           {
+                   printf("argv[%d] = %s\n", i, argv[i]);
+           }
+           return 0;
+   } 
+
+Compiler this program and run using QEMU:
+
+.. code-block::
+
+   $ riscv64-elf-gcc \
+         -march=rv64imac -mabi=lp64 -mcmodel=medany -O2 -g3 \
+         -Wl,-defsym=txtmem_addr=0x80000000 -Wl,-defsym=datamem_addr=0x80100000 \
+         -specs=semihost.specs -specs=arcv.specs -T arcv.ld \
+         main.c -o main.elf
+   $ qemu-system-riscv64 \
+         -semihosting -nographic -display none -monitor none \
+         -machine virt -cpu rv64 -bios none -kernel main.elf -append "1 2 3"
+   argc: 4
+   argv[0] = main.elf
+   argv[1] = 1
+   argv[2] = 2
+   argv[3] = 3
 
 Debugging a Simple Application
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

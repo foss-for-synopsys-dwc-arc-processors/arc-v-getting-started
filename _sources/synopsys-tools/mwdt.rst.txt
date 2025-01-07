@@ -16,10 +16,46 @@ The Synopsys Eval Portal (https://eval.synopsys.com/) allows you to request an e
 4. Download the software and begin your evaluation.
 5. Email-based support is available by writing to mwdt-eval-support@synopsys.com.
 
+MetaWare Development Toolkit W-2024.12
+--------------------------------------
+
+It is extremely important to rebuild the C/C++ runtime library before benchmarking for performance. The default library build is configured for size and performs well for size but extremely poorly for performance. For example, Dhrystone runs 25% worse with the default library than a library built with optimization option ``-O2``. Also, the default library does not use every hardware extension that your processor is configured with. Hardware extensions (such as the M extension that includes a multiplier/divider) can have an enormous effect on performance. 
+
+Example of rebuilding and using the C/C++ runtime library:
+
+.. code-block:: bash
+
+   % buildlib mylib -bd /tmp -j22 -tcf=/path/to/arc.tcf -O2
+   % ccac -O2 hello.c -Hlib=/tmp/mylib -tcf=/path/to/arc.tcf
+
+Explanation: 
+
+-  ``buildlib`` (documented in the *Linker and Utilities User's Guide*) is the tool that knows how to build C/C++ runtime libraries. 
+-  The *mylib* argument is a name (choose anything you like) for your library.  
+-  The ``-bd /tmp`` option tells ``buildlib`` to build the library in the ``/tmp/mylib`` directory (it concatenates your library name with the directory name to create the path to your library). 
+-  The ``-j22`` option allows 22 concurrent processes to run and build your library faster. 
+-  For benchmarking, be sure to use an optimization level like ``-O2`` (or ``-O``, or ``-O1``).
+-  When you build your program with ``ccac``, use ``-Hlib`` to tell the compiler where to find your optimized library (in this case ``-Hlib=/tmp/mylib`` tells the compiler that the library is in ``/tmp/mylib/``).
+
+
+New Features and Enhancements for RISC-V Based ARC-V Processors
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Compiler:
+
+*   Added a dedicated *MetaWare Compiler User Guide For ARC-V™ Processors*.
+*   Added option Added option ``-tcf_tmp_dir`` to specify a directory in which TCF-related temp files are placed with deterministic names, for the benefit of compilation-caching tools such as Ccache. 
+
+Debugger:
+
+*  Added a **Physical Memory Protection** (PMP) window that shows PMP configuration registers for controlling access to memory regions.
+*  Added a **Performance Counters** window (aka *RISC-V HPM - Hardware Performance Monitor*), to display countable hardware events.
+*  Added a Zephyr RTOS-awareness window for monitoring thread status and parameters (name, state, priority, and so on).
+
 MetaWare Development Toolkit V-2024.06
 --------------------------------------
 
-New Features and Enhancements for RISC-V based ARC-V Processors
+New Features and Enhancements for RISC-V Based ARC-V Processors
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 *  C++20 support: The MetaWare compiler follows Clang 17.0.6 in terms of C++20 support. The C++20library is supported except for features related to threads, and those that require corresponding features  in the C library added since C11.
@@ -29,34 +65,10 @@ New Features and Enhancements for RISC-V based ARC-V Processors
 *  The deprecated VectorC intrinsics with ``deprecated`` in their names have been removed from ``arc_vector.h``.
 *  Picolib is now the default runtime library for ARC-V processors.
 
-New Features and Enhancements in ARC Vector DSP Libraries (Not Supported for ARC-V Targets)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--  Added half-precision complex batch FFT to the Vector DSP Library.
--  Vector Linear Algebra Library:
-
-   - Added batched complex-SVD kernel.
-   - Added batched real-SVD kernel.
-   - Optimized performance of BLAS L2 functions.
-
--  VPX Emulation Library:
-
-   - Added **_lr()** and **_sr()** emulation of VPX status registers.
-   - Added thread safety for x86 emulation library.
-
--  Vision Library:
-
-   - Added support for area-scale mode in vision_scale() function.24.
-   - Optimized **Bilateral3x3()**.
-   - Added 16-bit version of **filter2d3x3()**.
-   - Added ``s16`` version of **BoxNxN()**.
-   - Added ORB Demo.
-   - Added support for ``s16`` input type for pixel-wise processing kernels.
-   - Added double buffering scheme in **FrameProcessor()**.
-    
 MetaWare Development Toolkit V-2024.03
 --------------------------------------
 
-New Features and Enhancements for RISC-V based ARC-V Processors
+New Features and Enhancements for RISC-V Based ARC-V Processors
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 * Optimized performance on ARC-V targets.
@@ -78,21 +90,16 @@ More information about this family can be found on the Synopsys website: `Power-
 New Features and Enhancements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Support for RISC-V based ARC-V RMX Processors
+Support for RISC-V Based ARC-V RMX Processors
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* Experimental support is added for the RISC-V based ARC-V processors.
+* Experimental support is added for the RISC-V Based ARC-V processors.
 * Added support for the following RISC-V extensions: ``Zi``, ``Zm``, ``Za``, ``Zc``, ``Zba``, ``Zbb``, ``Zbc``, ``Zbs``, ``Zfinx``, ``Zdinx``, ``Zicsr``, ``Zifencei``, ``Zihintpause`` and ``Zicbom``.
 * Added support for the following code-size reduction extensions: ``Zca``, ``Zcb``, ``Zcf``, ``Zcd`` and ``Zcmp``.
 * Added support for basic debugging in ``lldbac`` (command-line mode) and in Visual Studio Code (GUI mode).
 
 .. note::
     As this is the first release of the MetaWare Development Toolkit with ARC-V support, some functionality might have issues, some processor features might not yet be fully supported, and performance might be lower than expected performance of the final product.
-
-Supported Platforms
-~~~~~~~~~~~~~~~~~~~
-
-Supported host operating systems and platforms limitations can be found in the *MetaWare Release Notes* document in ``/MetaWare/arc/docs/pdf``. 
 
 Tools Limitations
 ~~~~~~~~~~~~~~~~~
@@ -107,4 +114,4 @@ Limitations of the experimental debugger support for ARC-V targets:
 * The GUI does not open the **Disassembly** window automatically when debugger cannot find the source file. Open the **Disassembly** window manually in this case.
 
 
-.. include:: ../mwdt_specifics.rst
+

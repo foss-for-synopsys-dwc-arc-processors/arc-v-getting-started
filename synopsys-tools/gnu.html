@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>GNU tools for ARC-V &mdash; ARC-V Processors Getting Started html-1.5 documentation</title>
+  <title>GNU tools for ARC-V &mdash; ARC-V Processors Getting Started html-1.6 documentation</title>
   
 
   
@@ -65,7 +65,7 @@
             
             
               <div class="version">
-                html-1.5
+                html-1.6
               </div>
             
           
@@ -115,7 +115,8 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#the-first-sample-application">The First Sample Application</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#build-and-run-a-simple-application-for-synopsys-nsim">Build and Run a Simple Application for Synopsys nSIM</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#build-and-run-a-simple-application-for-qemu">Build and Run a Simple Application for QEMU</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#build-and-run-a-simple-application-for-qemu-32-bit-targets">Build and Run a Simple Application for QEMU (32-Bit Targets)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#build-and-run-a-simple-application-for-qemu-64-bit-targets">Build and Run a Simple Application for QEMU (64-Bit Targets)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#debugging-a-simple-application">Debugging a Simple Application</a></li>
 </ul>
 </li>
@@ -128,6 +129,12 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="mwdt.html">The MetaWare Development Toolkit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mwdt_specifics.html">Basic Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mwdt_specifics.html#known-issues-and-limitations">Known Issues and Limitations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mwdt_specifics.html#installation-and-licensing">Installation and Licensing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mwdt_specifics.html#the-first-metaware-sample-application">The First MetaWare Sample Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mwdt_specifics.html#debugging">Debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mwdt_specifics.html#generating-custom-arc-v-libraries">Generating Custom ARC-V Libraries</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nsim-ncam.html">nSIM and NCAM</a></li>
 </ul>
 </li>
@@ -399,7 +406,7 @@ This release introduces support for the ARC-V RMX and RHX processors series base
 GCC, Binutils, and GDB, all functionality of these tools stays in place and
 can be studied in detail in the corresponding manuals:</p>
 <ul class="simple">
-<li><p>GCC documentation: <a class="reference external" href="https://gcc.gnu.org/onlinedocs/gcc-12.1.0/gcc/">https://gcc.gnu.org/onlinedocs/gcc-12.1.0/gcc/</a></p></li>
+<li><p>GCC documentation: <a class="reference external" href="https://gcc.gnu.org/onlinedocs/gcc/">https://gcc.gnu.org/onlinedocs/gcc/</a></p></li>
 <li><p>GNU LD documentation: <a class="reference external" href="https://sourceware.org/binutils/docs/ld/">https://sourceware.org/binutils/docs/ld/</a></p></li>
 <li><p>GDB documentation: <a class="reference external" href="https://www.sourceware.org/gdb/documentation/">https://www.sourceware.org/gdb/documentation/</a></p></li>
 </ul>
@@ -409,11 +416,11 @@ these tools, the ARC GNU toolchain adds some ARC-V specific options:</p>
 To enable compiler optimizations for those CPU families you must use certain
 <code class="docutils literal notranslate"><span class="pre">-mtune</span></code> options. The valid <code class="docutils literal notranslate"><span class="pre">-mtune</span></code> options are:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">rmx100</span></code> for the ARC-V RMX-100 family</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">rmx500</span></code> for the ARC-V RMX-500 family</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">rhx</span></code> for the ARC-V RHX family</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">arc-v-rmx-100-series</span></code> for the ARC-V RMX-100 family (<code class="docutils literal notranslate"><span class="pre">rmx100</span></code> in v2023.12 and v2024.06 releases)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">arc-v-rmx-500-series</span></code> for the ARC-V RMX-500 family (<code class="docutils literal notranslate"><span class="pre">rmx500</span></code> in v2023.12 and v2024.06 releases)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">arc-v-rhx-100-series</span></code> for the ARC-V RHX-100 family (<code class="docutils literal notranslate"><span class="pre">rhx</span></code> in v2023.12 and v2024.06 releases)</p></li>
 </ul>
-<p>The architecture options used by the ARC-V RMX-100, RMX-500 and RHX families are <code class="docutils literal notranslate"><span class="pre">-march=rv32im_zba_zbb_zbs_zicsr_zca_zcb_zcmp</span> <span class="pre">-mabi=ilp32</span></code>.</p>
+<p>The architecture options used by the ARC-V RMX-100, RMX-500 and RHX-100 families are <code class="docutils literal notranslate"><span class="pre">-march=rv32im_zba_zbb_zbs_zicsr_zca_zcb_zcmp</span> <span class="pre">-mabi=ilp32</span></code>.</p>
 <div class="section" id="arc-v-specs-file">
 <h3>ARC-V .specs File<a class="headerlink" href="#arc-v-specs-file" title="Permalink to this headline">¶</a></h3>
 <p>The new <code class="docutils literal notranslate"><span class="pre">arcv.specs</span></code> file uses a custom starting routine based on the original <code class="docutils literal notranslate"><span class="pre">crt0.S</span></code> with a special linker command file.</p>
@@ -456,7 +463,7 @@ For example, using semihosting: <code class="docutils literal notranslate"><span
 <li><p>For an ARC-V RMX-100 processor:</p>
 <blockquote>
 <div><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ riscv64-elf-gcc --specs<span class="o">=</span>semihost.specs --specs<span class="o">=</span>arcv.specs -mabi<span class="o">=</span>ilp32 <span class="se">\</span>
-                  -mtune<span class="o">=</span>rmx100 -march<span class="o">=</span>rv32im_zba_zbb_zbs_zca_zcb_zcmp_zicsr <span class="se">\</span>
+                  -mtune<span class="o">=</span>arc-v-rmx-100-series -march<span class="o">=</span>rv32im_zba_zbb_zbs_zca_zcb_zcmp_zicsr <span class="se">\</span>
                   -T arcv.ld test.c -o a.out
 </pre></div>
 </div>
@@ -465,16 +472,16 @@ For example, using semihosting: <code class="docutils literal notranslate"><span
 <li><p>For an ARC-V RMX-500 processor:</p>
 <blockquote>
 <div><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ riscv64-elf-gcc --specs<span class="o">=</span>semihost.specs --specs<span class="o">=</span>arcv.specs -mabi<span class="o">=</span>ilp32 <span class="se">\</span>
-                  -mtune<span class="o">=</span>rmx500 -march<span class="o">=</span>rv32im_zba_zbb_zbs_zca_zcb_zcmp_zicsr <span class="se">\</span>
+                  -mtune<span class="o">=</span>arc-v-rmx-500-series -march<span class="o">=</span>rv32im_zba_zbb_zbs_zca_zcb_zcmp_zicsr <span class="se">\</span>
                   -T arcv.ld test.c -o a.out
 </pre></div>
 </div>
 </div></blockquote>
 </li>
-<li><p>For an ARC-V RHX processors:</p>
+<li><p>For an ARC-V RHX-100 processors:</p>
 <blockquote>
 <div><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ riscv64-elf-gcc --specs<span class="o">=</span>semihost.specs --specs<span class="o">=</span>arcv.specs -mabi<span class="o">=</span>ilp32 <span class="se">\</span>
-                  -mtune<span class="o">=</span>rhx -march<span class="o">=</span>rv32im_zba_zbb_zbs_zca_zcb_zcmp_zicsr <span class="se">\</span>
+                  -mtune<span class="o">=</span>arc-v-rhx-100-series -march<span class="o">=</span>rv32im_zba_zbb_zbs_zca_zcb_zcmp_zicsr <span class="se">\</span>
                   -T arcv.ld test.c -o a.out
 </pre></div>
 </div>
@@ -491,8 +498,8 @@ Hello world!
 </div>
 <p>For more details on use of the Synopsys nSIM simulator, see the section dedicated to it here: <a class="reference internal" href="nsim-ncam.html"><span class="doc">nSIM and NCAM</span></a>.</p>
 </div>
-<div class="section" id="build-and-run-a-simple-application-for-qemu">
-<h3>Build and Run a Simple Application for QEMU<a class="headerlink" href="#build-and-run-a-simple-application-for-qemu" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="build-and-run-a-simple-application-for-qemu-32-bit-targets">
+<h3>Build and Run a Simple Application for QEMU (32-Bit Targets)<a class="headerlink" href="#build-and-run-a-simple-application-for-qemu-32-bit-targets" title="Permalink to this headline">¶</a></h3>
 <p>It is best to use the latest official QEMU version for the following exercises.
 As of today, it’s v9.0; see the release notes here: <a class="reference external" href="https://wiki.qemu.org/ChangeLog/9.0">https://wiki.qemu.org/ChangeLog/9.0</a>.
 The sources are on GitLab (<a class="reference external" href="https://gitlab.com/qemu-project/qemu">https://gitlab.com/qemu-project/qemu</a>)
@@ -539,7 +546,7 @@ ARC-V’s default linker script <code class="docutils literal notranslate"><span
 <li><p>For an ARC-V RMX-100 processor:</p>
 <blockquote>
 <div><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ riscv64-elf-gcc -specs<span class="o">=</span>semihost.specs -specs<span class="o">=</span>arcv.specs -mabi<span class="o">=</span>ilp32 <span class="se">\</span>
-                  -mtune<span class="o">=</span>rmx100 -march<span class="o">=</span>rv32im_zba_zbb_zbs_zca_zcb_zcmp_zicsr <span class="se">\</span>
+                  -mtune<span class="o">=</span>arc-v-rmx-100-series -march<span class="o">=</span>rv32im_zba_zbb_zbs_zca_zcb_zcmp_zicsr <span class="se">\</span>
                   -Wl,-defsym<span class="o">=</span><span class="nv">txtmem_addr</span><span class="o">=</span>0x80000000 -Wl,-defsym<span class="o">=</span><span class="nv">datamem_addr</span><span class="o">=</span>0x80100000 <span class="se">\</span>
                   -T arcv.ld test.c -o a.out
 </pre></div>
@@ -549,17 +556,17 @@ ARC-V’s default linker script <code class="docutils literal notranslate"><span
 <li><p>For an ARC-V RMX-500 processor:</p>
 <blockquote>
 <div><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ riscv64-elf-gcc -specs<span class="o">=</span>semihost.specs -specs<span class="o">=</span>arcv.specs -mabi<span class="o">=</span>ilp32 <span class="se">\</span>
-                  -mtune<span class="o">=</span>rmx500 -march<span class="o">=</span>rv32im_zba_zbb_zbs_zca_zcb_zcmp_zicsr <span class="se">\</span>
+                  -mtune<span class="o">=</span>arc-v-rmx-500-series -march<span class="o">=</span>rv32im_zba_zbb_zbs_zca_zcb_zcmp_zicsr <span class="se">\</span>
                   -Wl,-defsym<span class="o">=</span><span class="nv">txtmem_addr</span><span class="o">=</span>0x80000000 -Wl,-defsym<span class="o">=</span><span class="nv">datamem_addr</span><span class="o">=</span>0x80100000 <span class="se">\</span>
                   -T arcv.ld test.c -o a.out
 </pre></div>
 </div>
 </div></blockquote>
 </li>
-<li><p>For an ARC-V RHX processor:</p>
+<li><p>For an ARC-V RHX-100 processor:</p>
 <blockquote>
 <div><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ riscv64-elf-gcc -specs<span class="o">=</span>semihost.specs -specs<span class="o">=</span>arcv.specs -mabi<span class="o">=</span>ilp32 <span class="se">\</span>
-                  -mtune<span class="o">=</span>rhx -march<span class="o">=</span>rv32im_zba_zbb_zbs_zca_zcb_zcmp_zicsr <span class="se">\</span>
+                  -mtune<span class="o">=</span>arc-v-rhx-100-series -march<span class="o">=</span>rv32im_zba_zbb_zbs_zca_zcb_zcmp_zicsr <span class="se">\</span>
                   -Wl,-defsym<span class="o">=</span><span class="nv">txtmem_addr</span><span class="o">=</span>0x80000000 -Wl,-defsym<span class="o">=</span><span class="nv">datamem_addr</span><span class="o">=</span>0x80100000 <span class="se">\</span>
                   -T arcv.ld test.c -o a.out
 </pre></div>
@@ -574,6 +581,58 @@ Hello world!
 </pre></div>
 </div>
 <p>For more details on use of the QEMU simulator, see the official documentation here: <a class="reference external" href="https://www.qemu.org/docs/master/">https://www.qemu.org/docs/master/</a>.</p>
+</div>
+<div class="section" id="build-and-run-a-simple-application-for-qemu-64-bit-targets">
+<h3>Build and Run a Simple Application for QEMU (64-Bit Targets)<a class="headerlink" href="#build-and-run-a-simple-application-for-qemu-64-bit-targets" title="Permalink to this headline">¶</a></h3>
+<p>According to the RISC-V ABI specification:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">medium</span> <span class="n">low</span> <span class="n">code</span> <span class="n">model</span><span class="p">,</span> <span class="ow">or</span> <span class="n">medlow</span><span class="p">,</span> <span class="n">allows</span> <span class="n">the</span> <span class="n">code</span> <span class="n">to</span> <span class="n">address</span> <span class="n">the</span> <span class="n">whole</span> <span class="n">RV32</span> <span class="n">address</span> <span class="n">space</span> <span class="ow">or</span> <span class="n">the</span> <span class="n">lower</span>
+<span class="mi">2</span> <span class="n">GiB</span> <span class="ow">and</span> <span class="n">highest</span> <span class="mi">2</span> <span class="n">GiB</span> <span class="n">of</span> <span class="n">the</span> <span class="n">RV64</span> <span class="n">address</span> <span class="n">space</span> <span class="p">(</span><span class="mh">0xFFFFFFFF7FFFF800</span> <span class="o">~</span> <span class="mh">0xFFFFFFFFFFFFFFFF</span> <span class="ow">and</span>
+<span class="mh">0x0</span> <span class="o">~</span> <span class="mh">0x000000007FFFF7FF</span><span class="p">)</span><span class="o">.</span> <span class="n">By</span> <span class="n">using</span> <span class="n">the</span> <span class="n">lui</span> <span class="ow">and</span> <span class="n">load</span> <span class="o">/</span> <span class="n">store</span> <span class="n">instructions</span><span class="p">,</span> <span class="n">when</span> <span class="n">referring</span> <span class="n">to</span> <span class="n">an</span>
+<span class="nb">object</span><span class="p">,</span> <span class="ow">or</span> <span class="n">addi</span><span class="p">,</span> <span class="n">when</span> <span class="n">calculating</span> <span class="n">an</span> <span class="n">address</span> <span class="n">literal</span><span class="p">,</span> <span class="k">for</span> <span class="n">example</span><span class="p">,</span> <span class="n">a</span> <span class="mi">32</span><span class="o">-</span><span class="n">bit</span> <span class="n">address</span> <span class="n">literal</span> <span class="n">can</span>
+<span class="n">be</span> <span class="n">produced</span><span class="o">.</span>
+
+<span class="n">The</span> <span class="n">medium</span> <span class="nb">any</span> <span class="n">code</span> <span class="n">model</span><span class="p">,</span> <span class="ow">or</span> <span class="n">medany</span><span class="p">,</span> <span class="n">allows</span> <span class="n">the</span> <span class="n">code</span> <span class="n">to</span> <span class="n">address</span> <span class="n">the</span> <span class="nb">range</span> <span class="n">between</span> <span class="o">-</span><span class="mi">2</span> <span class="n">GiB</span> <span class="ow">and</span> <span class="o">+</span><span class="mi">2</span> <span class="n">GiB</span>
+<span class="kn">from</span> <span class="nn">its</span> <span class="n">position</span><span class="o">.</span> <span class="n">By</span> <span class="n">using</span> <span class="n">auipc</span> <span class="ow">and</span> <span class="n">load</span> <span class="o">/</span> <span class="n">store</span> <span class="n">instructions</span><span class="p">,</span> <span class="n">when</span> <span class="n">referring</span> <span class="n">to</span> <span class="n">an</span> <span class="nb">object</span><span class="p">,</span> <span class="ow">or</span> <span class="n">addi</span><span class="p">,</span>
+<span class="n">when</span> <span class="n">calculating</span> <span class="n">an</span> <span class="n">address</span> <span class="n">literal</span><span class="p">,</span> <span class="k">for</span> <span class="n">example</span><span class="p">,</span> <span class="n">a</span> <span class="n">signed</span> <span class="mi">32</span><span class="o">-</span><span class="n">bit</span> <span class="n">offset</span><span class="p">,</span> <span class="n">relative</span> <span class="n">to</span> <span class="n">the</span> <span class="n">value</span> <span class="n">of</span> <span class="n">the</span>
+<span class="n">pc</span> <span class="n">register</span><span class="p">,</span> <span class="n">can</span> <span class="n">be</span> <span class="n">produced</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>All pseudo-options like <code class="docutils literal notranslate"><span class="pre">li</span></code>, <code class="docutils literal notranslate"><span class="pre">la</span></code>, and so on, are transformed to real instructions according to the memory model used.
+By default, GCC uses <code class="docutils literal notranslate"><span class="pre">-mcmodel=medlow</span></code>. That means that the final binary cannot use memory regions above
+<code class="docutils literal notranslate"><span class="pre">0x000000007FFFF7FF</span></code> and below <code class="docutils literal notranslate"><span class="pre">0xFFFFFFFF7FFFF800</span></code> for 64-bit targets.</p>
+<p>To overcome those restrictions, it is necessary to pass <code class="docutils literal notranslate"><span class="pre">-mcmodel=medany</span></code> to choose the <code class="docutils literal notranslate"><span class="pre">medany</span></code> memory model. Note
+that the Synopsys GNU toolchain for ARC-V contains precompiled libraries for both the <code class="docutils literal notranslate"><span class="pre">medlow</span></code> and <code class="docutils literal notranslate"><span class="pre">medany</span></code> memory models.
+When <code class="docutils literal notranslate"><span class="pre">-mcmodel=...</span></code> is passed the appropriate libraries are linked with an application.</p>
+<p>Consider this example:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;argc: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">argc</span><span class="p">);</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">argc</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">&quot;argv[%d] = %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Compiler this program and run using QEMU:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ riscv64-elf-gcc \
+      -march=rv64imac -mabi=lp64 -mcmodel=medany -O2 -g3 \
+      -Wl,-defsym=txtmem_addr=0x80000000 -Wl,-defsym=datamem_addr=0x80100000 \
+      -specs=semihost.specs -specs=arcv.specs -T arcv.ld \
+      main.c -o main.elf
+$ qemu-system-riscv64 \
+      -semihosting -nographic -display none -monitor none \
+      -machine virt -cpu rv64 -bios none -kernel main.elf -append &quot;1 2 3&quot;
+argc: 4
+argv[0] = main.elf
+argv[1] = 1
+argv[2] = 2
+argv[3] = 3
+</pre></div>
+</div>
 </div>
 <div class="section" id="debugging-a-simple-application">
 <h3>Debugging a Simple Application<a class="headerlink" href="#debugging-a-simple-application" title="Permalink to this headline">¶</a></h3>

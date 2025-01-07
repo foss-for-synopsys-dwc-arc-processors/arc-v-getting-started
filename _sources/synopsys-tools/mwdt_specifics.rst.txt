@@ -1,0 +1,1 @@
+.. include:: ../mwdt_specifics.rst

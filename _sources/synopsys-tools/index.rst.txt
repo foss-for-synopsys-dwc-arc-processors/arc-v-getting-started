@@ -6,5 +6,6 @@ Synopsys ARC-V Tools
 
    updates
    gnu
-   mwdt 
+   mwdt
+   mwdt_specifics
    nsim-ncam
